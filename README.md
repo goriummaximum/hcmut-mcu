@@ -10,9 +10,9 @@ Semester HK211, 2021-2022.
 HCMUT.
 
 ## Why?
-To gain basic understanding of what is MCU and what it does, especially STM32 ARM series.
-To practice STM32 MCU programming.
-To practice using Git.
+To gain basic understanding of what is MCU and what it does, especially STM32 ARM series.  
+To practice STM32 MCU programming.  
+To practice using Git.  
 
 ## How?
 C programming with STM32CUBE, simulaion with Proteus.
