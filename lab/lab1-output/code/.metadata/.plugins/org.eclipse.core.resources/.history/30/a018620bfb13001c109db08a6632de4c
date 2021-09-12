@@ -94,11 +94,13 @@ int main(void)
   while (1)
   {
 	ledController >>= 1;
-	displayLedArray(ledController);
+	ledArrayBuffer_Write(ledController);
+	ledArrayDriver_Drive();
 	HAL_Delay(2 * TIME_MULTIPLIER);
 
 	ledController <<= 1;
-	displayLedArray(ledController);
+	ledArrayBuffer_Write(ledController);
+	ledArrayDriver_Drive();
 	HAL_Delay(2 * TIME_MULTIPLIER);
     /* USER CODE END WHILE */
 
