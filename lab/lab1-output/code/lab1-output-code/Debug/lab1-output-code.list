@@ -273,7 +273,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  if (counter == 16) {
+	  if (counter == NUMBER_OF_VALUES_7SEG) {
  8000250:	687b      	ldr	r3, [r7, #4]
  8000252:	2b10      	cmp	r3, #16
  8000254:	d101      	bne.n	800025a <main+0x24>
@@ -293,7 +293,7 @@ int main(void)
 	  HAL_Delay(1 * TIME_MULTIPLIER);
  800026a:	20c8      	movs	r0, #200	; 0xc8
  800026c:	f000 f988 	bl	8000580 <HAL_Delay>
-	  if (counter == 16) {
+	  if (counter == NUMBER_OF_VALUES_7SEG) {
  8000270:	e7ee      	b.n	8000250 <main+0x1a>
 
 08000272 <SystemClock_Config>:
