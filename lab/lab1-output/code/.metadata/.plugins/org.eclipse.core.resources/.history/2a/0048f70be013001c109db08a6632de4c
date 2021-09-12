@@ -16,7 +16,7 @@
 #ifndef __1DARRAY_LED_H
 #define __1DARRAY_LED_H
 
-#define NUMBER_OF_LEDS		3
+#define NUMBER_OF_LEDS		2
 #define NUMBER_OF_VALUES	2
 #define GPIO_PORT 			GPIOA
 

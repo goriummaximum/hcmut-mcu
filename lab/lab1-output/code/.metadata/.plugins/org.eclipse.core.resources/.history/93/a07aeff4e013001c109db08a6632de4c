@@ -86,33 +86,32 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  uint8_t ledController = 0x01;
+  uint8_t ledController = 0x1;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	 if (ledController == 0x04) {
+	  if (ledController == 0x3) {
 		  ledController = 0x01;
-	 }
-
+	  }
 	//RED
 	ledArrayBuffer_Write(ledController);
 	ledArrayDriver_Drive();
-	HAL_Delay(5 * TIME_MULTIPLIER);
+	HAL_Delay(5000);
 
 	//YELLOW
 	ledController <<= 1;
 	ledArrayBuffer_Write(ledController);
 	ledArrayDriver_Drive();
-	HAL_Delay(2 * TIME_MULTIPLIER);
+	HAL_Delay(2000);
 
 	//GREEN
 	ledController <<= 1;
 	ledArrayBuffer_Write(ledController);
 	ledArrayDriver_Drive();
-	HAL_Delay(3 * TIME_MULTIPLIER);
+	HAL_Delay(3000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

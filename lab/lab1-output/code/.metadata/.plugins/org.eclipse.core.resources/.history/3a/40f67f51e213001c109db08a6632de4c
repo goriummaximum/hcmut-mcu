@@ -93,7 +93,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	 if (ledController == 0x04) {
+	 if (ledController == 0x08) {
 		  ledController = 0x01;
 	 }
 

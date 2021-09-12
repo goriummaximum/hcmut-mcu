@@ -16,7 +16,7 @@
 #include "1darray_led.h"
 
 static uint8_t ledArrayBuffer[NUMBER_OF_LEDS];
-static uint8_t ledArrayPins[NUMBER_OF_LEDS] = {GPIO_PIN_5, GPIO_PIN_6, GPIO_PIN_7};
+static uint8_t ledArrayPins[NUMBER_OF_LEDS] = {GPIO_PIN_5, GPIO_PIN_6};
 static uint8_t ledArrayEncoder[NUMBER_OF_VALUES] = {GPIO_PIN_SET, GPIO_PIN_RESET}; //idx 0 - SET, idx 1 - RESET
 
 uint8_t ledArrayBuffer_Write(uint8_t value) {
