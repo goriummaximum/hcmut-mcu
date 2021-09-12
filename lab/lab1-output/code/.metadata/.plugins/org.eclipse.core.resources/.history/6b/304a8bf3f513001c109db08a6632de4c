@@ -95,7 +95,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  if (counter == NUMBER_OF_VALUES_7SEG) {
+	  if (counter == 16) {
 		  counter = 0;
 	  }
 

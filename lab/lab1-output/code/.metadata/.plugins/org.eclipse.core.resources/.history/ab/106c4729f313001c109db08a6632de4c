@@ -16,8 +16,7 @@
 #define __LED_7SEG_H
 
 #define NUMBER_OF_LEDS_7SEG			1
-#define NUMBER_OF_VALUES_7SEG		10
-#define VALUE_BIT_WIDTH_7SEG			4
+#define NUMBER_OF_VALUES_7SEG		16
 #define NUMBER_OF_SEGS				7
 #define GPIO_PORT_7SEG 				GPIOB
 

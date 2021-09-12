@@ -44,40 +44,40 @@ uint8_t led7SegBuffer_Write(uint8_t ledPos, uint8_t value) {
 }
 
 void led7SegDriver_Drive(uint8_t ledPos) {
-	HAL_GPIO_WritePin(GPIO_PORT_7SEG, led7SegArrayPins[0], !(
+	HAL_GPIO_WritePin(GPIO_PORT_7SEG, GPIO_PIN_0, !(
 			(!led7SegBuffer[ledPos][1]&&!led7SegBuffer[ledPos][3])
 			|| led7SegBuffer[ledPos][2]
-			|| (led7SegBuffer[ledPos][1]&&led7SegBuffer[ledPos][3])
+			|| (led7SegBuffer[ledPos][1]&&b[3])
 			|| led7SegBuffer[ledPos][0])
 			);
-	HAL_GPIO_WritePin(GPIO_PORT_7SEG, led7SegArrayPins[1],  !(
+	HAL_GPIO_WritePin(GPIO_PORT_7SEG, GPIO_PIN_1,  !(
 			!led7SegBuffer[ledPos][1]
 			|| (!led7SegBuffer[ledPos][2]&&!led7SegBuffer[ledPos][3])
 			|| (led7SegBuffer[ledPos][2]&&led7SegBuffer[ledPos][3]))
 			);
-	HAL_GPIO_WritePin(GPIO_PORT_7SEG, led7SegArrayPins[2],  !(
+	HAL_GPIO_WritePin(GPIO_PORT_7SEG, GPIO_PIN_2,  !(
 			!led7SegBuffer[ledPos][2]
 			|| led7SegBuffer[ledPos][3]
 			|| led7SegBuffer[ledPos][1])
 			);
-	HAL_GPIO_WritePin(GPIO_PORT_7SEG, led7SegArrayPins[3],  !(
+	HAL_GPIO_WritePin(GPIO_PORT_7SEG, GPIO_PIN_3,  !(
 			(!led7SegBuffer[ledPos][1]&&!led7SegBuffer[ledPos][3])
 			|| (!led7SegBuffer[ledPos][1]&&led7SegBuffer[ledPos][2])
 			|| (led7SegBuffer[ledPos][1]&&!led7SegBuffer[ledPos][2]&&led7SegBuffer[ledPos][3])
 			|| (led7SegBuffer[ledPos][2]&&!led7SegBuffer[ledPos][3])
 			|| led7SegBuffer[ledPos][0])
 			);
-	HAL_GPIO_WritePin(GPIO_PORT_7SEG, led7SegArrayPins[4],  !(
+	HAL_GPIO_WritePin(GPIO_PORT_7SEG, GPIO_PIN_4,  !(
 			(!led7SegBuffer[ledPos][1]&&!led7SegBuffer[ledPos][3])
 			|| (led7SegBuffer[ledPos][2]&&!led7SegBuffer[ledPos][3]))
 			);
-	HAL_GPIO_WritePin(GPIO_PORT_7SEG, led7SegArrayPins[5],  !(
+	HAL_GPIO_WritePin(GPIO_PORT_7SEG, GPIO_PIN_5,  !(
 			(!led7SegBuffer[ledPos][2]&&!led7SegBuffer[ledPos][3])
 			|| (led7SegBuffer[ledPos][1]&&!led7SegBuffer[ledPos][2])
 			|| (led7SegBuffer[ledPos][1]&&!led7SegBuffer[ledPos][3])
 			|| led7SegBuffer[ledPos][0])
 			);
-	HAL_GPIO_WritePin(GPIO_PORT_7SEG, led7SegArrayPins[6],  !(
+	HAL_GPIO_WritePin(GPIO_PORT_7SEG, GPIO_PIN_6,  !(
 			(!led7SegBuffer[ledPos][1]&&led7SegBuffer[ledPos][2])
 			|| (led7SegBuffer[ledPos][1]&&!led7SegBuffer[ledPos][2])
 			|| led7SegBuffer[ledPos][0]

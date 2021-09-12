@@ -47,7 +47,7 @@ void led7SegDriver_Drive(uint8_t ledPos) {
 	HAL_GPIO_WritePin(GPIO_PORT_7SEG, led7SegArrayPins[0], !(
 			(!led7SegBuffer[ledPos][1]&&!led7SegBuffer[ledPos][3])
 			|| led7SegBuffer[ledPos][2]
-			|| (led7SegBuffer[ledPos][1]&&led7SegBuffer[ledPos][3])
+			|| (led7SegBuffer[ledPos][1]&&b[3])
 			|| led7SegBuffer[ledPos][0])
 			);
 	HAL_GPIO_WritePin(GPIO_PORT_7SEG, led7SegArrayPins[1],  !(
