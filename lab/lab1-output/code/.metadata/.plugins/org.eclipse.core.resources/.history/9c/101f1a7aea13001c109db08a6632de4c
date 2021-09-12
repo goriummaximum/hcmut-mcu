@@ -1,0 +1,62 @@
+/**
+  ******************************************************************************
+  * @file           : led_7seg.c
+  * @brief          :
+  *                   This file contains the buffer-driver define for controlling 1D 7-seg LEDs.
+  *
+  *                   Created on:	Sep 12th, 2021
+  *                   Author:		Thien Long
+  ******************************************************************************
+  * @attention
+  *
+  ******************************************************************************
+  */
+
+#include "main.h"
+#include "led_7seg.h"
+
+static uint8_t led7SegBuffer[NUMBER_OF_LEDS];
+static uint8_t led7SegArrayPins[] = {
+		GPIO_PIN_0,
+		GPIO_PIN_1,
+		GPIO_PIN_2,
+		GPIO_PIN_3,
+		GPIO_PIN_4,
+		GPIO_PIN_5,
+		GPIO_PIN_6
+};
+static uint8_t led7SegValueConversion[NUMBER_OF_VALUES] = {
+		0x01,
+		0x4F,
+		0x12,
+		0x06,
+		0x4C,
+		0x24,
+		0x20,
+		0x0F,
+		0x00,
+		0x04,
+};
+static uint8_t led7SegEncoder[2] = {GPIO_PIN_SET, GPIO_PIN_RESET}; //idx 0 - SET, idx 1 - RESET
+
+uint8_t ledArrayBuffer_Write(uint8_t ledPos, uint8_t value) {
+	if (ledPos >= NUMBER_OF_LEDS) {
+		return 0;
+	}
+
+	if (value >= NUMBER_OF_VALUES) {
+		return 0;
+	}
+
+	for (uint8_t i = 0; i < NUMBER_OF_LEDS; i++) {
+
+	}
+
+	return 1;
+}
+
+void ledArrayDriver_Drive(void) {
+	for (uint8_t i = 0; i < NUMBER_OF_LEDS; i++) {
+		HAL_GPIO_WritePin(GPIO_PORT, ledArrayPins[i], ledArrayEncoder[ledArrayBuffer[i]]); //write pin
+	}
+}

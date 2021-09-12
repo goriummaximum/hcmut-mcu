@@ -33,6 +33,6 @@ uint8_t ledArrayBuffer_Write(uint8_t value) {
 
 void ledArrayDriver_Drive(void) {
 	for (uint8_t i = 0; i < NUMBER_OF_LEDS; i++) {
-		HAL_GPIO_WritePin(GPIO_PORT, ledArrayPins[i], ledArrayEncoder[ledArrayBuffer[i]]); //write pin
+		HAL_GPIO_WritePin(GPIO_PORT_LED_ARRAY, ledArrayPins[i], ledArrayEncoder[ledArrayBuffer[i]]); //write pin
 	}
 }

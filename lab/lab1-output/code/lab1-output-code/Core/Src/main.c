@@ -23,6 +23,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "1darray_led.h"
+#include "led_7seg.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -86,33 +87,20 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  uint8_t ledController = 0x01;
+  int counter = 0;
+  uint8_t ledPos = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	 if (ledController == 0x04) {
-		  ledController = 0x01;
-	 }
+	  if (counter == 16) {
+		  counter = 0;
+	  }
 
-	//RED
-	ledArrayBuffer_Write(ledController);
-	ledArrayDriver_Drive();
-	HAL_Delay(5 * TIME_MULTIPLIER);
-
-	//YELLOW
-	ledController <<= 1;
-	ledArrayBuffer_Write(ledController);
-	ledArrayDriver_Drive();
-	HAL_Delay(2 * TIME_MULTIPLIER);
-
-	//GREEN
-	ledController <<= 1;
-	ledArrayBuffer_Write(ledController);
-	ledArrayDriver_Drive();
-	HAL_Delay(3 * TIME_MULTIPLIER);
+	  display7SEG(ledPos, counter++);
+	  HAL_Delay(1 * TIME_MULTIPLIER);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -166,9 +154,14 @@ static void MX_GPIO_Init(void)
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3
+                          |GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : PA5 PA6 PA7 */
   GPIO_InitStruct.Pin = GPIO_PIN_5|GPIO_PIN_6|GPIO_PIN_7;
@@ -176,6 +169,15 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : PB0 PB1 PB2 PB3
+                           PB4 PB5 PB6 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1|GPIO_PIN_2|GPIO_PIN_3
+                          |GPIO_PIN_4|GPIO_PIN_5|GPIO_PIN_6;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 }
 

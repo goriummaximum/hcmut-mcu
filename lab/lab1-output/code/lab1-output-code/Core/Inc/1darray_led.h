@@ -16,9 +16,9 @@
 #ifndef __1DARRAY_LED_H
 #define __1DARRAY_LED_H
 
-#define NUMBER_OF_LEDS		3
-#define NUMBER_OF_VALUES	2
-#define GPIO_PORT 			GPIOA
+#define NUMBER_OF_LEDS			3
+#define NUMBER_OF_VALUES		2
+#define GPIO_PORT_LED_ARRAY 	GPIOA
 
 //buffer extract each bit of value corresponding to each position of buffer
 uint8_t ledArrayBuffer_Write(uint8_t value);

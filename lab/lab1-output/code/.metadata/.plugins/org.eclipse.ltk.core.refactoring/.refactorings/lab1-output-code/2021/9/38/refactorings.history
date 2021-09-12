@@ -1,4 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;lab1-output-code/Core/Inc/1darray_led.c&apos; to &apos;1darray_led.h&apos;" description="Rename resource &apos;1darray_led.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Inc/1darray_led.c" name="1darray_led.h" stamp="1631454409976" updateReferences="true"/>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;lab1-output-code/Core/Inc/1darray_led.c&apos; to &apos;1darray_led.h&apos;" description="Rename resource &apos;1darray_led.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Inc/1darray_led.c" name="1darray_led.h" stamp="1631454409976" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;lab1-output-code/Core/Inc/led-7seg.h&apos; to &apos;led_7seg.h&apos;" description="Rename resource &apos;led-7seg.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Inc/led-7seg.h" name="led_7seg.h" stamp="1631464414607" updateReferences="true"/>
 </session>

@@ -1,0 +1,28 @@
+/**
+  ******************************************************************************
+  * @file           : led_7seg.h
+  * @brief          : Header for led_7seg.c file.
+  *                   This file contains the buffer-driver define for controlling 7-seg LEDs.
+  *
+  *                   Created on:	Sep 12th, 2021
+  *                   Author:		Thien Long
+  ******************************************************************************
+  * @attention
+  *
+  ******************************************************************************
+  */
+
+#ifndef __LED_7SEG_H
+#define __LED_7SEG_H
+
+#define NUMBER_OF_7SEG_LEDS		3
+#define NUMBER_OF_VALUES	2
+#define GPIO_PORT 			GPIOB
+
+//
+uint8_t led7SegBuffer_Write(uint8_t value);
+
+//
+void led7SegDriver_Drive(void);
+
+#endif /* __LED_7SEG_H */
