@@ -71,11 +71,18 @@ void led7SegDriver_Drive(uint8_t ledPos) {
 	}
 }
 
-void display7SEG(uint8_t ledPos, int num)
-{
+void display7SEG(uint8_t ledPos, int num) {
 	if(!led7SegBuffer_Write(ledPos, (uint8_t)num)) {
 		return;
 	}
 
 	led7SegDriver_Drive(ledPos);
+}
+
+void displayCountDownFor(uint8_t ledPos, int t) {
+	int counter = t;
+	while (counter >= 0) {
+		display7SEG(ledPos, counter--);
+		HAL_Delay(1 * TIME_MULTIPLIER);
+	}
 }

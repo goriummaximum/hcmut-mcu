@@ -29,4 +29,7 @@ void led7SegDriver_Drive(uint8_t ledPos);
 //display7SEG
 void display7SEG(uint8_t ledPos, int num);
 
+//count down for t interval
+void displayCountDownFor(uint8_t ledPos, int t);
+
 #endif /* __LED_7SEG_H */

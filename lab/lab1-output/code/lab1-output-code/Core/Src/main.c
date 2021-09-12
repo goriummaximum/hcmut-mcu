@@ -87,22 +87,32 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  int counter = 0;
-  uint8_t ledPos = 0;
+  uint8_t ledTrafficController = 0x01;
+  uint8_t led7SegPos = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  if (counter == NUMBER_OF_VALUES_7SEG) {
-		  counter = 0;
-	  }
-
-	  display7SEG(ledPos, counter++);
-	  HAL_Delay(1 * TIME_MULTIPLIER);
     /* USER CODE END WHILE */
+	if (ledTrafficController == 0x04) {
+		ledTrafficController = 0x01;
+	}
 
+	//RED
+	displayLedArray(ledTrafficController);
+	displayCountDownFor(led7SegPos, 5);
+
+	//YELLOW
+	ledTrafficController <<= 1;
+	displayLedArray(ledTrafficController);
+	displayCountDownFor(led7SegPos, 2);
+
+	//GREEN
+	ledTrafficController <<= 1;
+	displayLedArray(ledTrafficController);
+	displayCountDownFor(led7SegPos, 3);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

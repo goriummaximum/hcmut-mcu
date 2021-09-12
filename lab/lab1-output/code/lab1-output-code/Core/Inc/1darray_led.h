@@ -26,5 +26,8 @@ uint8_t ledArrayBuffer_Write(uint8_t value);
 //driver encode value to SET or RESET, write value to each led
 void ledArrayDriver_Drive(void);
 
+//display led array
+void displayLedArray(uint8_t value);
+
 #endif /* __1DARRAY_LED_H */
 
