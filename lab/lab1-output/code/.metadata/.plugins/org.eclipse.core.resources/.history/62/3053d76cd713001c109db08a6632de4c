@@ -1,0 +1,34 @@
+/**
+  ******************************************************************************
+  * @file           : 1darray_led.c
+  * @brief          :
+  *                   This file contains the buffer-driver define for controlling 1D array LED.
+  *
+  *                   Created on:	Sep 12th, 2021
+  *                   Author:		Thien Long
+  ******************************************************************************
+  * @attention
+  *
+  ******************************************************************************
+  */
+
+#include "main.h"
+#include "1darray_led.h"
+
+uint8_t ledArrayBuffer_write(uint8_t value) {
+	if (value >= NUMBER_OF_LEDS*2) {
+		return 0;
+	}
+
+	for (uint8_t i = 0; i < NUMBER_OF_LEDS; i++) {
+		ledArrayBuffer[i] = (value >> i) & 1; //get the i-th bit
+	}
+
+	return 1;
+}
+
+void ledArrayDriver_drive(void) {
+	for (uint8_t i = 0; i < NUMBER_OF_LEDS; i++) {
+
+	}
+}

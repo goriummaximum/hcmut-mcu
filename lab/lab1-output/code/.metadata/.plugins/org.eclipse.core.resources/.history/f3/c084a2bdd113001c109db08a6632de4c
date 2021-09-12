@@ -1,0 +1,25 @@
+/**
+  ******************************************************************************
+  * @file           : 1darray_led.h
+  * @brief          : Header for 1darray_led.c file.
+  *                   This file contains the buffer-driver define for controlling 1D array LED.
+  *
+  *                   Created on:	Sep 12th, 2021
+  *                   Author:		Thien Long
+  ******************************************************************************
+  * @attention
+  *
+  ******************************************************************************
+  */
+
+#ifndef __1DARRAY_LED_H
+#define __1DARRAY_LED_H
+
+#define NUMBER_OF_LEDS		2
+
+static uint8_t ledArrayBuffer[NUMBER_OF_LEDS];
+
+uint8_t write_ledArrayBuffer(void);
+
+#endif /* __1DARRAY_LED_H */
+
