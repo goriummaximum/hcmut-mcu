@@ -1,0 +1,3 @@
+led_7seg.c:29:9:led7SegBuffer_Write	24	static
+led_7seg.c:46:6:led7SegDriver_Drive	16	static
+led_7seg.c:88:6:display7SEG	16	static

@@ -1,5 +1,5 @@
 "./Core/Src/1darray_led.o"
-"./Core/Src/led-7seg.o"
+"./Core/Src/led_7seg.o"
 "./Core/Src/main.o"
 "./Core/Src/stm32f1xx_hal_msp.o"
 "./Core/Src/stm32f1xx_it.o"
