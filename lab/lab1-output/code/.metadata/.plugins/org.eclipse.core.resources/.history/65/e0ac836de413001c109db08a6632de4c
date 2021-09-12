@@ -96,12 +96,12 @@ int main(void)
 	ledController >>= 1;
 	ledArrayBuffer_Write(ledController);
 	ledArrayDriver_Drive();
-	HAL_Delay(2 * TIME_MULTIPLIER);
+	HAL_Delay(1000);
 
 	ledController <<= 1;
 	ledArrayBuffer_Write(ledController);
 	ledArrayDriver_Drive();
-	HAL_Delay(2 * TIME_MULTIPLIER);
+	HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
