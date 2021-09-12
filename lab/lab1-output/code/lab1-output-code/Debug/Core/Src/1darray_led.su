@@ -1,2 +1,3 @@
 1darray_led.c:22:9:ledArrayBuffer_Write	24	static
 1darray_led.c:34:6:ledArrayDriver_Drive	16	static
+1darray_led.c:40:6:displayLedArray	16	static
