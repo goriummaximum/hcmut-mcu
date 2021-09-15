@@ -146,22 +146,20 @@ void runClock(void) {
 					}
 
 					for (uint8_t sec = 0; sec < NUMBER_OF_CLOCK_VALUES; sec++) {
-						if (sec != hour && sec != min) {
-							if (!setNumberOnClock(sec)) {
-									return;
-							}
+						if (!setNumberOnClock(sec)) {
+							return;
+						}
 
-							for (uint8_t delayCount = 0; delayCount < DELAY_SEC_CLOCK_COUNT; delayCount++) {
-									ledMatrixDriver_Drive();
-							}
+						for (uint8_t delayCount = 0; delayCount < DELAY_SEC_CLOCK_COUNT; delayCount++) {
+							ledMatrixDriver_Drive();
+						}
 
-							if (!clearNumberOnClock(sec)) {
-								return;
-							}
+						if (!clearNumberOnClock(sec)) {
+							return;
 						}
 					}
-				if (!clearNumberOnClock(min)) {
-					return;
+					if (!clearNumberOnClock(min)) {
+						return;
 				}
 			}
 		}
