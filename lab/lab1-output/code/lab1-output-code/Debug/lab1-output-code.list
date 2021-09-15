@@ -9,41 +9,41 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
   2 .rodata       00000020  08001364  08001364  00011364  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  08001384  08001384  00020034  2**0
+  3 .ARM.extab    00000000  08001384  08001384  00020024  2**0
                   CONTENTS
-  4 .ARM          00000000  08001384  08001384  00020034  2**0
+  4 .ARM          00000000  08001384  08001384  00020024  2**0
                   CONTENTS
-  5 .preinit_array 00000000  08001384  08001384  00020034  2**0
+  5 .preinit_array 00000000  08001384  08001384  00020024  2**0
                   CONTENTS, ALLOC, LOAD, DATA
   6 .init_array   00000004  08001384  08001384  00011384  2**2
                   CONTENTS, ALLOC, LOAD, DATA
   7 .fini_array   00000004  08001388  08001388  00011388  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 .data         00000034  20000000  0800138c  00020000  2**2
+  8 .data         00000024  20000000  0800138c  00020000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          00000060  20000034  080013c0  00020034  2**2
+  9 .bss          00000028  20000024  080013b0  00020024  2**2
                   ALLOC
- 10 ._user_heap_stack 00000604  20000094  080013c0  00020094  2**0
+ 10 ._user_heap_stack 00000604  2000004c  080013b0  0002004c  2**0
                   ALLOC
- 11 .ARM.attributes 00000029  00000000  00000000  00020034  2**0
+ 11 .ARM.attributes 00000029  00000000  00000000  00020024  2**0
                   CONTENTS, READONLY
- 12 .debug_info   000033b2  00000000  00000000  0002005d  2**0
+ 12 .debug_info   0000337e  00000000  00000000  0002004d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 0000100b  00000000  00000000  0002340f  2**0
+ 13 .debug_abbrev 0000101a  00000000  00000000  000233cb  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000400  00000000  00000000  00024420  2**3
+ 14 .debug_aranges 00000408  00000000  00000000  000243e8  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 00000368  00000000  00000000  00024820  2**3
+ 15 .debug_ranges 00000370  00000000  00000000  000247f0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  00015734  00000000  00000000  00024b88  2**0
+ 16 .debug_macro  00015740  00000000  00000000  00024b60  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00004c6a  00000000  00000000  0003a2bc  2**0
+ 17 .debug_line   00004c52  00000000  00000000  0003a2a0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    000798f7  00000000  00000000  0003ef26  2**0
+ 18 .debug_str    00079943  00000000  00000000  0003eef2  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000b881d  2**0
+ 19 .comment      00000053  00000000  00000000  000b8835  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00000db8  00000000  00000000  000b8870  2**2
+ 20 .debug_frame  00000dd4  00000000  00000000  000b8888  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -60,7 +60,7 @@ Disassembly of section .text:
  800011e:	2301      	movs	r3, #1
  8000120:	7023      	strb	r3, [r4, #0]
  8000122:	bd10      	pop	{r4, pc}
- 8000124:	20000034 	.word	0x20000034
+ 8000124:	20000024 	.word	0x20000024
  8000128:	00000000 	.word	0x00000000
  800012c:	0800134c 	.word	0x0800134c
 
@@ -73,7 +73,7 @@ Disassembly of section .text:
  800013a:	f3af 8000 	nop.w
  800013e:	bd08      	pop	{r3, pc}
  8000140:	00000000 	.word	0x00000000
- 8000144:	20000038 	.word	0x20000038
+ 8000144:	20000028 	.word	0x20000028
  8000148:	0800134c 	.word	0x0800134c
 
 0800014c <ledMatrixBuffer_Reset>:
@@ -89,398 +89,397 @@ void ledMatrixBuffer_Reset(void) {
 	for (uint8_t row = 1; row < NUMBER_OF_ROWS; row++) {
  8000152:	2301      	movs	r3, #1
  8000154:	71fb      	strb	r3, [r7, #7]
- 8000156:	e013      	b.n	8000180 <ledMatrixBuffer_Reset+0x34>
-		for (uint8_t col = 0; col < NUMBER_OF_COLS; col++) {
- 8000158:	2300      	movs	r3, #0
- 800015a:	71bb      	strb	r3, [r7, #6]
- 800015c:	e00a      	b.n	8000174 <ledMatrixBuffer_Reset+0x28>
-			ledMatrixBuffer[row][col] = 0x00;
- 800015e:	79fa      	ldrb	r2, [r7, #7]
- 8000160:	79bb      	ldrb	r3, [r7, #6]
- 8000162:	490c      	ldr	r1, [pc, #48]	; (8000194 <ledMatrixBuffer_Reset+0x48>)
- 8000164:	00d2      	lsls	r2, r2, #3
- 8000166:	440a      	add	r2, r1
- 8000168:	4413      	add	r3, r2
- 800016a:	2200      	movs	r2, #0
- 800016c:	701a      	strb	r2, [r3, #0]
-		for (uint8_t col = 0; col < NUMBER_OF_COLS; col++) {
- 800016e:	79bb      	ldrb	r3, [r7, #6]
- 8000170:	3301      	adds	r3, #1
- 8000172:	71bb      	strb	r3, [r7, #6]
- 8000174:	79bb      	ldrb	r3, [r7, #6]
- 8000176:	2b07      	cmp	r3, #7
- 8000178:	d9f1      	bls.n	800015e <ledMatrixBuffer_Reset+0x12>
+ 8000156:	e006      	b.n	8000166 <ledMatrixBuffer_Reset+0x1a>
+		ledMatrixBuffer[row] = 0x00;
+ 8000158:	79fb      	ldrb	r3, [r7, #7]
+ 800015a:	4a07      	ldr	r2, [pc, #28]	; (8000178 <ledMatrixBuffer_Reset+0x2c>)
+ 800015c:	2100      	movs	r1, #0
+ 800015e:	54d1      	strb	r1, [r2, r3]
 	for (uint8_t row = 1; row < NUMBER_OF_ROWS; row++) {
- 800017a:	79fb      	ldrb	r3, [r7, #7]
- 800017c:	3301      	adds	r3, #1
- 800017e:	71fb      	strb	r3, [r7, #7]
- 8000180:	79fb      	ldrb	r3, [r7, #7]
- 8000182:	2b07      	cmp	r3, #7
- 8000184:	d9e8      	bls.n	8000158 <ledMatrixBuffer_Reset+0xc>
-		}
+ 8000160:	79fb      	ldrb	r3, [r7, #7]
+ 8000162:	3301      	adds	r3, #1
+ 8000164:	71fb      	strb	r3, [r7, #7]
+ 8000166:	79fb      	ldrb	r3, [r7, #7]
+ 8000168:	2b07      	cmp	r3, #7
+ 800016a:	d9f5      	bls.n	8000158 <ledMatrixBuffer_Reset+0xc>
 	}
 }
- 8000186:	bf00      	nop
- 8000188:	bf00      	nop
- 800018a:	370c      	adds	r7, #12
- 800018c:	46bd      	mov	sp, r7
- 800018e:	bc80      	pop	{r7}
- 8000190:	4770      	bx	lr
- 8000192:	bf00      	nop
- 8000194:	20000050 	.word	0x20000050
+ 800016c:	bf00      	nop
+ 800016e:	bf00      	nop
+ 8000170:	370c      	adds	r7, #12
+ 8000172:	46bd      	mov	sp, r7
+ 8000174:	bc80      	pop	{r7}
+ 8000176:	4770      	bx	lr
+ 8000178:	20000040 	.word	0x20000040
 
-08000198 <ledMatrixBuffer_Write>:
+0800017c <ledMatrixBuffer_Write>:
 
 uint8_t ledMatrixBuffer_Write(uint8_t row, uint8_t col, uint8_t stateIdx) {
- 8000198:	b480      	push	{r7}
- 800019a:	b083      	sub	sp, #12
- 800019c:	af00      	add	r7, sp, #0
- 800019e:	4603      	mov	r3, r0
- 80001a0:	71fb      	strb	r3, [r7, #7]
- 80001a2:	460b      	mov	r3, r1
- 80001a4:	71bb      	strb	r3, [r7, #6]
- 80001a6:	4613      	mov	r3, r2
- 80001a8:	717b      	strb	r3, [r7, #5]
+ 800017c:	b480      	push	{r7}
+ 800017e:	b083      	sub	sp, #12
+ 8000180:	af00      	add	r7, sp, #0
+ 8000182:	4603      	mov	r3, r0
+ 8000184:	71fb      	strb	r3, [r7, #7]
+ 8000186:	460b      	mov	r3, r1
+ 8000188:	71bb      	strb	r3, [r7, #6]
+ 800018a:	4613      	mov	r3, r2
+ 800018c:	717b      	strb	r3, [r7, #5]
 	if (row >= NUMBER_OF_ROWS) {
- 80001aa:	79fb      	ldrb	r3, [r7, #7]
- 80001ac:	2b07      	cmp	r3, #7
- 80001ae:	d901      	bls.n	80001b4 <ledMatrixBuffer_Write+0x1c>
+ 800018e:	79fb      	ldrb	r3, [r7, #7]
+ 8000190:	2b07      	cmp	r3, #7
+ 8000192:	d901      	bls.n	8000198 <ledMatrixBuffer_Write+0x1c>
 		return 0;
- 80001b0:	2300      	movs	r3, #0
- 80001b2:	e012      	b.n	80001da <ledMatrixBuffer_Write+0x42>
+ 8000194:	2300      	movs	r3, #0
+ 8000196:	e02a      	b.n	80001ee <ledMatrixBuffer_Write+0x72>
 	}
 
 	if (col >= NUMBER_OF_COLS) {
- 80001b4:	79bb      	ldrb	r3, [r7, #6]
- 80001b6:	2b07      	cmp	r3, #7
- 80001b8:	d901      	bls.n	80001be <ledMatrixBuffer_Write+0x26>
+ 8000198:	79bb      	ldrb	r3, [r7, #6]
+ 800019a:	2b07      	cmp	r3, #7
+ 800019c:	d901      	bls.n	80001a2 <ledMatrixBuffer_Write+0x26>
 		return 0;
- 80001ba:	2300      	movs	r3, #0
- 80001bc:	e00d      	b.n	80001da <ledMatrixBuffer_Write+0x42>
+ 800019e:	2300      	movs	r3, #0
+ 80001a0:	e025      	b.n	80001ee <ledMatrixBuffer_Write+0x72>
 	}
 
 	if (stateIdx >= NUMBER_OF_STATES) {
- 80001be:	797b      	ldrb	r3, [r7, #5]
- 80001c0:	2b01      	cmp	r3, #1
- 80001c2:	d901      	bls.n	80001c8 <ledMatrixBuffer_Write+0x30>
+ 80001a2:	797b      	ldrb	r3, [r7, #5]
+ 80001a4:	2b01      	cmp	r3, #1
+ 80001a6:	d901      	bls.n	80001ac <ledMatrixBuffer_Write+0x30>
 		return 0;
- 80001c4:	2300      	movs	r3, #0
- 80001c6:	e008      	b.n	80001da <ledMatrixBuffer_Write+0x42>
+ 80001a8:	2300      	movs	r3, #0
+ 80001aa:	e020      	b.n	80001ee <ledMatrixBuffer_Write+0x72>
 	}
 
-	ledMatrixBuffer[row][col] = stateIdx;
- 80001c8:	79fa      	ldrb	r2, [r7, #7]
- 80001ca:	79bb      	ldrb	r3, [r7, #6]
- 80001cc:	4905      	ldr	r1, [pc, #20]	; (80001e4 <ledMatrixBuffer_Write+0x4c>)
- 80001ce:	00d2      	lsls	r2, r2, #3
- 80001d0:	440a      	add	r2, r1
- 80001d2:	4413      	add	r3, r2
- 80001d4:	797a      	ldrb	r2, [r7, #5]
- 80001d6:	701a      	strb	r2, [r3, #0]
+	ledMatrixBuffer[row] &= ~(0x01 << col);
+ 80001ac:	79fb      	ldrb	r3, [r7, #7]
+ 80001ae:	4a12      	ldr	r2, [pc, #72]	; (80001f8 <ledMatrixBuffer_Write+0x7c>)
+ 80001b0:	5cd3      	ldrb	r3, [r2, r3]
+ 80001b2:	b25a      	sxtb	r2, r3
+ 80001b4:	79bb      	ldrb	r3, [r7, #6]
+ 80001b6:	2101      	movs	r1, #1
+ 80001b8:	fa01 f303 	lsl.w	r3, r1, r3
+ 80001bc:	b25b      	sxtb	r3, r3
+ 80001be:	43db      	mvns	r3, r3
+ 80001c0:	b25b      	sxtb	r3, r3
+ 80001c2:	4013      	ands	r3, r2
+ 80001c4:	b25a      	sxtb	r2, r3
+ 80001c6:	79fb      	ldrb	r3, [r7, #7]
+ 80001c8:	b2d1      	uxtb	r1, r2
+ 80001ca:	4a0b      	ldr	r2, [pc, #44]	; (80001f8 <ledMatrixBuffer_Write+0x7c>)
+ 80001cc:	54d1      	strb	r1, [r2, r3]
+	ledMatrixBuffer[row] |= (stateIdx << col);
+ 80001ce:	79fb      	ldrb	r3, [r7, #7]
+ 80001d0:	4a09      	ldr	r2, [pc, #36]	; (80001f8 <ledMatrixBuffer_Write+0x7c>)
+ 80001d2:	5cd3      	ldrb	r3, [r2, r3]
+ 80001d4:	b25a      	sxtb	r2, r3
+ 80001d6:	7979      	ldrb	r1, [r7, #5]
+ 80001d8:	79bb      	ldrb	r3, [r7, #6]
+ 80001da:	fa01 f303 	lsl.w	r3, r1, r3
+ 80001de:	b25b      	sxtb	r3, r3
+ 80001e0:	4313      	orrs	r3, r2
+ 80001e2:	b25a      	sxtb	r2, r3
+ 80001e4:	79fb      	ldrb	r3, [r7, #7]
+ 80001e6:	b2d1      	uxtb	r1, r2
+ 80001e8:	4a03      	ldr	r2, [pc, #12]	; (80001f8 <ledMatrixBuffer_Write+0x7c>)
+ 80001ea:	54d1      	strb	r1, [r2, r3]
 	return 1;
- 80001d8:	2301      	movs	r3, #1
+ 80001ec:	2301      	movs	r3, #1
 }
- 80001da:	4618      	mov	r0, r3
- 80001dc:	370c      	adds	r7, #12
- 80001de:	46bd      	mov	sp, r7
- 80001e0:	bc80      	pop	{r7}
- 80001e2:	4770      	bx	lr
- 80001e4:	20000050 	.word	0x20000050
+ 80001ee:	4618      	mov	r0, r3
+ 80001f0:	370c      	adds	r7, #12
+ 80001f2:	46bd      	mov	sp, r7
+ 80001f4:	bc80      	pop	{r7}
+ 80001f6:	4770      	bx	lr
+ 80001f8:	20000040 	.word	0x20000040
 
-080001e8 <ledMatrixDriver_Drive>:
+080001fc <ledMatrixDriver_Reset>:
+
+void ledMatrixDriver_Reset(void) {
+ 80001fc:	b580      	push	{r7, lr}
+ 80001fe:	af00      	add	r7, sp, #0
+	  HAL_GPIO_WritePin(GPIO_PORT, PIN_R0|PIN_R1|PIN_R2|PIN_R3
+ 8000200:	4b08      	ldr	r3, [pc, #32]	; (8000224 <ledMatrixDriver_Reset+0x28>)
+ 8000202:	781b      	ldrb	r3, [r3, #0]
+ 8000204:	461a      	mov	r2, r3
+ 8000206:	21ff      	movs	r1, #255	; 0xff
+ 8000208:	4807      	ldr	r0, [pc, #28]	; (8000228 <ledMatrixDriver_Reset+0x2c>)
+ 800020a:	f000 fc73 	bl	8000af4 <HAL_GPIO_WritePin>
+	                          |PIN_R4|PIN_R5|PIN_R6|PIN_R7,ledMatrixRowStates[0]);
+
+	  HAL_GPIO_WritePin(GPIO_PORT, PIN_C0|PIN_C1|PIN_C2|PIN_C3
+ 800020e:	4b07      	ldr	r3, [pc, #28]	; (800022c <ledMatrixDriver_Reset+0x30>)
+ 8000210:	781b      	ldrb	r3, [r3, #0]
+ 8000212:	461a      	mov	r2, r3
+ 8000214:	f44f 417f 	mov.w	r1, #65280	; 0xff00
+ 8000218:	4803      	ldr	r0, [pc, #12]	; (8000228 <ledMatrixDriver_Reset+0x2c>)
+ 800021a:	f000 fc6b 	bl	8000af4 <HAL_GPIO_WritePin>
+              	  	  	  	  |PIN_C4|PIN_C5|PIN_C6|PIN_C7, ledMatrixColStates[0]);
+}
+ 800021e:	bf00      	nop
+ 8000220:	bd80      	pop	{r7, pc}
+ 8000222:	bf00      	nop
+ 8000224:	20000010 	.word	0x20000010
+ 8000228:	40010c00 	.word	0x40010c00
+ 800022c:	20000014 	.word	0x20000014
+
+08000230 <ledMatrixDriver_Drive>:
 
 void ledMatrixDriver_Drive(void) {
- 80001e8:	b580      	push	{r7, lr}
- 80001ea:	b082      	sub	sp, #8
- 80001ec:	af00      	add	r7, sp, #0
+ 8000230:	b580      	push	{r7, lr}
+ 8000232:	b082      	sub	sp, #8
+ 8000234:	af00      	add	r7, sp, #0
 	for (uint8_t row = 0; row < NUMBER_OF_ROWS; row++) {
- 80001ee:	2300      	movs	r3, #0
- 80001f0:	71fb      	strb	r3, [r7, #7]
- 80001f2:	e047      	b.n	8000284 <ledMatrixDriver_Drive+0x9c>
-		//select row pin
+ 8000236:	2300      	movs	r3, #0
+ 8000238:	71fb      	strb	r3, [r7, #7]
+ 800023a:	e01d      	b.n	8000278 <ledMatrixDriver_Drive+0x48>
+		ledMatrixDriver_Reset();
+ 800023c:	f7ff ffde 	bl	80001fc <ledMatrixDriver_Reset>
+
 		HAL_GPIO_WritePin(GPIO_PORT, ledMatrixRowPins[row], ledMatrixRowStates[1]); //on row
- 80001f4:	79fb      	ldrb	r3, [r7, #7]
- 80001f6:	4a27      	ldr	r2, [pc, #156]	; (8000294 <ledMatrixDriver_Drive+0xac>)
- 80001f8:	f832 3013 	ldrh.w	r3, [r2, r3, lsl #1]
- 80001fc:	4a26      	ldr	r2, [pc, #152]	; (8000298 <ledMatrixDriver_Drive+0xb0>)
- 80001fe:	7852      	ldrb	r2, [r2, #1]
- 8000200:	4619      	mov	r1, r3
- 8000202:	4826      	ldr	r0, [pc, #152]	; (800029c <ledMatrixDriver_Drive+0xb4>)
- 8000204:	f000 fc76 	bl	8000af4 <HAL_GPIO_WritePin>
-		for (uint8_t col = 0; col < NUMBER_OF_COLS; col++) {
- 8000208:	2300      	movs	r3, #0
- 800020a:	71bb      	strb	r3, [r7, #6]
- 800020c:	e014      	b.n	8000238 <ledMatrixDriver_Drive+0x50>
-			//select col pin
-			HAL_GPIO_WritePin(GPIO_PORT, ledMatrixColPins[col], ledMatrixColStates[ledMatrixBuffer[row][col]]); //on col
- 800020e:	79bb      	ldrb	r3, [r7, #6]
- 8000210:	4a23      	ldr	r2, [pc, #140]	; (80002a0 <ledMatrixDriver_Drive+0xb8>)
- 8000212:	f832 1013 	ldrh.w	r1, [r2, r3, lsl #1]
- 8000216:	79fa      	ldrb	r2, [r7, #7]
- 8000218:	79bb      	ldrb	r3, [r7, #6]
- 800021a:	4822      	ldr	r0, [pc, #136]	; (80002a4 <ledMatrixDriver_Drive+0xbc>)
- 800021c:	00d2      	lsls	r2, r2, #3
- 800021e:	4402      	add	r2, r0
- 8000220:	4413      	add	r3, r2
- 8000222:	781b      	ldrb	r3, [r3, #0]
- 8000224:	461a      	mov	r2, r3
- 8000226:	4b20      	ldr	r3, [pc, #128]	; (80002a8 <ledMatrixDriver_Drive+0xc0>)
- 8000228:	5c9b      	ldrb	r3, [r3, r2]
- 800022a:	461a      	mov	r2, r3
- 800022c:	481b      	ldr	r0, [pc, #108]	; (800029c <ledMatrixDriver_Drive+0xb4>)
- 800022e:	f000 fc61 	bl	8000af4 <HAL_GPIO_WritePin>
-		for (uint8_t col = 0; col < NUMBER_OF_COLS; col++) {
- 8000232:	79bb      	ldrb	r3, [r7, #6]
- 8000234:	3301      	adds	r3, #1
- 8000236:	71bb      	strb	r3, [r7, #6]
- 8000238:	79bb      	ldrb	r3, [r7, #6]
- 800023a:	2b07      	cmp	r3, #7
- 800023c:	d9e7      	bls.n	800020e <ledMatrixDriver_Drive+0x26>
-		}
-
-		HAL_Delay(5);
- 800023e:	2005      	movs	r0, #5
- 8000240:	f000 f9d6 	bl	80005f0 <HAL_Delay>
-
-		for (uint8_t col = 0; col < NUMBER_OF_COLS; col++) {
- 8000244:	2300      	movs	r3, #0
- 8000246:	717b      	strb	r3, [r7, #5]
- 8000248:	e00c      	b.n	8000264 <ledMatrixDriver_Drive+0x7c>
-			HAL_GPIO_WritePin(GPIO_PORT, ledMatrixColPins[col], ledMatrixColStates[0]); //off col
- 800024a:	797b      	ldrb	r3, [r7, #5]
- 800024c:	4a14      	ldr	r2, [pc, #80]	; (80002a0 <ledMatrixDriver_Drive+0xb8>)
- 800024e:	f832 3013 	ldrh.w	r3, [r2, r3, lsl #1]
- 8000252:	4a15      	ldr	r2, [pc, #84]	; (80002a8 <ledMatrixDriver_Drive+0xc0>)
- 8000254:	7812      	ldrb	r2, [r2, #0]
- 8000256:	4619      	mov	r1, r3
- 8000258:	4810      	ldr	r0, [pc, #64]	; (800029c <ledMatrixDriver_Drive+0xb4>)
- 800025a:	f000 fc4b 	bl	8000af4 <HAL_GPIO_WritePin>
-		for (uint8_t col = 0; col < NUMBER_OF_COLS; col++) {
- 800025e:	797b      	ldrb	r3, [r7, #5]
- 8000260:	3301      	adds	r3, #1
- 8000262:	717b      	strb	r3, [r7, #5]
- 8000264:	797b      	ldrb	r3, [r7, #5]
- 8000266:	2b07      	cmp	r3, #7
- 8000268:	d9ef      	bls.n	800024a <ledMatrixDriver_Drive+0x62>
-		}
-		HAL_GPIO_WritePin(GPIO_PORT, ledMatrixRowPins[row], ledMatrixRowStates[0]); //off row
- 800026a:	79fb      	ldrb	r3, [r7, #7]
- 800026c:	4a09      	ldr	r2, [pc, #36]	; (8000294 <ledMatrixDriver_Drive+0xac>)
- 800026e:	f832 3013 	ldrh.w	r3, [r2, r3, lsl #1]
- 8000272:	4a09      	ldr	r2, [pc, #36]	; (8000298 <ledMatrixDriver_Drive+0xb0>)
- 8000274:	7812      	ldrb	r2, [r2, #0]
- 8000276:	4619      	mov	r1, r3
- 8000278:	4808      	ldr	r0, [pc, #32]	; (800029c <ledMatrixDriver_Drive+0xb4>)
- 800027a:	f000 fc3b 	bl	8000af4 <HAL_GPIO_WritePin>
+ 8000240:	79fb      	ldrb	r3, [r7, #7]
+ 8000242:	4a11      	ldr	r2, [pc, #68]	; (8000288 <ledMatrixDriver_Drive+0x58>)
+ 8000244:	f832 3013 	ldrh.w	r3, [r2, r3, lsl #1]
+ 8000248:	4a10      	ldr	r2, [pc, #64]	; (800028c <ledMatrixDriver_Drive+0x5c>)
+ 800024a:	7852      	ldrb	r2, [r2, #1]
+ 800024c:	4619      	mov	r1, r3
+ 800024e:	4810      	ldr	r0, [pc, #64]	; (8000290 <ledMatrixDriver_Drive+0x60>)
+ 8000250:	f000 fc50 	bl	8000af4 <HAL_GPIO_WritePin>
+		HAL_GPIO_WritePin(GPIO_PORT, ledMatrixBuffer[row] << 0x08, ledMatrixColStates[1]); //on col
+ 8000254:	79fb      	ldrb	r3, [r7, #7]
+ 8000256:	4a0f      	ldr	r2, [pc, #60]	; (8000294 <ledMatrixDriver_Drive+0x64>)
+ 8000258:	5cd3      	ldrb	r3, [r2, r3]
+ 800025a:	b29b      	uxth	r3, r3
+ 800025c:	021b      	lsls	r3, r3, #8
+ 800025e:	b29b      	uxth	r3, r3
+ 8000260:	4a0d      	ldr	r2, [pc, #52]	; (8000298 <ledMatrixDriver_Drive+0x68>)
+ 8000262:	7852      	ldrb	r2, [r2, #1]
+ 8000264:	4619      	mov	r1, r3
+ 8000266:	480a      	ldr	r0, [pc, #40]	; (8000290 <ledMatrixDriver_Drive+0x60>)
+ 8000268:	f000 fc44 	bl	8000af4 <HAL_GPIO_WritePin>
+		HAL_Delay(DRIVER_DELAY_INTERVAL_MS);
+ 800026c:	2005      	movs	r0, #5
+ 800026e:	f000 f9bf 	bl	80005f0 <HAL_Delay>
 	for (uint8_t row = 0; row < NUMBER_OF_ROWS; row++) {
- 800027e:	79fb      	ldrb	r3, [r7, #7]
- 8000280:	3301      	adds	r3, #1
- 8000282:	71fb      	strb	r3, [r7, #7]
- 8000284:	79fb      	ldrb	r3, [r7, #7]
- 8000286:	2b07      	cmp	r3, #7
- 8000288:	d9b4      	bls.n	80001f4 <ledMatrixDriver_Drive+0xc>
+ 8000272:	79fb      	ldrb	r3, [r7, #7]
+ 8000274:	3301      	adds	r3, #1
+ 8000276:	71fb      	strb	r3, [r7, #7]
+ 8000278:	79fb      	ldrb	r3, [r7, #7]
+ 800027a:	2b07      	cmp	r3, #7
+ 800027c:	d9de      	bls.n	800023c <ledMatrixDriver_Drive+0xc>
 	}
 }
- 800028a:	bf00      	nop
- 800028c:	bf00      	nop
- 800028e:	3708      	adds	r7, #8
- 8000290:	46bd      	mov	sp, r7
- 8000292:	bd80      	pop	{r7, pc}
- 8000294:	20000000 	.word	0x20000000
- 8000298:	20000020 	.word	0x20000020
- 800029c:	40010c00 	.word	0x40010c00
- 80002a0:	20000010 	.word	0x20000010
- 80002a4:	20000050 	.word	0x20000050
- 80002a8:	20000024 	.word	0x20000024
+ 800027e:	bf00      	nop
+ 8000280:	bf00      	nop
+ 8000282:	3708      	adds	r7, #8
+ 8000284:	46bd      	mov	sp, r7
+ 8000286:	bd80      	pop	{r7, pc}
+ 8000288:	20000000 	.word	0x20000000
+ 800028c:	20000010 	.word	0x20000010
+ 8000290:	40010c00 	.word	0x40010c00
+ 8000294:	20000040 	.word	0x20000040
+ 8000298:	20000014 	.word	0x20000014
 
-080002ac <main>:
+0800029c <main>:
 /**
   * @brief  The application entry point.
   * @retval int
   */
 int main(void)
 {
- 80002ac:	b580      	push	{r7, lr}
- 80002ae:	b082      	sub	sp, #8
- 80002b0:	af00      	add	r7, sp, #0
+ 800029c:	b580      	push	{r7, lr}
+ 800029e:	b082      	sub	sp, #8
+ 80002a0:	af00      	add	r7, sp, #0
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
- 80002b2:	f000 f93b 	bl	800052c <HAL_Init>
+ 80002a2:	f000 f943 	bl	800052c <HAL_Init>
   /* USER CODE BEGIN Init */
 
   /* USER CODE END Init */
 
   /* Configure the system clock */
   SystemClock_Config();
- 80002b6:	f000 f82e 	bl	8000316 <SystemClock_Config>
+ 80002a6:	f000 f837 	bl	8000318 <SystemClock_Config>
   /* USER CODE BEGIN SysInit */
 
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
- 80002ba:	f000 f867 	bl	800038c <MX_GPIO_Init>
+ 80002aa:	f000 f86f 	bl	800038c <MX_GPIO_Init>
   /* USER CODE BEGIN 2 */
   uint8_t row = 0;
- 80002be:	2300      	movs	r3, #0
- 80002c0:	71fb      	strb	r3, [r7, #7]
+ 80002ae:	2300      	movs	r3, #0
+ 80002b0:	71fb      	strb	r3, [r7, #7]
   uint8_t col = 0;
- 80002c2:	2300      	movs	r3, #0
- 80002c4:	71bb      	strb	r3, [r7, #6]
+ 80002b2:	2300      	movs	r3, #0
+ 80002b4:	71bb      	strb	r3, [r7, #6]
+  uint8_t ledState = 1;
+ 80002b6:	2301      	movs	r3, #1
+ 80002b8:	717b      	strb	r3, [r7, #5]
   int delayCount = 0;
- 80002c6:	2300      	movs	r3, #0
- 80002c8:	603b      	str	r3, [r7, #0]
+ 80002ba:	2300      	movs	r3, #0
+ 80002bc:	603b      	str	r3, [r7, #0]
+
+
   ledMatrixBuffer_Reset();
- 80002ca:	f7ff ff3f 	bl	800014c <ledMatrixBuffer_Reset>
-  ledMatrixDriver_Drive();
- 80002ce:	f7ff ff8b 	bl	80001e8 <ledMatrixDriver_Drive>
+ 80002be:	f7ff ff45 	bl	800014c <ledMatrixBuffer_Reset>
+  ledMatrixDriver_Reset();
+ 80002c2:	f7ff ff9b 	bl	80001fc <ledMatrixDriver_Reset>
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
 	  delayCount = 0;
- 80002d2:	2300      	movs	r3, #0
- 80002d4:	603b      	str	r3, [r7, #0]
+ 80002c6:	2300      	movs	r3, #0
+ 80002c8:	603b      	str	r3, [r7, #0]
 	  if (col == NUMBER_OF_COLS) {
- 80002d6:	79bb      	ldrb	r3, [r7, #6]
- 80002d8:	2b08      	cmp	r3, #8
- 80002da:	d104      	bne.n	80002e6 <main+0x3a>
+ 80002ca:	79bb      	ldrb	r3, [r7, #6]
+ 80002cc:	2b08      	cmp	r3, #8
+ 80002ce:	d104      	bne.n	80002da <main+0x3e>
 		  col = 0;
- 80002dc:	2300      	movs	r3, #0
- 80002de:	71bb      	strb	r3, [r7, #6]
+ 80002d0:	2300      	movs	r3, #0
+ 80002d2:	71bb      	strb	r3, [r7, #6]
 		  row++;
- 80002e0:	79fb      	ldrb	r3, [r7, #7]
- 80002e2:	3301      	adds	r3, #1
- 80002e4:	71fb      	strb	r3, [r7, #7]
+ 80002d4:	79fb      	ldrb	r3, [r7, #7]
+ 80002d6:	3301      	adds	r3, #1
+ 80002d8:	71fb      	strb	r3, [r7, #7]
 	  }
 
 	  if (row == NUMBER_OF_ROWS) {
- 80002e6:	79fb      	ldrb	r3, [r7, #7]
- 80002e8:	2b08      	cmp	r3, #8
- 80002ea:	d101      	bne.n	80002f0 <main+0x44>
+ 80002da:	79fb      	ldrb	r3, [r7, #7]
+ 80002dc:	2b08      	cmp	r3, #8
+ 80002de:	d108      	bne.n	80002f2 <main+0x56>
 		  row = 0;
- 80002ec:	2300      	movs	r3, #0
- 80002ee:	71fb      	strb	r3, [r7, #7]
+ 80002e0:	2300      	movs	r3, #0
+ 80002e2:	71fb      	strb	r3, [r7, #7]
+		  ledState = !ledState;
+ 80002e4:	797b      	ldrb	r3, [r7, #5]
+ 80002e6:	2b00      	cmp	r3, #0
+ 80002e8:	bf0c      	ite	eq
+ 80002ea:	2301      	moveq	r3, #1
+ 80002ec:	2300      	movne	r3, #0
+ 80002ee:	b2db      	uxtb	r3, r3
+ 80002f0:	717b      	strb	r3, [r7, #5]
 	  }
 
-	  ledMatrixBuffer_Write(row, col, 1);
- 80002f0:	79b9      	ldrb	r1, [r7, #6]
- 80002f2:	79fb      	ldrb	r3, [r7, #7]
- 80002f4:	2201      	movs	r2, #1
- 80002f6:	4618      	mov	r0, r3
- 80002f8:	f7ff ff4e 	bl	8000198 <ledMatrixBuffer_Write>
+	  ledMatrixBuffer_Write(row, col, ledState);
+ 80002f2:	797a      	ldrb	r2, [r7, #5]
+ 80002f4:	79b9      	ldrb	r1, [r7, #6]
+ 80002f6:	79fb      	ldrb	r3, [r7, #7]
+ 80002f8:	4618      	mov	r0, r3
+ 80002fa:	f7ff ff3f 	bl	800017c <ledMatrixBuffer_Write>
 
-	  while (delayCount < 10) {
- 80002fc:	e004      	b.n	8000308 <main+0x5c>
+	  while (delayCount < DELAY_MAX_COUNT) {
+ 80002fe:	e004      	b.n	800030a <main+0x6e>
 		  ledMatrixDriver_Drive();
- 80002fe:	f7ff ff73 	bl	80001e8 <ledMatrixDriver_Drive>
+ 8000300:	f7ff ff96 	bl	8000230 <ledMatrixDriver_Drive>
 		  delayCount++;
- 8000302:	683b      	ldr	r3, [r7, #0]
- 8000304:	3301      	adds	r3, #1
- 8000306:	603b      	str	r3, [r7, #0]
-	  while (delayCount < 10) {
- 8000308:	683b      	ldr	r3, [r7, #0]
- 800030a:	2b09      	cmp	r3, #9
- 800030c:	ddf7      	ble.n	80002fe <main+0x52>
+ 8000304:	683b      	ldr	r3, [r7, #0]
+ 8000306:	3301      	adds	r3, #1
+ 8000308:	603b      	str	r3, [r7, #0]
+	  while (delayCount < DELAY_MAX_COUNT) {
+ 800030a:	683b      	ldr	r3, [r7, #0]
+ 800030c:	2b01      	cmp	r3, #1
+ 800030e:	ddf7      	ble.n	8000300 <main+0x64>
 	  }
 
 	  col++;
- 800030e:	79bb      	ldrb	r3, [r7, #6]
- 8000310:	3301      	adds	r3, #1
- 8000312:	71bb      	strb	r3, [r7, #6]
+ 8000310:	79bb      	ldrb	r3, [r7, #6]
+ 8000312:	3301      	adds	r3, #1
+ 8000314:	71bb      	strb	r3, [r7, #6]
 	  delayCount = 0;
- 8000314:	e7dd      	b.n	80002d2 <main+0x26>
+ 8000316:	e7d6      	b.n	80002c6 <main+0x2a>
 
-08000316 <SystemClock_Config>:
+08000318 <SystemClock_Config>:
 /**
   * @brief System Clock Configuration
   * @retval None
   */
 void SystemClock_Config(void)
 {
- 8000316:	b580      	push	{r7, lr}
- 8000318:	b090      	sub	sp, #64	; 0x40
- 800031a:	af00      	add	r7, sp, #0
+ 8000318:	b580      	push	{r7, lr}
+ 800031a:	b090      	sub	sp, #64	; 0x40
+ 800031c:	af00      	add	r7, sp, #0
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
- 800031c:	f107 0318 	add.w	r3, r7, #24
- 8000320:	2228      	movs	r2, #40	; 0x28
- 8000322:	2100      	movs	r1, #0
- 8000324:	4618      	mov	r0, r3
- 8000326:	f001 f809 	bl	800133c <memset>
+ 800031e:	f107 0318 	add.w	r3, r7, #24
+ 8000322:	2228      	movs	r2, #40	; 0x28
+ 8000324:	2100      	movs	r1, #0
+ 8000326:	4618      	mov	r0, r3
+ 8000328:	f001 f808 	bl	800133c <memset>
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
- 800032a:	1d3b      	adds	r3, r7, #4
- 800032c:	2200      	movs	r2, #0
- 800032e:	601a      	str	r2, [r3, #0]
- 8000330:	605a      	str	r2, [r3, #4]
- 8000332:	609a      	str	r2, [r3, #8]
- 8000334:	60da      	str	r2, [r3, #12]
- 8000336:	611a      	str	r2, [r3, #16]
+ 800032c:	1d3b      	adds	r3, r7, #4
+ 800032e:	2200      	movs	r2, #0
+ 8000330:	601a      	str	r2, [r3, #0]
+ 8000332:	605a      	str	r2, [r3, #4]
+ 8000334:	609a      	str	r2, [r3, #8]
+ 8000336:	60da      	str	r2, [r3, #12]
+ 8000338:	611a      	str	r2, [r3, #16]
 
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
- 8000338:	2301      	movs	r3, #1
- 800033a:	61bb      	str	r3, [r7, #24]
+ 800033a:	2301      	movs	r3, #1
+ 800033c:	61bb      	str	r3, [r7, #24]
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
- 800033c:	f44f 3380 	mov.w	r3, #65536	; 0x10000
- 8000340:	61fb      	str	r3, [r7, #28]
+ 800033e:	f44f 3380 	mov.w	r3, #65536	; 0x10000
+ 8000342:	61fb      	str	r3, [r7, #28]
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
- 8000342:	2300      	movs	r3, #0
- 8000344:	637b      	str	r3, [r7, #52]	; 0x34
+ 8000344:	2300      	movs	r3, #0
+ 8000346:	637b      	str	r3, [r7, #52]	; 0x34
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
- 8000346:	f107 0318 	add.w	r3, r7, #24
- 800034a:	4618      	mov	r0, r3
- 800034c:	f000 fbea 	bl	8000b24 <HAL_RCC_OscConfig>
- 8000350:	4603      	mov	r3, r0
- 8000352:	2b00      	cmp	r3, #0
- 8000354:	d001      	beq.n	800035a <SystemClock_Config+0x44>
+ 8000348:	f107 0318 	add.w	r3, r7, #24
+ 800034c:	4618      	mov	r0, r3
+ 800034e:	f000 fbe9 	bl	8000b24 <HAL_RCC_OscConfig>
+ 8000352:	4603      	mov	r3, r0
+ 8000354:	2b00      	cmp	r3, #0
+ 8000356:	d001      	beq.n	800035c <SystemClock_Config+0x44>
   {
     Error_Handler();
- 8000356:	f000 f85d 	bl	8000414 <Error_Handler>
+ 8000358:	f000 f85c 	bl	8000414 <Error_Handler>
   }
   /** Initializes the CPU, AHB and APB buses clocks
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
- 800035a:	230f      	movs	r3, #15
- 800035c:	607b      	str	r3, [r7, #4]
+ 800035c:	230f      	movs	r3, #15
+ 800035e:	607b      	str	r3, [r7, #4]
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSE;
- 800035e:	2301      	movs	r3, #1
- 8000360:	60bb      	str	r3, [r7, #8]
+ 8000360:	2301      	movs	r3, #1
+ 8000362:	60bb      	str	r3, [r7, #8]
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
- 8000362:	2300      	movs	r3, #0
- 8000364:	60fb      	str	r3, [r7, #12]
+ 8000364:	2300      	movs	r3, #0
+ 8000366:	60fb      	str	r3, [r7, #12]
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
- 8000366:	2300      	movs	r3, #0
- 8000368:	613b      	str	r3, [r7, #16]
+ 8000368:	2300      	movs	r3, #0
+ 800036a:	613b      	str	r3, [r7, #16]
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
- 800036a:	2300      	movs	r3, #0
- 800036c:	617b      	str	r3, [r7, #20]
+ 800036c:	2300      	movs	r3, #0
+ 800036e:	617b      	str	r3, [r7, #20]
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
- 800036e:	1d3b      	adds	r3, r7, #4
- 8000370:	2100      	movs	r1, #0
- 8000372:	4618      	mov	r0, r3
- 8000374:	f000 fe56 	bl	8001024 <HAL_RCC_ClockConfig>
- 8000378:	4603      	mov	r3, r0
- 800037a:	2b00      	cmp	r3, #0
- 800037c:	d001      	beq.n	8000382 <SystemClock_Config+0x6c>
+ 8000370:	1d3b      	adds	r3, r7, #4
+ 8000372:	2100      	movs	r1, #0
+ 8000374:	4618      	mov	r0, r3
+ 8000376:	f000 fe55 	bl	8001024 <HAL_RCC_ClockConfig>
+ 800037a:	4603      	mov	r3, r0
+ 800037c:	2b00      	cmp	r3, #0
+ 800037e:	d001      	beq.n	8000384 <SystemClock_Config+0x6c>
   {
     Error_Handler();
- 800037e:	f000 f849 	bl	8000414 <Error_Handler>
+ 8000380:	f000 f848 	bl	8000414 <Error_Handler>
   }
 }
- 8000382:	bf00      	nop
- 8000384:	3740      	adds	r7, #64	; 0x40
- 8000386:	46bd      	mov	sp, r7
- 8000388:	bd80      	pop	{r7, pc}
-	...
+ 8000384:	bf00      	nop
+ 8000386:	3740      	adds	r7, #64	; 0x40
+ 8000388:	46bd      	mov	sp, r7
+ 800038a:	bd80      	pop	{r7, pc}
 
 0800038c <MX_GPIO_Init>:
   * @brief GPIO Initialization Function
@@ -913,19 +912,19 @@ LoopFillZerobss:
  800050a:	f000 fef3 	bl	80012f4 <__libc_init_array>
 /* Call the application's entry point.*/
   bl main
- 800050e:	f7ff fecd 	bl	80002ac <main>
+ 800050e:	f7ff fec5 	bl	800029c <main>
   bx lr
  8000512:	4770      	bx	lr
   ldr r0, =_sdata
  8000514:	20000000 	.word	0x20000000
   ldr r1, =_edata
- 8000518:	20000034 	.word	0x20000034
+ 8000518:	20000024 	.word	0x20000024
   ldr r2, =_sidata
  800051c:	0800138c 	.word	0x0800138c
   ldr r2, =_sbss
- 8000520:	20000034 	.word	0x20000034
+ 8000520:	20000024 	.word	0x20000024
   ldr r4, =_ebss
- 8000524:	20000094 	.word	0x20000094
+ 8000524:	2000004c 	.word	0x2000004c
 
 08000528 <ADC1_2_IRQHandler>:
  * @retval : None
@@ -1045,9 +1044,9 @@ __weak HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority)
  80005a6:	3708      	adds	r7, #8
  80005a8:	46bd      	mov	sp, r7
  80005aa:	bd80      	pop	{r7, pc}
- 80005ac:	20000028 	.word	0x20000028
- 80005b0:	20000030 	.word	0x20000030
- 80005b4:	2000002c 	.word	0x2000002c
+ 80005ac:	20000018 	.word	0x20000018
+ 80005b0:	20000020 	.word	0x20000020
+ 80005b4:	2000001c 	.word	0x2000001c
 
 080005b8 <HAL_IncTick>:
   * @note This function is declared as __weak to be overwritten in case of other
@@ -1072,8 +1071,8 @@ __weak void HAL_IncTick(void)
  80005ce:	46bd      	mov	sp, r7
  80005d0:	bc80      	pop	{r7}
  80005d2:	4770      	bx	lr
- 80005d4:	20000030 	.word	0x20000030
- 80005d8:	20000090 	.word	0x20000090
+ 80005d4:	20000020 	.word	0x20000020
+ 80005d8:	20000048 	.word	0x20000048
 
 080005dc <HAL_GetTick>:
   * @note  This function is declared as __weak to be overwritten in case of other
@@ -1092,7 +1091,7 @@ __weak uint32_t HAL_GetTick(void)
  80005e6:	46bd      	mov	sp, r7
  80005e8:	bc80      	pop	{r7}
  80005ea:	4770      	bx	lr
- 80005ec:	20000090 	.word	0x20000090
+ 80005ec:	20000048 	.word	0x20000048
 
 080005f0 <HAL_Delay>:
   *       implementations in user file.
@@ -1145,7 +1144,7 @@ __weak void HAL_Delay(uint32_t Delay)
  800062e:	46bd      	mov	sp, r7
  8000630:	bd80      	pop	{r7, pc}
  8000632:	bf00      	nop
- 8000634:	20000030 	.word	0x20000030
+ 8000634:	20000020 	.word	0x20000020
 
 08000638 <__NVIC_SetPriorityGrouping>:
            In case of a conflict between priority grouping and available
@@ -3218,8 +3217,8 @@ if (((RCC_ClkInitStruct->ClockType) & RCC_CLOCKTYPE_PCLK1) == RCC_CLOCKTYPE_PCLK
  80011e4:	40022000 	.word	0x40022000
  80011e8:	40021000 	.word	0x40021000
  80011ec:	08001374 	.word	0x08001374
- 80011f0:	20000028 	.word	0x20000028
- 80011f4:	2000002c 	.word	0x2000002c
+ 80011f0:	20000018 	.word	0x20000018
+ 80011f4:	2000001c 	.word	0x2000001c
 
 080011f8 <HAL_RCC_GetSysClockFreq>:
   *         right SYSCLK value. Otherwise, any configuration based on this function will be incorrect.
@@ -3408,7 +3407,7 @@ static void RCC_Delay(uint32_t mdelay)
  80012e6:	46bd      	mov	sp, r7
  80012e8:	bc80      	pop	{r7}
  80012ea:	4770      	bx	lr
- 80012ec:	20000028 	.word	0x20000028
+ 80012ec:	20000018 	.word	0x20000018
  80012f0:	10624dd3 	.word	0x10624dd3
 
 080012f4 <__libc_init_array>:

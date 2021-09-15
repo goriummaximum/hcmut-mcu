@@ -17,7 +17,7 @@
 #include "led_matrix.h"
 
 //store the state of led matrix
-static uint8_t ledMatrixBuffer[NUMBER_OF_ROWS][NUMBER_OF_COLS];
+static uint8_t ledMatrixBuffer[NUMBER_OF_ROWS];
 
 static uint16_t ledMatrixRowPins[NUMBER_OF_ROWS] = {
 		PIN_R0,
@@ -53,9 +53,7 @@ static GPIO_PinState ledMatrixColStates[NUMBER_OF_STATES] = {
 
 void ledMatrixBuffer_Reset(void) {
 	for (uint8_t row = 1; row < NUMBER_OF_ROWS; row++) {
-		for (uint8_t col = 0; col < NUMBER_OF_COLS; col++) {
-			ledMatrixBuffer[row][col] = 0x00;
-		}
+		ledMatrixBuffer[row] = 0x00;
 	}
 }
 
@@ -72,24 +70,25 @@ uint8_t ledMatrixBuffer_Write(uint8_t row, uint8_t col, uint8_t stateIdx) {
 		return 0;
 	}
 
-	ledMatrixBuffer[row][col] = stateIdx;
+	ledMatrixBuffer[row] &= ~(0x01 << col);
+	ledMatrixBuffer[row] |= (stateIdx << col);
 	return 1;
+}
+
+void ledMatrixDriver_Reset(void) {
+	  HAL_GPIO_WritePin(GPIO_PORT, PIN_R0|PIN_R1|PIN_R2|PIN_R3
+	                          |PIN_R4|PIN_R5|PIN_R6|PIN_R7,ledMatrixRowStates[0]);
+
+	  HAL_GPIO_WritePin(GPIO_PORT, PIN_C0|PIN_C1|PIN_C2|PIN_C3
+              	  	  	  	  |PIN_C4|PIN_C5|PIN_C6|PIN_C7, ledMatrixColStates[0]);
 }
 
 void ledMatrixDriver_Drive(void) {
 	for (uint8_t row = 0; row < NUMBER_OF_ROWS; row++) {
-		//select row pin
+		ledMatrixDriver_Reset();
+
 		HAL_GPIO_WritePin(GPIO_PORT, ledMatrixRowPins[row], ledMatrixRowStates[1]); //on row
-		for (uint8_t col = 0; col < NUMBER_OF_COLS; col++) {
-			//select col pin
-			HAL_GPIO_WritePin(GPIO_PORT, ledMatrixColPins[col], ledMatrixColStates[ledMatrixBuffer[row][col]]); //on col
-		}
-
-		HAL_Delay(5);
-
-		for (uint8_t col = 0; col < NUMBER_OF_COLS; col++) {
-			HAL_GPIO_WritePin(GPIO_PORT, ledMatrixColPins[col], ledMatrixColStates[0]); //off col
-		}
-		HAL_GPIO_WritePin(GPIO_PORT, ledMatrixRowPins[row], ledMatrixRowStates[0]); //off row
+		HAL_GPIO_WritePin(GPIO_PORT, ledMatrixBuffer[row] << 0x08, ledMatrixColStates[1]); //on col
+		HAL_Delay(DRIVER_DELAY_INTERVAL_MS);
 	}
 }

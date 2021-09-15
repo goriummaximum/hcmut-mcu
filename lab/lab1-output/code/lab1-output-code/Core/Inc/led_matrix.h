@@ -40,14 +40,21 @@
 
 #define NUMBER_OF_STATES	2
 
+#define DRIVER_DELAY_INTERVAL_MS	5
+
 //initialize buffer
 void ledMatrixBuffer_Reset(void);
 
 //buffer write a state (0 or 1) to a certain (row, col) of 2d array matrix
 uint8_t ledMatrixBuffer_Write(uint8_t row, uint8_t col, uint8_t stateIdx);
 
-//driver drive the 2d array matrix buffer to led matrix 1 time
-void ledMatrixDriver_Drive(void);
+//driver reset all pin
+void ledMatrixDriver_Reset(void);
+
+//driver drive the 2d array matrix buffer to led matrix 1 time,
+//note: it take 40ms to finish 1 display
+//(due to delaying for a small time to create the illusion)
+void ledMatrixDriver_Drive();
 
 //specific functions
 

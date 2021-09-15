@@ -32,6 +32,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define DELAY_MAX_COUNT		2
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -88,9 +89,13 @@ int main(void)
   /* USER CODE BEGIN 2 */
   uint8_t row = 0;
   uint8_t col = 0;
+  uint8_t ledState = 1;
   int delayCount = 0;
+
+
   ledMatrixBuffer_Reset();
-  ledMatrixDriver_Drive();
+  ledMatrixDriver_Reset();
+
   //ledMatrixDriver_Drive();
   /* USER CODE END 2 */
 
@@ -106,16 +111,18 @@ int main(void)
 
 	  if (row == NUMBER_OF_ROWS) {
 		  row = 0;
+		  ledState = !ledState;
 	  }
 
-	  ledMatrixBuffer_Write(row, col, 1);
+	  ledMatrixBuffer_Write(row, col, ledState);
 
-	  while (delayCount < 10) {
+	  while (delayCount < DELAY_MAX_COUNT) {
 		  ledMatrixDriver_Drive();
 		  delayCount++;
 	  }
 
 	  col++;
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
