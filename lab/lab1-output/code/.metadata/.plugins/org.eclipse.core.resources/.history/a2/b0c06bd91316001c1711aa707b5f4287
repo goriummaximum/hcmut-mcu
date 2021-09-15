@@ -114,9 +114,7 @@ int main(void)
 		  ledState = !ledState;
 	  }
 
-	  if (!ledMatrixBuffer_Write(row, col, ledState)) {
-		  break;
-	  }
+	  ledMatrixBuffer_Write(row, col, ledState);
 
 	  while (delayCount < DELAY_MAX_COUNT) {
 		  ledMatrixDriver_Drive();
