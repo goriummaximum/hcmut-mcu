@@ -32,7 +32,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define DELAY_MAX_COUNT		5
+#define DELAY_MAX_COUNT		20
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/

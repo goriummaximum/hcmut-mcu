@@ -42,8 +42,6 @@
 
 #define DRIVER_DELAY_INTERVAL_MS	5
 
-#define NUMBER_OF_CLOCK_VALUES		12
-
 //initialize buffer
 void ledMatrixBuffer_Reset(void);
 

@@ -32,7 +32,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define DELAY_MAX_COUNT		5
+#define DELAY_MAX_COUNT		20
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -96,18 +96,18 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  //turn on each led clockwise sequentially
+	  delayCount = 0;
+
+	  //drive the led matrix with a certain delay
 	  for (int num = 0; num < NUMBER_OF_CLOCK_VALUES; num++) {
-		  delayCount = 0;
 		  if (!setNumberOnClock(num)) {
 			  break;
 		  }
+	  }
 
-		  //drive the led matrix with a certain delay
-		  while (delayCount < DELAY_MAX_COUNT) {
-			  ledMatrixDriver_Drive();
-			  delayCount++;
-		  }
+	  while (delayCount < DELAY_MAX_COUNT) {
+		  ledMatrixDriver_Drive();
+		  delayCount++;
 	  }
 
     /* USER CODE END WHILE */

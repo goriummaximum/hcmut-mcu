@@ -1,5 +1,6 @@
-led_matrix.c:54:6:ledMatrixBuffer_Reset	16	static
-led_matrix.c:60:9:ledMatrixBuffer_Write	16	static
-led_matrix.c:78:6:ledMatrixDriver_Reset	8	static
-led_matrix.c:86:6:ledMatrixDriver_Drive	16	static
-led_matrix.c:96:6:clearAllClock	8	static
+led_matrix.c:59:6:ledMatrixBuffer_Reset	16	static
+led_matrix.c:65:9:ledMatrixBuffer_Write	16	static
+led_matrix.c:83:6:ledMatrixDriver_Reset	8	static
+led_matrix.c:91:6:ledMatrixDriver_Drive	16	static
+led_matrix.c:101:6:clearAllClock	8	static
+led_matrix.c:106:9:setNumberOnClock	24	static
