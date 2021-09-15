@@ -96,8 +96,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  delayCount = 0;
-	  //write to buffer tu turn on all leds
 	  for (uint8_t row = 0; row < NUMBER_OF_ROWS; row++) {
 		  for (uint8_t col = 0; col < NUMBER_OF_COLS; col++) {
 			  if (!ledMatrixBuffer_Write(row, col, 1)) {
@@ -105,14 +103,11 @@ int main(void)
 		  	  }
 		  }
 	  }
-
-	  //drive the led matrix with a certain delay
 	  while (delayCount < DELAY_MAX_COUNT) {
 		  ledMatrixDriver_Drive();
 		  delayCount++;
 	  }
 
-	  //clear all clock
 	  clearAllClock();
 	  HAL_Delay(500);
 

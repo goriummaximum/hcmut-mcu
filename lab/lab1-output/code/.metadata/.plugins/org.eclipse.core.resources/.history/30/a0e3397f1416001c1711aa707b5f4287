@@ -92,8 +92,3 @@ void ledMatrixDriver_Drive(void) {
 		HAL_Delay(DRIVER_DELAY_INTERVAL_MS);
 	}
 }
-
-void clearAllClock(void) {
-	ledMatrixBuffer_Reset();
-	ledMatrixDriver_Reset();
-}

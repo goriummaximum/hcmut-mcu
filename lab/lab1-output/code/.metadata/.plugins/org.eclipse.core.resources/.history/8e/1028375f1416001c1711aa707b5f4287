@@ -54,9 +54,9 @@ void ledMatrixDriver_Reset(void);
 //driver drive the 2d array matrix buffer to led matrix 1 time,
 //note: it take 40ms to finish 1 display
 //(due to delaying for a small time to create the illusion)
-void ledMatrixDriver_Drive(void);
+void ledMatrixDriver_Drive();
 
 //specific functions
-void clearAllClock(void);
+
 
 #endif /* __LED_MATRIX_H */
