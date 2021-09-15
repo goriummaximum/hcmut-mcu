@@ -1,0 +1,3 @@
+led_matrix.c:54:6:ledMatrixBuffer_Reset	16	static
+led_matrix.c:62:9:ledMatrixBuffer_Write	16	static
+led_matrix.c:79:6:ledMatrixDriver_Drive	16	static

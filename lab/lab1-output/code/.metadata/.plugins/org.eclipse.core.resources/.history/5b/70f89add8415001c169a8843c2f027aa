@@ -1,0 +1,28 @@
+/**
+  ******************************************************************************
+  * @file           : led_matrix.h
+  * @brief          : Header for led_matrix.c file.
+  *                   This file contains the buffer-driver define for controlling
+  *                    a 8x8 led matrix.
+  *
+  *                   Created on:	Sep 12th, 2021
+  *                   Author:		Thien Long
+  ******************************************************************************
+  * @attention
+  *
+  ******************************************************************************
+  */
+
+#ifndef __LED_MATRIX_H
+#define __LED_MATRIX_H
+
+//buffer
+uint8_t ledArrayBuffer_Write(uint8_t value);
+
+//driver
+void ledArrayDriver_Drive(void);
+
+//specific functions
+
+
+#endif /* __LED_MATRIX_H */
