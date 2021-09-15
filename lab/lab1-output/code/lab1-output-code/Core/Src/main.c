@@ -87,7 +87,6 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  int delayCount = 0;
   clearAllClock();
   //ledMatrixDriver_Drive();
   /* USER CODE END 2 */
@@ -96,33 +95,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  //turn on each led clockwise sequentially
-	  for (int num = 0; num < NUMBER_OF_CLOCK_VALUES; num++) {
-		  delayCount = 0;
-		  if (!setNumberOnClock(num)) {
-			  break;
-		  }
-
-		  //drive the led matrix with a certain delay
-		  while (delayCount < DELAY_MAX_COUNT) {
-			  ledMatrixDriver_Drive();
-			  delayCount++;
-		  }
-	  }
-
-	  //turn off each led clockwise sequentially
-	  for (int num = 0; num < NUMBER_OF_CLOCK_VALUES; num++) {
-		  delayCount = 0;
-		  if (!clearNumberOnClock(num)) {
-			  break;
-		  }
-
-		  //drive the led matrix with a certain delay
-		  while (delayCount < DELAY_MAX_COUNT) {
-			  ledMatrixDriver_Drive();
-			  delayCount++;
-		  }
-	  }
+	  runClock();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

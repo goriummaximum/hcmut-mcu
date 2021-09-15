@@ -43,6 +43,7 @@
 #define DRIVER_DELAY_INTERVAL_MS	5
 
 #define NUMBER_OF_CLOCK_VALUES		12
+#define DELAY_SEC_CLOCK_COUNT		5
 
 //initialize buffer
 void ledMatrixBuffer_Reset(void);
@@ -69,5 +70,9 @@ uint8_t setNumberOnClock(int num);
 //turn off the led of the clock according to num.
 //note: write to buffer
 uint8_t clearNumberOnClock(int num);
+
+//run the clock with sec, min, hour
+//note: write to buffer
+void runClock(void);
 
 #endif /* __LED_MATRIX_H */

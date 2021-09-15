@@ -132,3 +132,38 @@ uint8_t clearNumberOnClock(int num) {
 
 	return 1;
 }
+
+void runClock(void) {
+	for (uint8_t hour = 0; hour < NUMBER_OF_CLOCK_VALUES; hour++) {
+		if (!setNumberOnClock(hour)) {
+			return;
+		}
+
+		for (uint8_t min = 0; min < NUMBER_OF_CLOCK_VALUES; min++) {
+			if (!setNumberOnClock(min)) {
+				return;
+			}
+
+			for (uint8_t sec = 0; sec < NUMBER_OF_CLOCK_VALUES; sec++) {
+				if (!setNumberOnClock(sec)) {
+					return;
+				}
+
+				for (uint8_t delayCount = 0; delayCount < DELAY_SEC_CLOCK_COUNT; delayCount++) {
+					ledMatrixDriver_Drive();
+				}
+
+				if (!clearNumberOnClock(sec)) {
+					return;
+				}
+			}
+			if (!clearNumberOnClock(min)) {
+				return;
+			}
+		}
+		if (!clearNumberOnClock(hour)) {
+			return;
+		}
+	}
+}
+

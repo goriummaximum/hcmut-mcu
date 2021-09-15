@@ -5,3 +5,4 @@ led_matrix.c:91:6:ledMatrixDriver_Drive	16	static
 led_matrix.c:101:6:clearAllClock	8	static
 led_matrix.c:106:9:setNumberOnClock	24	static
 led_matrix.c:121:9:clearNumberOnClock	24	static
+led_matrix.c:136:6:runClock	16	static
