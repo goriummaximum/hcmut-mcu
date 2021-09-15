@@ -62,12 +62,8 @@ void ledMatrixDriver_Drive(void);
 //clear buffer and turn off all the leds
 void clearAllClock(void);
 
-//turn on the led of the clock according to num.
-//note: write to buffer
+//turn on the led of the clock according to num
 uint8_t setNumberOnClock(int num);
 
-//turn off the led of the clock according to num.
-//note: write to buffer
-uint8_t clearNumberOnClock(int num);
 
 #endif /* __LED_MATRIX_H */

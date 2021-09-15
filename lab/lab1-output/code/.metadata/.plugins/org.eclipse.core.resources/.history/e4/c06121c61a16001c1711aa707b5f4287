@@ -126,7 +126,7 @@ uint8_t clearNumberOnClock(int num) {
 	uint8_t row = ledMatrixBufferClockConversion[num][0];
 	uint8_t col = ledMatrixBufferClockConversion[num][1];
 
-	if (!ledMatrixBuffer_Write(row, col, 0)) {
+	if (!ledMatrixBuffer_Write(row, col, 1)) {
 		return 0;
 	}
 

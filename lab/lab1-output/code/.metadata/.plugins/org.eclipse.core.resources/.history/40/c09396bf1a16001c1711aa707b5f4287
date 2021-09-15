@@ -117,18 +117,3 @@ uint8_t setNumberOnClock(int num) {
 
 	return 1;
 }
-
-uint8_t clearNumberOnClock(int num) {
-	if (num < 0 || num >= NUMBER_OF_CLOCK_VALUES) {
-		return 0;
-	}
-
-	uint8_t row = ledMatrixBufferClockConversion[num][0];
-	uint8_t col = ledMatrixBufferClockConversion[num][1];
-
-	if (!ledMatrixBuffer_Write(row, col, 0)) {
-		return 0;
-	}
-
-	return 1;
-}

@@ -113,7 +113,7 @@ int main(void)
 	  //turn off each led clockwise sequentially
 	  for (int num = 0; num < NUMBER_OF_CLOCK_VALUES; num++) {
 		  delayCount = 0;
-		  if (!clearNumberOnClock(num)) {
+		  if (!setNumberOnClock(num)) {
 			  break;
 		  }
 

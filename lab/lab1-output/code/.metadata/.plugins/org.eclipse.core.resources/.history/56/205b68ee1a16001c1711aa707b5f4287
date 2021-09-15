@@ -110,19 +110,6 @@ int main(void)
 		  }
 	  }
 
-	  //turn off each led clockwise sequentially
-	  for (int num = 0; num < NUMBER_OF_CLOCK_VALUES; num++) {
-		  delayCount = 0;
-		  if (!clearNumberOnClock(num)) {
-			  break;
-		  }
-
-		  //drive the led matrix with a certain delay
-		  while (delayCount < DELAY_MAX_COUNT) {
-			  ledMatrixDriver_Drive();
-			  delayCount++;
-		  }
-	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
