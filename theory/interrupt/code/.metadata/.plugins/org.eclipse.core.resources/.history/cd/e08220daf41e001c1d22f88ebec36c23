@@ -40,6 +40,8 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+TIM_HandleTypeDef htim2;
+TIM_HandleTypeDef htim3;
 
 /* USER CODE BEGIN PV */
 
@@ -98,7 +100,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  //sqrWaveGeneratorDriver_drive();
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

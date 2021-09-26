@@ -22,7 +22,4 @@ void sqrWaveGenerator_setup(void);
 //driver to generate the square wave
 void sqrWaveGeneratorDriver_drive(void);
 
-//callback function
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
-
 #endif

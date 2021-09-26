@@ -23,6 +23,6 @@ void sqrWaveGenerator_setup(void);
 void sqrWaveGeneratorDriver_drive(void);
 
 //callback function
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
+
 
 #endif
