@@ -27,7 +27,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 		pin1Counter++;
 		if (pin1Counter == 10) {
 			HAL_GPIO_TogglePin(GPIO_PORT, OUTPUT_PIN_1);
-			pin1Counter = 0;
 		}
 	}
 }

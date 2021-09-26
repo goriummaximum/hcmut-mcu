@@ -1,3 +1,3 @@
-sqr_wave_generator.c:12:6:sqrWaveGenerator_setup	8	static
-sqr_wave_generator.c:18:6:sqrWaveGeneratorDriver_drive	4	static
-sqr_wave_generator.c:22:6:HAL_TIM_PeriodElapsedCallback	16	static
+sqr_wave_generator.c:14:6:sqrWaveGenerator_setup	8	static
+sqr_wave_generator.c:19:6:sqrWaveGeneratorDriver_drive	4	static
+sqr_wave_generator.c:23:6:HAL_TIM_PeriodElapsedCallback	16	static

@@ -2016,3 +2016,73 @@
 2021-09-27 01:08:40,477 [INFO] ProjectBuilder:3789 - Time for Generating toolchain IDE Files: 1864mS.
 2021-09-27 01:08:40,477 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
 2021-09-27 01:08:40,477 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2021-09-27 01:26:48,111 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 396523520 Bytes (814743552)
+2021-09-27 01:26:48,976 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 416446464 Bytes (814743552)
+2021-09-27 01:26:50,032 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 458915840 Bytes (814743552)
+2021-09-27 01:26:50,280 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2021-09-27 01:26:50,280 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2021-09-27 01:26:50,280 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2021-09-27 01:26:50,280 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2021-09-27 01:26:50,295 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8F1
+2021-09-27 01:26:50,295 [INFO] CodeGenerator:663 - code generatio: config db path: C:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\
+2021-09-27 01:26:50,530 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\MXTmpFiles\license.tmp_save
+2021-09-27 01:26:50,580 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\MXTmpFiles\license.tmp
+2021-09-27 01:26:50,595 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\MXTmpFiles\gpio.tmp_save
+2021-09-27 01:26:50,649 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\MXTmpFiles\gpio.tmp
+2021-09-27 01:26:50,727 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Src\stm32f1xx_it.c_save
+2021-09-27 01:26:50,811 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Src\stm32f1xx_it.c
+2021-09-27 01:26:50,811 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Inc\stm32f1xx_it.h_save
+2021-09-27 01:26:50,880 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Inc\stm32f1xx_it.h
+2021-09-27 01:26:50,896 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Src\stm32f1xx_hal_msp.c_save
+2021-09-27 01:26:50,981 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Src\stm32f1xx_hal_msp.c
+2021-09-27 01:26:50,981 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\MXTmpFiles\system.tmp_save
+2021-09-27 01:26:51,028 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\MXTmpFiles\system.tmp
+2021-09-27 01:26:51,050 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Inc\stm32f1xx_hal_conf.h_save
+2021-09-27 01:26:51,112 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Inc\stm32f1xx_hal_conf.h
+2021-09-27 01:26:51,143 [WARN] IPConfigManager:3148 - IP not found : TIM
+2021-09-27 01:26:51,150 [WARN] CodeGenerator:3268 - IP not found : null
+2021-09-27 01:26:51,150 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Inc\main.h_save
+2021-09-27 01:26:51,313 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Inc\main.h
+2021-09-27 01:26:51,328 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Src\main.c_save
+2021-09-27 01:26:51,429 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Src\main.c
+2021-09-27 01:26:52,127 [INFO] ProjectBuilder:2578 - Time for Copy HAL[1] : 121mS.
+2021-09-27 01:26:52,127 [INFO] ProjectBuilder:3622 - Project Generator version: 3.14.1
+2021-09-27 01:26:52,585 [INFO] ConfigFileManager:1271 - The Die is : DIE412
+2021-09-27 01:26:54,044 [INFO] ProjectBuilder:3789 - Time for Generating toolchain IDE Files: 1917mS.
+2021-09-27 01:26:54,044 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2021-09-27 01:26:54,044 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2021-09-27 01:35:34,824 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 536312840 Bytes (845152256)
+2021-09-27 01:35:36,044 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 559467056 Bytes (845152256)
+2021-09-27 01:35:37,063 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 603336608 Bytes (845152256)
+2021-09-27 01:35:37,402 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2021-09-27 01:35:37,402 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2021-09-27 01:35:37,402 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2021-09-27 01:35:37,402 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2021-09-27 01:35:37,402 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8F1
+2021-09-27 01:35:37,402 [INFO] CodeGenerator:663 - code generatio: config db path: C:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\
+2021-09-27 01:35:37,649 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\MXTmpFiles\license.tmp_save
+2021-09-27 01:35:37,702 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\MXTmpFiles\license.tmp
+2021-09-27 01:35:37,718 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\MXTmpFiles\gpio.tmp_save
+2021-09-27 01:35:37,765 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\MXTmpFiles\gpio.tmp
+2021-09-27 01:35:37,850 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Src\stm32f1xx_it.c_save
+2021-09-27 01:35:38,003 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Src\stm32f1xx_it.c
+2021-09-27 01:35:38,003 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Inc\stm32f1xx_it.h_save
+2021-09-27 01:35:38,066 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Inc\stm32f1xx_it.h
+2021-09-27 01:35:38,081 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Src\stm32f1xx_hal_msp.c_save
+2021-09-27 01:35:38,150 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Src\stm32f1xx_hal_msp.c
+2021-09-27 01:35:38,166 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\MXTmpFiles\system.tmp_save
+2021-09-27 01:35:38,219 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\MXTmpFiles\system.tmp
+2021-09-27 01:35:38,235 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Inc\stm32f1xx_hal_conf.h_save
+2021-09-27 01:35:38,304 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Inc\stm32f1xx_hal_conf.h
+2021-09-27 01:35:38,335 [WARN] IPConfigManager:3148 - IP not found : TIM
+2021-09-27 01:35:38,335 [WARN] CodeGenerator:3268 - IP not found : null
+2021-09-27 01:35:38,351 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Inc\main.h_save
+2021-09-27 01:35:38,404 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Inc\main.h
+2021-09-27 01:35:38,404 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Src\main.c_save
+2021-09-27 01:35:38,505 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\Core\Src\main.c
+2021-09-27 01:35:39,246 [INFO] ProjectBuilder:2578 - Time for Copy HAL[1] : 122mS.
+2021-09-27 01:35:39,246 [INFO] ProjectBuilder:3622 - Project Generator version: 3.14.1
+2021-09-27 01:35:39,718 [INFO] ConfigFileManager:1271 - The Die is : DIE412
+2021-09-27 01:35:41,195 [INFO] ProjectBuilder:3789 - Time for Generating toolchain IDE Files: 1949mS.
+2021-09-27 01:35:41,195 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2021-09-27 01:35:41,195 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
