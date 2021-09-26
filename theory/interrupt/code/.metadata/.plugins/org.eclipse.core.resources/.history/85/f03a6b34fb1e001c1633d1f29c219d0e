@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file           : sqr_wave_generator.c
-  * @brief          : square wave generator using HAL_Delay
+  * @brief          : square wave generator using timer3 interrupt
   ******************************************************************************
   *
   ******************************************************************************
@@ -9,9 +9,20 @@
 #include "main.h"
 #include "sqr_wave_generator.h"
 
+static uint8_t counter = 0;
+
+void sqrWaveGenerator_setup(void) {
+	HAL_TIM_Base_Start_IT(&htim3);
+
+}
+
 void sqrWaveGeneratorDriver_drive(void) {
-	while (1) {
-		HAL_Delay(1000);
-		HAL_GPIO_TogglePin(GPIO_PORT, OUTPUT_PIN);
+
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+	if (htim == &htim3) {
+		HAL_GPIO_WritePin(GPIO_PORT, SELECT_ALL_PINS, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIO_PORT, counter++, GPIO_PIN_SET)
 	}
 }

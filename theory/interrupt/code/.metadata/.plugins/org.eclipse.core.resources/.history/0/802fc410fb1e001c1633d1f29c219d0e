@@ -9,8 +9,11 @@
 #ifndef __SQR_WAVE_GENRATOR_H
 #define __SQR_WAVE_GENRATOR_H
 
-#define GPIO_PORT				GPIOA
-#define	SELECT_ALL_PINS			0xff
+#define OUTPUT_PIN_1		GPIO_PIN_1
+#define OUTPUT_PIN_2		GPIO_PIN_7
+#define GPIO_PORT			GPIOA
+
+#define COUNTER_ELAPSED_VAL_PIN_1		10
 
 //setup
 void sqrWaveGenerator_setup(void);

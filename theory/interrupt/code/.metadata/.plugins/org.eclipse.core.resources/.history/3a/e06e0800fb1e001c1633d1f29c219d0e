@@ -9,7 +9,7 @@
 #include "main.h"
 #include "sqr_wave_generator.h"
 
-static uint8_t counter = 0x0;
+static uint16_t counter = 0;
 
 void sqrWaveGenerator_setup(void) {
 	HAL_TIM_Base_Start_IT(&htim3);
@@ -22,11 +22,12 @@ void sqrWaveGeneratorDriver_drive(void) {
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	if (htim == &htim3) {
-		HAL_GPIO_WritePin(GPIO_PORT, SELECT_ALL_PINS, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(GPIO_PORT, counter++, GPIO_PIN_SET);
+		HAL_GPIO_TogglePin(GPIO_PORT, OUTPUT_PIN_2);
 
-		if (counter == 0xff) {
-			counter = 0x0;
+		pin1Counter++;
+		if (pin1Counter == 10) {
+			HAL_GPIO_TogglePin(GPIO_PORT, OUTPUT_PIN_1);
+			pin1Counter = 0;
 		}
 	}
 }

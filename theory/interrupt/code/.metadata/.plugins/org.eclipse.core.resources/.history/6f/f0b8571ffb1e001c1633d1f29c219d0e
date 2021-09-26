@@ -9,7 +9,7 @@
 #ifndef __SQR_WAVE_GENRATOR_H
 #define __SQR_WAVE_GENRATOR_H
 
-#define GPIO_PORT				GPIOA
+#define GPIO_PORT			GPIOA
 #define	SELECT_ALL_PINS			0xff
 
 //setup
