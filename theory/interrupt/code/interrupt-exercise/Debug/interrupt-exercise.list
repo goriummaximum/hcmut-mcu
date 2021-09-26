@@ -249,9 +249,9 @@ static void MX_TIM2_Init(void)
  800020c:	4b19      	ldr	r3, [pc, #100]	; (8000274 <MX_TIM2_Init+0x94>)
  800020e:	2200      	movs	r2, #0
  8000210:	609a      	str	r2, [r3, #8]
-  htim2.Init.Period = 50 - 1;
+  htim2.Init.Period = 50;
  8000212:	4b18      	ldr	r3, [pc, #96]	; (8000274 <MX_TIM2_Init+0x94>)
- 8000214:	2231      	movs	r2, #49	; 0x31
+ 8000214:	2232      	movs	r2, #50	; 0x32
  8000216:	60da      	str	r2, [r3, #12]
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
  8000218:	4b16      	ldr	r3, [pc, #88]	; (8000274 <MX_TIM2_Init+0x94>)
@@ -358,9 +358,9 @@ static void MX_TIM3_Init(void)
  80002a2:	4b1a      	ldr	r3, [pc, #104]	; (800030c <MX_TIM3_Init+0x94>)
  80002a4:	2200      	movs	r2, #0
  80002a6:	609a      	str	r2, [r3, #8]
-  htim3.Init.Period = 5 - 1;
+  htim3.Init.Period = 5;
  80002a8:	4b18      	ldr	r3, [pc, #96]	; (800030c <MX_TIM3_Init+0x94>)
- 80002aa:	2204      	movs	r2, #4
+ 80002aa:	2205      	movs	r2, #5
  80002ac:	60da      	str	r2, [r3, #12]
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
  80002ae:	4b17      	ldr	r3, [pc, #92]	; (800030c <MX_TIM3_Init+0x94>)
