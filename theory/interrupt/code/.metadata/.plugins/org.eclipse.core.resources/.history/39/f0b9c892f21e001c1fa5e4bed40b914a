@@ -13,8 +13,8 @@
 #define OUTPUT_PIN_2		GPIO_PIN_7
 #define GPIO_PORT			GPIOA
 
-#define COUNTER_ELAPSED_VAL_PIN_1		50 - 1
-#define COUNTER_ELAPSED_VAL_PIN_2		5 - 1
+#define OUT_FREQUENCY			1000 //Hz
+#define COUNTER_ELAPSED_VAL		500 - 1
 
 //setup
 void sqrWaveGenerator_setup(void);

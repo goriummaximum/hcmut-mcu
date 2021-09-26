@@ -1,10 +1,24 @@
-00:42:56 **** Incremental Build of configuration Debug for project interrupt-exercise ****
+01:02:19 **** Incremental Build of configuration Debug for project interrupt-exercise ****
 make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/sqr_wave_generator.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/sqr_wave_generator.d" -MT"Core/Src/sqr_wave_generator.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/sqr_wave_generator.o"
+arm-none-eabi-gcc -o "interrupt-exercise.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\theory\interrupt\code\interrupt-exercise\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="interrupt-exercise.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: interrupt-exercise.elf
+ 
 arm-none-eabi-size   interrupt-exercise.elf 
+arm-none-eabi-objdump -h -S  interrupt-exercise.elf  > "interrupt-exercise.list"
+arm-none-eabi-objcopy  -O ihex  interrupt-exercise.elf  "interrupt-exercise.hex"
+arm-none-eabi-objcopy  -O binary  interrupt-exercise.elf  "interrupt-exercise.bin"
    text	   data	    bss	    dec	    hex	filename
-   6184	     20	   1644	   7848	   1ea8	interrupt-exercise.elf
+   6240	     20	   1644	   7904	   1ee0	interrupt-exercise.elf
 Finished building: default.size.stdout
  
+Finished building: interrupt-exercise.hex
+Finished building: interrupt-exercise.bin
+ 
+ 
+Finished building: interrupt-exercise.list
+ 
 
-00:42:56 Build Finished. 0 errors, 0 warnings. (took 314ms)
+01:02:19 Build Finished. 0 errors, 0 warnings. (took 900ms)
 

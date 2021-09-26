@@ -15,7 +15,7 @@ static uint16_t timerCounter2 = 0;
 void sqrWaveGenerator_setup(void) {
 	HAL_TIM_Base_Start(&htim3);
 	timerCounter1 = __HAL_TIM_GET_COUNTER(&htim3);
-	timerCounter2 = __HAL_TIM_GET_COUNTER(&htim3);
+	timerCounter2 = timerCounter1;
 }
 
 void sqrWaveGeneratorDriver_drive(void) {
