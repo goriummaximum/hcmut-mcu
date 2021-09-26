@@ -1,1 +1,2 @@
-sqr_wave_generator.c:12:6:sqrWaveGeneratorDriver_drive	8	static
+sqr_wave_generator.c:14:6:sqrWaveGenerator_setup	8	static
+sqr_wave_generator.c:19:6:sqrWaveGeneratorDriver_drive	8	static

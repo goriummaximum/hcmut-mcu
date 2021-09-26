@@ -54,7 +54,7 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-
+TIM_HandleTypeDef htim3;
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/

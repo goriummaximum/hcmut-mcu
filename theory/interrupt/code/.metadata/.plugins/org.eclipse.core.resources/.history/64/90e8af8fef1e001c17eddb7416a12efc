@@ -1,0 +1,26 @@
+/**
+  ******************************************************************************
+  * @file           : sqr_wave_generator.c
+  * @brief          : square wave generator using timer3 interrupt
+  ******************************************************************************
+  *
+  ******************************************************************************
+  */
+#include "main.h"
+#include "sqr_wave_generator.h"
+
+static timerCounter = 0;
+
+void sqrWaveGenerator_setup(void) {
+	timerCounter = __HAL_TIM_GET_COUNTER(&htim3);
+	HAL_TIM_Base_Start(&htim3);
+}
+
+void sqrWaveGeneratorDriver_drive(void) {
+	while (1) {
+		if (__HAL_TIM_GET_COUNTER(&htim3) - timerCounter > COUNTER_LIMIT_VAL) {
+			HAL_GPIO_TogglePin(GPIO_PORT, OUTPUT_PIN);
+			timerCounter = __HAL_TIM_GET_COUNTER(&htim3);
+		}
+	}
+}
