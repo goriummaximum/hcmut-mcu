@@ -56,6 +56,9 @@ static GPIO_PinState enPinState[2] = {
 		GPIO_PIN_RESET
 };
 
+static uint16_t enSel = EN0_PIN;
+static int ledNum[NUMBER_OF_LEDS_7SEG] = {1, 2, 3, 0};
+
 uint8_t led7SegBuffer_Write(uint8_t ledPos, uint8_t value) {
 	if (ledPos >= NUMBER_OF_LEDS_7SEG) {
 		return 0;
@@ -96,4 +99,36 @@ void selectEn(uint16_t selPin) {
 	HAL_GPIO_WritePin(EN_PORT, 0xFFFF, enPinState[0]);
 	//write pin according to sel
 	HAL_GPIO_WritePin(EN_PORT, selPin, enPinState[1]);
+}
+
+void led7fsm() {
+	selectEn(enSel);
+	switch (enSel) {
+	case EN0_PIN: {
+		display7SEG(0, ledNum[0]);
+		enSel = EN1_PIN;
+		break;
+	}
+
+	case EN1_PIN: {
+		display7SEG(1, ledNum[1]);
+		enSel = EN2_PIN;
+		break;
+	}
+
+	case EN2_PIN: {
+		display7SEG(2, ledNum[2]);
+		enSel = EN3_PIN;
+		break;
+	}
+
+	case EN3_PIN: {
+		display7SEG(3, ledNum[3]);
+		enSel = EN0_PIN;
+		break;
+	}
+
+	default:
+		break;
+	}
 }

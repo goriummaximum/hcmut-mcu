@@ -527,3 +527,112 @@
 2021-09-28 19:00:03,261 [INFO] ProjectBuilder:3789 - Time for Generating toolchain IDE Files: 1833mS.
 2021-09-28 19:00:03,261 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
 2021-09-28 19:00:03,261 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2021-09-28 17:20:57,372 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 781598352 Bytes (1071644672)
+2021-09-28 17:20:58,174 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 800877784 Bytes (1071644672)
+2021-09-28 17:20:59,199 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 838221456 Bytes (1071644672)
+2021-09-28 17:20:59,462 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2021-09-28 17:20:59,462 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2021-09-28 17:20:59,462 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2021-09-28 17:20:59,462 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2021-09-28 17:20:59,462 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8F1
+2021-09-28 17:20:59,462 [INFO] CodeGenerator:663 - code generatio: config db path: C:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\
+2021-09-28 17:20:59,700 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\MXTmpFiles\license.tmp_save
+2021-09-28 17:20:59,747 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\MXTmpFiles\license.tmp
+2021-09-28 17:20:59,794 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\MXTmpFiles\gpio.tmp_save
+2021-09-28 17:20:59,848 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\MXTmpFiles\gpio.tmp
+2021-09-28 17:20:59,979 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Src\stm32f1xx_it.c_save
+2021-09-28 17:21:00,064 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Src\stm32f1xx_it.c
+2021-09-28 17:21:00,064 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Inc\stm32f1xx_it.h_save
+2021-09-28 17:21:00,133 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Inc\stm32f1xx_it.h
+2021-09-28 17:21:00,148 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Src\stm32f1xx_hal_msp.c_save
+2021-09-28 17:21:00,233 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Src\stm32f1xx_hal_msp.c
+2021-09-28 17:21:00,249 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\MXTmpFiles\system.tmp_save
+2021-09-28 17:21:00,296 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\MXTmpFiles\system.tmp
+2021-09-28 17:21:00,302 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Inc\stm32f1xx_hal_conf.h_save
+2021-09-28 17:21:00,402 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Inc\stm32f1xx_hal_conf.h
+2021-09-28 17:21:00,418 [WARN] IPConfigManager:3148 - IP not found : TIM
+2021-09-28 17:21:00,418 [WARN] CodeGenerator:3268 - IP not found : null
+2021-09-28 17:21:00,434 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Inc\main.h_save
+2021-09-28 17:21:00,503 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Inc\main.h
+2021-09-28 17:21:00,518 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Src\main.c_save
+2021-09-28 17:21:00,619 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Src\main.c
+2021-09-28 17:21:01,547 [INFO] ProjectBuilder:2578 - Time for Copy HAL[1] : 192mS.
+2021-09-28 17:21:01,547 [INFO] ProjectBuilder:3622 - Project Generator version: 3.14.1
+2021-09-28 17:21:01,855 [INFO] ConfigFileManager:1271 - The Die is : DIE412
+2021-09-28 17:21:03,331 [INFO] ProjectBuilder:3789 - Time for Generating toolchain IDE Files: 1784mS.
+2021-09-28 17:21:03,346 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 15mS.
+2021-09-28 17:21:03,346 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2021-09-28 17:23:16,915 [INFO] NvicIntPanel:96 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,461x198,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2021-09-28 17:23:17,950 [INFO] NvicIntPanel:96 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2021-09-28 17:24:07,369 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 686533536 Bytes (1073741824)
+2021-09-28 17:24:08,203 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 705677720 Bytes (1073741824)
+2021-09-28 17:24:09,708 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 743156640 Bytes (1073741824)
+2021-09-28 17:24:09,998 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2021-09-28 17:24:09,998 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2021-09-28 17:24:09,998 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2021-09-28 17:24:09,998 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2021-09-28 17:24:09,998 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8F1
+2021-09-28 17:24:09,998 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8F1
+2021-09-28 17:24:10,000 [INFO] CodeGenerator:663 - code generatio: config db path: C:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\
+2021-09-28 17:24:10,213 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\MXTmpFiles\license.tmp_save
+2021-09-28 17:24:10,263 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\MXTmpFiles\license.tmp
+2021-09-28 17:24:10,297 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\MXTmpFiles\gpio.tmp_save
+2021-09-28 17:24:10,344 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\MXTmpFiles\gpio.tmp
+2021-09-28 17:24:10,494 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Src\stm32f1xx_it.c_save
+2021-09-28 17:24:10,588 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Src\stm32f1xx_it.c
+2021-09-28 17:24:10,588 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Inc\stm32f1xx_it.h_save
+2021-09-28 17:24:10,651 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Inc\stm32f1xx_it.h
+2021-09-28 17:24:10,673 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Src\stm32f1xx_hal_msp.c_save
+2021-09-28 17:24:10,773 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Src\stm32f1xx_hal_msp.c
+2021-09-28 17:24:10,773 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\MXTmpFiles\system.tmp_save
+2021-09-28 17:24:10,820 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\MXTmpFiles\system.tmp
+2021-09-28 17:24:10,836 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Inc\stm32f1xx_hal_conf.h_save
+2021-09-28 17:24:10,920 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Inc\stm32f1xx_hal_conf.h
+2021-09-28 17:24:10,952 [WARN] IPConfigManager:3148 - IP not found : TIM
+2021-09-28 17:24:10,952 [WARN] CodeGenerator:3268 - IP not found : null
+2021-09-28 17:24:10,967 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Inc\main.h_save
+2021-09-28 17:24:11,021 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Inc\main.h
+2021-09-28 17:24:11,036 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Src\main.c_save
+2021-09-28 17:24:11,237 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Src\main.c
+2021-09-28 17:24:11,929 [INFO] ProjectBuilder:2578 - Time for Copy HAL[1] : 120mS.
+2021-09-28 17:24:11,929 [INFO] ProjectBuilder:3622 - Project Generator version: 3.14.1
+2021-09-28 17:24:12,249 [INFO] ConfigFileManager:1271 - The Die is : DIE412
+2021-09-28 17:24:13,841 [INFO] ProjectBuilder:3789 - Time for Generating toolchain IDE Files: 1912mS.
+2021-09-28 17:24:13,841 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2021-09-28 17:24:13,841 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2021-09-28 17:37:34,833 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 441728864 Bytes (1073741824)
+2021-09-28 17:37:35,582 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 461125472 Bytes (1073741824)
+2021-09-28 17:37:36,638 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 500971360 Bytes (1073741824)
+2021-09-28 17:37:36,939 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2021-09-28 17:37:36,939 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2021-09-28 17:37:36,939 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2021-09-28 17:37:36,939 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2021-09-28 17:37:36,939 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8F1
+2021-09-28 17:37:36,939 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8F1
+2021-09-28 17:37:36,955 [INFO] CodeGenerator:663 - code generatio: config db path: C:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\
+2021-09-28 17:37:37,224 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\MXTmpFiles\license.tmp_save
+2021-09-28 17:37:37,271 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\MXTmpFiles\license.tmp
+2021-09-28 17:37:37,309 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\MXTmpFiles\gpio.tmp_save
+2021-09-28 17:37:37,356 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\MXTmpFiles\gpio.tmp
+2021-09-28 17:37:37,516 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Src\stm32f1xx_it.c_save
+2021-09-28 17:37:37,597 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Src\stm32f1xx_it.c
+2021-09-28 17:37:37,607 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Inc\stm32f1xx_it.h_save
+2021-09-28 17:37:37,665 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Inc\stm32f1xx_it.h
+2021-09-28 17:37:37,675 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Src\stm32f1xx_hal_msp.c_save
+2021-09-28 17:37:37,769 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Src\stm32f1xx_hal_msp.c
+2021-09-28 17:37:37,775 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\MXTmpFiles\system.tmp_save
+2021-09-28 17:37:37,854 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\MXTmpFiles\system.tmp
+2021-09-28 17:37:37,869 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Inc\stm32f1xx_hal_conf.h_save
+2021-09-28 17:37:37,954 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Inc\stm32f1xx_hal_conf.h
+2021-09-28 17:37:37,976 [WARN] IPConfigManager:3148 - IP not found : TIM
+2021-09-28 17:37:37,976 [WARN] CodeGenerator:3268 - IP not found : null
+2021-09-28 17:37:37,992 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Inc\main.h_save
+2021-09-28 17:37:38,038 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Inc\main.h
+2021-09-28 17:37:38,054 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Src\main.c_save
+2021-09-28 17:37:38,176 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\Core\Src\main.c
+2021-09-28 17:37:39,043 [INFO] ProjectBuilder:2578 - Time for Copy HAL[1] : 131mS.
+2021-09-28 17:37:39,043 [INFO] ProjectBuilder:3622 - Project Generator version: 3.14.1
+2021-09-28 17:37:39,366 [INFO] ConfigFileManager:1271 - The Die is : DIE412
+2021-09-28 17:37:41,079 [INFO] ProjectBuilder:3789 - Time for Generating toolchain IDE Files: 2036mS.
+2021-09-28 17:37:41,079 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2021-09-28 17:37:41,079 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.

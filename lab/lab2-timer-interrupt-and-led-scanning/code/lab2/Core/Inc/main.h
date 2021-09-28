@@ -59,7 +59,7 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
-
+#define DOT_PIN		GPIO_PIN_4
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
