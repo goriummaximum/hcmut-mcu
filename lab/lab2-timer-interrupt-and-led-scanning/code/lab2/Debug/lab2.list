@@ -685,70 +685,71 @@ static void MX_TIM3_Init(void)
  80004c2:	4b1a      	ldr	r3, [pc, #104]	; (800052c <MX_TIM3_Init+0x94>)
  80004c4:	2200      	movs	r2, #0
  80004c6:	609a      	str	r2, [r3, #8]
-  htim3.Init.Period = 500 - 1;
+  htim3.Init.Period = 250 - 1;
  80004c8:	4b18      	ldr	r3, [pc, #96]	; (800052c <MX_TIM3_Init+0x94>)
- 80004ca:	f240 12f3 	movw	r2, #499	; 0x1f3
- 80004ce:	60da      	str	r2, [r3, #12]
+ 80004ca:	22f9      	movs	r2, #249	; 0xf9
+ 80004cc:	60da      	str	r2, [r3, #12]
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
- 80004d0:	4b16      	ldr	r3, [pc, #88]	; (800052c <MX_TIM3_Init+0x94>)
- 80004d2:	2200      	movs	r2, #0
- 80004d4:	611a      	str	r2, [r3, #16]
+ 80004ce:	4b17      	ldr	r3, [pc, #92]	; (800052c <MX_TIM3_Init+0x94>)
+ 80004d0:	2200      	movs	r2, #0
+ 80004d2:	611a      	str	r2, [r3, #16]
   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
- 80004d6:	4b15      	ldr	r3, [pc, #84]	; (800052c <MX_TIM3_Init+0x94>)
- 80004d8:	2200      	movs	r2, #0
- 80004da:	619a      	str	r2, [r3, #24]
+ 80004d4:	4b15      	ldr	r3, [pc, #84]	; (800052c <MX_TIM3_Init+0x94>)
+ 80004d6:	2200      	movs	r2, #0
+ 80004d8:	619a      	str	r2, [r3, #24]
   if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
- 80004dc:	4813      	ldr	r0, [pc, #76]	; (800052c <MX_TIM3_Init+0x94>)
- 80004de:	f001 f889 	bl	80015f4 <HAL_TIM_Base_Init>
- 80004e2:	4603      	mov	r3, r0
- 80004e4:	2b00      	cmp	r3, #0
- 80004e6:	d001      	beq.n	80004ec <MX_TIM3_Init+0x54>
+ 80004da:	4814      	ldr	r0, [pc, #80]	; (800052c <MX_TIM3_Init+0x94>)
+ 80004dc:	f001 f88a 	bl	80015f4 <HAL_TIM_Base_Init>
+ 80004e0:	4603      	mov	r3, r0
+ 80004e2:	2b00      	cmp	r3, #0
+ 80004e4:	d001      	beq.n	80004ea <MX_TIM3_Init+0x52>
   {
     Error_Handler();
- 80004e8:	f000 f8a0 	bl	800062c <Error_Handler>
+ 80004e6:	f000 f8a1 	bl	800062c <Error_Handler>
   }
   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
- 80004ec:	f44f 5380 	mov.w	r3, #4096	; 0x1000
- 80004f0:	60bb      	str	r3, [r7, #8]
+ 80004ea:	f44f 5380 	mov.w	r3, #4096	; 0x1000
+ 80004ee:	60bb      	str	r3, [r7, #8]
   if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
- 80004f2:	f107 0308 	add.w	r3, r7, #8
- 80004f6:	4619      	mov	r1, r3
- 80004f8:	480c      	ldr	r0, [pc, #48]	; (800052c <MX_TIM3_Init+0x94>)
- 80004fa:	f001 fa1f 	bl	800193c <HAL_TIM_ConfigClockSource>
- 80004fe:	4603      	mov	r3, r0
- 8000500:	2b00      	cmp	r3, #0
- 8000502:	d001      	beq.n	8000508 <MX_TIM3_Init+0x70>
+ 80004f0:	f107 0308 	add.w	r3, r7, #8
+ 80004f4:	4619      	mov	r1, r3
+ 80004f6:	480d      	ldr	r0, [pc, #52]	; (800052c <MX_TIM3_Init+0x94>)
+ 80004f8:	f001 fa20 	bl	800193c <HAL_TIM_ConfigClockSource>
+ 80004fc:	4603      	mov	r3, r0
+ 80004fe:	2b00      	cmp	r3, #0
+ 8000500:	d001      	beq.n	8000506 <MX_TIM3_Init+0x6e>
   {
     Error_Handler();
- 8000504:	f000 f892 	bl	800062c <Error_Handler>
+ 8000502:	f000 f893 	bl	800062c <Error_Handler>
   }
   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
- 8000508:	2300      	movs	r3, #0
- 800050a:	603b      	str	r3, [r7, #0]
+ 8000506:	2300      	movs	r3, #0
+ 8000508:	603b      	str	r3, [r7, #0]
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
- 800050c:	2300      	movs	r3, #0
- 800050e:	607b      	str	r3, [r7, #4]
+ 800050a:	2300      	movs	r3, #0
+ 800050c:	607b      	str	r3, [r7, #4]
   if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
- 8000510:	463b      	mov	r3, r7
- 8000512:	4619      	mov	r1, r3
- 8000514:	4805      	ldr	r0, [pc, #20]	; (800052c <MX_TIM3_Init+0x94>)
- 8000516:	f001 fbe7 	bl	8001ce8 <HAL_TIMEx_MasterConfigSynchronization>
- 800051a:	4603      	mov	r3, r0
- 800051c:	2b00      	cmp	r3, #0
- 800051e:	d001      	beq.n	8000524 <MX_TIM3_Init+0x8c>
+ 800050e:	463b      	mov	r3, r7
+ 8000510:	4619      	mov	r1, r3
+ 8000512:	4806      	ldr	r0, [pc, #24]	; (800052c <MX_TIM3_Init+0x94>)
+ 8000514:	f001 fbe8 	bl	8001ce8 <HAL_TIMEx_MasterConfigSynchronization>
+ 8000518:	4603      	mov	r3, r0
+ 800051a:	2b00      	cmp	r3, #0
+ 800051c:	d001      	beq.n	8000522 <MX_TIM3_Init+0x8a>
   {
     Error_Handler();
- 8000520:	f000 f884 	bl	800062c <Error_Handler>
+ 800051e:	f000 f885 	bl	800062c <Error_Handler>
   }
   /* USER CODE BEGIN TIM3_Init 2 */
 
   /* USER CODE END TIM3_Init 2 */
 
 }
- 8000524:	bf00      	nop
- 8000526:	3718      	adds	r7, #24
- 8000528:	46bd      	mov	sp, r7
- 800052a:	bd80      	pop	{r7, pc}
+ 8000522:	bf00      	nop
+ 8000524:	3718      	adds	r7, #24
+ 8000526:	46bd      	mov	sp, r7
+ 8000528:	bd80      	pop	{r7, pc}
+ 800052a:	bf00      	nop
  800052c:	20000068 	.word	0x20000068
  8000530:	40000400 	.word	0x40000400
 
