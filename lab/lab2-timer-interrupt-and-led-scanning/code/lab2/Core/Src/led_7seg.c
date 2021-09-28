@@ -59,6 +59,11 @@ static GPIO_PinState enPinState[2] = {
 static uint16_t enSel = EN0_PIN;
 static int ledNum[NUMBER_OF_LEDS_7SEG] = {1, 2, 3, 0};
 
+//ex3
+static const int MAX_LED = 4;
+static int index_led = 0;
+static int led_buffer[NUMBER_OF_LEDS_7SEG] = {1, 2, 3, 4};
+
 uint8_t led7SegBuffer_Write(uint8_t ledPos, uint8_t value) {
 	if (ledPos >= NUMBER_OF_LEDS_7SEG) {
 		return 0;
@@ -127,6 +132,41 @@ void led7fsm() {
 		enSel = EN0_PIN;
 		break;
 	}
+
+	default:
+		break;
+	}
+}
+
+void update7SEG() {
+	if (index_led < 0 || index_led > 3) {
+		return;
+	}
+
+	switch (index_led) {
+	case 0:
+		selectEn(EN0_PIN);
+		display7SEG(index_led, led_buffer[index_led]);
+		index_led = 1;
+		break;
+
+	case 1:
+		selectEn(EN1_PIN);
+		display7SEG(index_led, led_buffer[index_led]);
+		index_led = 2;
+		break;
+
+	case 2:
+		selectEn(EN2_PIN);
+		display7SEG(index_led, led_buffer[index_led]);
+		index_led = 3;
+		break;
+
+	case 3:
+		selectEn(EN3_PIN);
+		display7SEG(index_led, led_buffer[index_led]);
+		index_led = 0;
+		break;
 
 	default:
 		break;
