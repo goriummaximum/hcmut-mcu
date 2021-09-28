@@ -187,29 +187,8 @@ uint8_t updateClockBuffer(int hour, int min) {
 }
 
 void runClock(int hour, int minute, int second) {
-	if (hour > 23 || hour < 0 || minute > 59 || minute < 0 || second < 0 || second > 59) {
+	if (hour > 23 || hour < 0 || min > 59 || min < 0 || second < 0 || second > 59) {
 		return;
 	}
-
-	while (1) {
-		second++;
-		if (second >= 60) {
-			second = 0;
-			minute++;
-		}
-
-		if (minute >= 60) {
-			minute = 0;
-			hour++;
-		}
-
-		if (hour >= 24) {
-			hour = 0;
-		}
-
-		if (!updateClockBuffer(hour, minute)) {
-			break;
-		}
-		HAL_Delay(1000);
-	}
+	while (1)
 }

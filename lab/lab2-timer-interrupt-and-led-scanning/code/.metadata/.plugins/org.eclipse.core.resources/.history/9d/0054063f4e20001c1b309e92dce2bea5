@@ -42,12 +42,6 @@ void selectEn(uint16_t selPin);
 void led7fsm(void);
 
 //update 7led
-void update7SEG(void);
-
-//update clock buffer
-uint8_t updateClockBuffer(int hour, int min);
-
-//run clock
-void runClock(int hour, int minute, int second);
+void update7SEG();
 
 #endif /* __LED_7SEG_H */

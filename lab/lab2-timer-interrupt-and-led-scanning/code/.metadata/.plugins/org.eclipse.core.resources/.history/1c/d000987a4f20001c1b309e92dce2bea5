@@ -207,9 +207,7 @@ void runClock(int hour, int minute, int second) {
 			hour = 0;
 		}
 
-		if (!updateClockBuffer(hour, minute)) {
-			break;
-		}
+		updateClockBuffer(hour, minute);
 		HAL_Delay(1000);
 	}
 }

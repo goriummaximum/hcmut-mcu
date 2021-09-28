@@ -210,6 +210,6 @@ void runClock(int hour, int minute, int second) {
 		if (!updateClockBuffer(hour, minute)) {
 			break;
 		}
-		HAL_Delay(1000);
+		HAL_Delay(100);
 	}
 }
