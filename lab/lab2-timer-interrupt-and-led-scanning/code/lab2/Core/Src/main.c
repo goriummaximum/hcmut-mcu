@@ -23,6 +23,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "led_7seg.h"
+#include "software_timer.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -94,6 +95,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2);
   HAL_TIM_Base_Start_IT(&htim3);
+
+  setTimer0(1000);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -101,7 +104,11 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	 runClock(15, 8, 50);
+	  if (get_timer0_flag_value() == 1) {
+		  HAL_GPIO_TogglePin(LED_GREEN_PORT, LED_GREEN_PIN);
+		  setTimer0(1000);
+	  }
+	 //runClock(15, 8, 50);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -276,12 +283,18 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	if (htim == &htim3) {
+		timer_run();
+	}
+
+	/*
+	if (htim == &htim3) {
 		update7SEG();
 	}
 
 	if (htim == &htim2) {
 		HAL_GPIO_TogglePin(GPIOA, DOT_PIN);
 	}
+	*/
 }
 /* USER CODE END 4 */
 

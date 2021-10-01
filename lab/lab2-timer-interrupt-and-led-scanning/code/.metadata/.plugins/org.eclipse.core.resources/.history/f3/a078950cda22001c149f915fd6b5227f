@@ -1,0 +1,19 @@
+/**
+  ******************************************************************************
+  * @file           : software_timer.c
+  * @brief          :
+  *                   This file contains implementation of software timer using
+  *                   a counter and a flag.
+  *
+  *                   Created on:	Oct 2nd, 2021
+  *                   Author:		Thien Long
+  ******************************************************************************
+  * @attention
+  *
+  ******************************************************************************
+  */
+
+#include "main.h"
+#include "software_timer.h"
+
+
