@@ -191,7 +191,7 @@ uint8_t updateClockBuffer(int hour, int min) {
 	return 1;
 }
 
-void updateClock(void) {
+void runClock(void) {
 	second++;
 	if (second >= 60) {
 		second = 0;
@@ -208,6 +208,6 @@ void updateClock(void) {
 	}
 
 	if (!updateClockBuffer(hour, minute)) {
-		return;
+		break;
 	}
 }

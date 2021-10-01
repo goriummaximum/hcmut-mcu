@@ -105,8 +105,7 @@ int main(void)
   {
     /* USER CODE END WHILE */
 	  if (get_timer0_flag_value() == 1) {
-		  updateClock();
-		  setTimer0(1000);
+		  runClock();
 	  }
     /* USER CODE BEGIN 3 */
   }
