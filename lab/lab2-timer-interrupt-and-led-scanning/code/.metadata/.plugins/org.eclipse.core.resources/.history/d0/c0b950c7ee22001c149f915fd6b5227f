@@ -1,0 +1,50 @@
+/**
+  ******************************************************************************
+  * @file           : clock_buffer.c
+  * @brief          :
+  *                   This file contains the buffer storing clock value.
+  *
+  *                   Created on:	Sep 28th, 2021
+  *                   Author:		Thien Long
+  ******************************************************************************
+  * @attention
+  *
+  ******************************************************************************
+  */
+
+#include "main.h"
+#include "clock_buffer.h"
+
+//clock var
+static int second = 0;
+static int minute = 0;
+static int hour = 0;
+static int clock_counter = 0;
+
+//dot var
+static int dot_counter = 0;
+
+void updateClock(void) {
+	second++;
+	if (second >= 60) {
+		second = 0;
+		minute++;
+	}
+
+	if (minute >= 60) {
+		minute = 0;
+		hour++;
+	}
+
+	if (hour >= 24) {
+		hour = 0;
+	}
+
+	if (!updateClockBuffer(hour, minute)) {
+		return;
+	}
+}
+
+void updateDot(void) {
+	HAL_GPIO_TogglePin(DOT_PORT, DOT_PIN);
+}

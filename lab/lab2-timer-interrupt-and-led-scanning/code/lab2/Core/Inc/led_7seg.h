@@ -47,7 +47,4 @@ void update7SEG(void);
 //update clock buffer
 uint8_t updateClockBuffer(int hour, int min);
 
-//run clock
-void updateClock(void);
-
 #endif /* __LED_7SEG_H */

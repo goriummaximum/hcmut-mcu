@@ -1,0 +1,2 @@
+clock_buffer.c:23:6:updateClock	8	static
+clock_buffer.c:44:6:updateDot	8	static

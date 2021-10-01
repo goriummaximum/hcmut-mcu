@@ -64,11 +64,6 @@ static const int MAX_LED = 4;
 static int index_led = 0;
 static int led_buffer[NUMBER_OF_LEDS_7SEG] = {1, 2, 3, 4};
 
-//clock var
-static int second = 0;
-static int minute = 0;
-static int hour = 0;
-
 uint8_t led7SegBuffer_Write(uint8_t ledPos, uint8_t value) {
 	if (ledPos >= NUMBER_OF_LEDS_7SEG) {
 		return 0;
@@ -189,25 +184,4 @@ uint8_t updateClockBuffer(int hour, int min) {
 	led_buffer[3] = min % 10;
 
 	return 1;
-}
-
-void updateClock(void) {
-	second++;
-	if (second >= 60) {
-		second = 0;
-		minute++;
-	}
-
-	if (minute >= 60) {
-		minute = 0;
-		hour++;
-	}
-
-	if (hour >= 24) {
-		hour = 0;
-	}
-
-	if (!updateClockBuffer(hour, minute)) {
-		return;
-	}
 }

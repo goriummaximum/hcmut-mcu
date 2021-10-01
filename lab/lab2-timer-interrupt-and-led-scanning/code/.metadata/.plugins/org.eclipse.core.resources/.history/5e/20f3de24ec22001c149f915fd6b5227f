@@ -1,0 +1,69 @@
+/**
+  ******************************************************************************
+  * @file           : clock_buffer.c
+  * @brief          :
+  *                   This file contains the buffer storing clock value.
+  *
+  *                   Created on:	Sep 28th, 2021
+  *                   Author:		Thien Long
+  ******************************************************************************
+  * @attention
+  *
+  ******************************************************************************
+  */
+
+#include "main.h"
+#include "clock_buffer.h"
+#include "led_7seg.h"
+
+static int led_buffer[NUMBER_OF_LEDS_7SEG] = {1, 2, 3, 4};
+
+//clock var
+static int second = 0;
+static int minute = 0;
+static int hour = 0;
+
+//dot var
+int dot_counter = 0;
+
+uint8_t updateClockBuffer(int hour, int min) {
+	if (hour > 23 || hour < 0 || min > 59 || min < 0) {
+		return 0;
+	}
+
+	led_buffer[0] = hour / 10;
+	led_buffer[1] = hour % 10;
+	led_buffer[2] = min / 10;
+	led_buffer[3] = min % 10;
+
+	return 1;
+}
+
+void updateClock(void) {
+	second++;
+	if (second >= 60) {
+		second = 0;
+		minute++;
+	}
+
+	if (minute >= 60) {
+		minute = 0;
+		hour++;
+	}
+
+	if (hour >= 24) {
+		hour = 0;
+	}
+
+	if (!updateClockBuffer(hour, minute)) {
+		return;
+	}
+}
+
+void updateDot(void) {
+	 dot_counter++;
+	 if (dot_counter == DOT_MAX_COUNTER_MULTIPLIER) {
+		 HAL_GPIO_TogglePin(GPIOA, DOT_PIN);
+		 dot_counter = 0;
+	 }
+}

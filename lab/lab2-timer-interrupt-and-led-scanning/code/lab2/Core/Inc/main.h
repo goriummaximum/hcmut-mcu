@@ -59,10 +59,12 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 /* USER CODE BEGIN Private defines */
-#define DOT_PIN			GPIO_PIN_4
 #define LED_GREEN_PIN	GPIO_PIN_5
-
 #define LED_GREEN_PORT	GPIOA
+
+#define CLOCK_MAX_COUNTER_MULTIPLIER	4
+#define DOT_MAX_COUNTER_MULTIPLIER		2 		//n times the software timers counter
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
