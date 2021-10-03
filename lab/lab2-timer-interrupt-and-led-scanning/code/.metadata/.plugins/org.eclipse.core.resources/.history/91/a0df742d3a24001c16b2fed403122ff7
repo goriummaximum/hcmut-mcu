@@ -101,7 +101,7 @@ void display7SEG(uint8_t ledPos, int num) {
 
 void selectEn(uint16_t selPin) {
 	//off all
-	HAL_GPIO_WritePin(EN_PORT, EN0_PIN | EN1_PIN | EN2_PIN | EN3_PIN, enPinState[0]);
+	HAL_GPIO_WritePin(EN_PORT, 0xFFFF, enPinState[0]);
 	//write pin according to sel
 	HAL_GPIO_WritePin(EN_PORT, selPin, enPinState[1]);
 }
@@ -146,30 +146,30 @@ void update7SEG() {
 	switch (index_led) {
 	case 0:
 		selectEn(EN0_PIN);
+		display7SEG(index_led, led_buffer[index_led]);
+		index_led = 1;
 		break;
 
 	case 1:
 		selectEn(EN1_PIN);
+		display7SEG(index_led, led_buffer[index_led]);
+		index_led = 2;
 		break;
 
 	case 2:
 		selectEn(EN2_PIN);
+		display7SEG(index_led, led_buffer[index_led]);
+		index_led = 3;
 		break;
 
 	case 3:
 		selectEn(EN3_PIN);
+		display7SEG(index_led, led_buffer[index_led]);
+		index_led = 0;
 		break;
 
 	default:
 		break;
-	}
-
-	display7SEG(index_led, led_buffer[index_led]);
-
-	index_led++;
-
-	if (index_led == 4) {
-		index_led = 0;
 	}
 }
 
