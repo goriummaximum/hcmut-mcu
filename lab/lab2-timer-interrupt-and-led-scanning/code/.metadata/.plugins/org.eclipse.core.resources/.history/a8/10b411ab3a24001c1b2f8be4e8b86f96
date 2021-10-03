@@ -42,6 +42,6 @@ void selectEn(uint16_t selPin);
 void led7fsm(void);
 
 //update 7led
-void update7SEG(void);
+void update7SEG();
 
 #endif /* __LED_7SEG_H */

@@ -636,3 +636,9 @@
 2021-09-28 17:37:41,079 [INFO] ProjectBuilder:3789 - Time for Generating toolchain IDE Files: 2036mS.
 2021-09-28 17:37:41,079 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
 2021-09-28 17:37:41,079 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2021-10-03 18:11:06,566 [INFO] Activator:177 - 
+
+
+2021-10-03 18:11:06,566 [INFO] Activator:178 - !SESSION log4j initialized
+2021-10-03 18:12:12,817 [INFO] RetryExec:97 - I/O exception (java.net.SocketException) caught when processing request to {}->http://sw-center.st.com:80: Socket closed
+2021-10-03 18:12:12,817 [INFO] RetryExec:113 - Retrying request to {}->http://sw-center.st.com:80

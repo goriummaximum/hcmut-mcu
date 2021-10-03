@@ -56,6 +56,14 @@ static GPIO_PinState enPinState[2] = {
 		GPIO_PIN_RESET
 };
 
+static uint16_t enSel = EN0_PIN;
+static int ledNum[NUMBER_OF_LEDS_7SEG] = {1, 2, 3, 0};
+
+//ex3
+static const int MAX_LED = 4;
+static int index_led = 0;
+static int led_buffer[NUMBER_OF_LEDS_7SEG] = {1, 2, 3, 4};
+
 uint8_t led7SegBuffer_Write(uint8_t ledPos, uint8_t value) {
 	if (ledPos >= NUMBER_OF_LEDS_7SEG) {
 		return 0;
@@ -91,7 +99,76 @@ void display7SEG(uint8_t ledPos, int num) {
 	led7SegDriver_Drive(ledPos);
 }
 
-void selectEn(uint16_t sel) {
-	HAL_GPIO_WritePin(EN_PORT, sel, enPinState[0]);
-	HAL_GPIO_WritePin
+void selectEn(uint16_t selPin) {
+	//off all
+	HAL_GPIO_WritePin(EN_PORT, 0xFFFF, enPinState[0]);
+	//write pin according to sel
+	HAL_GPIO_WritePin(EN_PORT, selPin, enPinState[1]);
+}
+
+void led7fsm() {
+	selectEn(enSel);
+	switch (enSel) {
+	case EN0_PIN: {
+		display7SEG(0, ledNum[0]);
+		enSel = EN1_PIN;
+		break;
+	}
+
+	case EN1_PIN: {
+		display7SEG(1, ledNum[1]);
+		enSel = EN2_PIN;
+		break;
+	}
+
+	case EN2_PIN: {
+		display7SEG(2, ledNum[2]);
+		enSel = EN3_PIN;
+		break;
+	}
+
+	case EN3_PIN: {
+		display7SEG(3, ledNum[3]);
+		enSel = EN0_PIN;
+		break;
+	}
+
+	default:
+		break;
+	}
+}
+
+void update7SEG() {
+	if (index_led < 0 || index_led > 3) {
+		return;
+	}
+
+	switch (index_led) {
+	case 0:
+		selectEn(EN0_PIN);
+		display7SEG(index_led, led_buffer[index_led]);
+		index_led = 1;
+		break;
+
+	case 1:
+		selectEn(EN1_PIN);
+		display7SEG(index_led, led_buffer[index_led]);
+		index_led = 2;
+		break;
+
+	case 2:
+		selectEn(EN2_PIN);
+		display7SEG(index_led, led_buffer[index_led]);
+		index_led = 3;
+		break;
+
+	case 3:
+		selectEn(EN3_PIN);
+		display7SEG(index_led, led_buffer[index_led]);
+		index_led = 0;
+		break;
+
+	default:
+		break;
+	}
 }
