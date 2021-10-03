@@ -101,7 +101,7 @@ void display7SEG(uint8_t ledPos, int num) {
 
 void selectEn(uint16_t selPin) {
 	//off all
-	HAL_GPIO_WritePin(EN_PORT, EN0_PIN | EN1_PIN | EN2_PIN | EN3_PIN, enPinState[0]);
+	HAL_GPIO_WritePin(EN_PORT, 0xFFFF, enPinState[0]);
 	//write pin according to sel
 	HAL_GPIO_WritePin(EN_PORT, selPin, enPinState[1]);
 }
@@ -143,34 +143,34 @@ void update7SEG(void) {
 			return;
 		}
 
-	switch (index_led) {
-	case 0:
-		selectEn(EN0_PIN);
-		break;
+		switch (index_led) {
+		case 0:
+			selectEn(EN0_PIN);
+			break;
 
-	case 1:
-		selectEn(EN1_PIN);
-		break;
+		case 1:
+			selectEn(EN1_PIN);
+			break;
 
-	case 2:
-		selectEn(EN2_PIN);
-		break;
+		case 2:
+			selectEn(EN2_PIN);
+			break;
 
-	case 3:
-		selectEn(EN3_PIN);
-		break;
+		case 3:
+			selectEn(EN3_PIN);
+			break;
 
-	default:
-		break;
-	}
+		default:
+			break;
+		}
 
-	display7SEG(index_led, led_buffer[index_led]);
+		display7SEG(index_led, led_buffer[index_led]);
 
-	index_led++;
+		index_led++;
 
-	if (index_led == 4) {
-		index_led = 0;
-	}
+		if (index_led == 4) {
+			index_led = 0;
+		}
 }
 
 uint8_t updateClockBuffer(int hour, int min) {
