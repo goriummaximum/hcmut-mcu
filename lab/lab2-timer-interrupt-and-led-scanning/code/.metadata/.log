@@ -103,3 +103,18 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2021-10-03 14:50:22.152
 !MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2021-10-03 15:00:22.878 -----------------------------------------------
+eclipse.buildId=Version 1.7.0
+java.version=11.0.10
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2021-10-03 15:00:30.564
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2021-10-03 15:00:30.617
+!MESSAGE Log4j initialized with config file C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2021-10-03 15:00:35.658
+!MESSAGE Started RMI Server, listening on port 41337

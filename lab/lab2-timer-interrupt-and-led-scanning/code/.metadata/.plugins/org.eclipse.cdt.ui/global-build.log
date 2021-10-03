@@ -1,6 +1,24 @@
-14:48:41 **** Incremental Build of configuration Debug for project lab2 ****
+17:39:03 **** Incremental Build of configuration Debug for project lab2 ****
 make -j8 all 
+arm-none-eabi-gcc "../Core/Src/led_matrix.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/led_matrix.d" -MT"Core/Src/led_matrix.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/led_matrix.o"
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:100:3: warning: implicit declaration of function 'setTimer1' [-Wimplicit-function-declaration]
+  100 |   setTimer1(1000);
+      |   ^~~~~~~~~
+../Core/Src/led_matrix.c:34:17: warning: 'ledMatrixColPins' defined but not used [-Wunused-variable]
+   34 | static uint16_t ledMatrixColPins[NUMBER_OF_COLS] = {
+      |                 ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:112:8: warning: implicit declaration of function 'get_timer1_flag_value' [-Wimplicit-function-declaration]
+  112 |    if (get_timer1_flag_value()) {
+      |        ^~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'HAL_TIM_PeriodElapsedCallback':
+../Core/Src/main.c:302:3: warning: implicit declaration of function 'timer0_run' [-Wimplicit-function-declaration]
+  302 |   timer0_run();
+      |   ^~~~~~~~~~
+../Core/Src/main.c:306:3: warning: implicit declaration of function 'timer1_run' [-Wimplicit-function-declaration]
+  306 |   timer1_run();
+      |   ^~~~~~~~~~
 arm-none-eabi-gcc -o "lab2.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab2-timer-interrupt-and-led-scanning\code\lab2\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab2.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: lab2.elf
  
@@ -9,7 +27,7 @@ arm-none-eabi-objdump -h -S  lab2.elf  > "lab2.list"
 arm-none-eabi-objcopy  -O ihex  lab2.elf  "lab2.hex"
 arm-none-eabi-objcopy  -O binary  lab2.elf  "lab2.bin"
    text	   data	    bss	    dec	    hex	filename
-   8020	     84	   1660	   9764	   2624	lab2.elf
+   7548	     52	   1732	   9332	   2474	lab2.elf
 Finished building: default.size.stdout
  
 Finished building: lab2.hex
