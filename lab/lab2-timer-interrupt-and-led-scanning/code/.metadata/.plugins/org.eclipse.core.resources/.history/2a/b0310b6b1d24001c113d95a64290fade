@@ -101,7 +101,7 @@ void display7SEG(uint8_t ledPos, int num) {
 
 void selectEn(uint16_t selPin) {
 	//off all
-	HAL_GPIO_WritePin(EN_PORT, EN0_PIN | EN1_PIN | EN2_PIN | EN3_PIN, enPinState[0]);
+	HAL_GPIO_WritePin(EN_PORT, 0xFFFF, enPinState[0]);
 	//write pin according to sel
 	HAL_GPIO_WritePin(EN_PORT, selPin, enPinState[1]);
 }

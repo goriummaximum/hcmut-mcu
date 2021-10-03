@@ -41,10 +41,6 @@ void updateClock(void) {
 	}
 }
 
-void setInitialDot(GPIO_PinState st) {
-	HAL_GPIO_WritePin(DOT_PORT, DOT_PIN, st);
-}
-
 void updateDot(void) {
 	HAL_GPIO_TogglePin(DOT_PORT, DOT_PIN);
 }

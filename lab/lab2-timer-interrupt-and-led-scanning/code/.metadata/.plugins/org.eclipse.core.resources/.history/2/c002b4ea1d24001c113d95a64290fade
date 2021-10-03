@@ -21,9 +21,6 @@
 //run clock
 void updateClock(void);
 
-//set initial dot value
-void setInitialDot(GPIO_PinState st);
-
 //update dot
 void updateDot(void);
 

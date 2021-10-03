@@ -112,12 +112,12 @@ int main(void)
 		  }
 		  clock_counter++;
 
+		  dot_counter++;
 		  //2 times of software timer interrupt cycle
 		  if (dot_counter == DOT_MAX_COUNTER_MULTIPLIER) {
 			  updateDot();
 			  dot_counter = 0;
 		  }
-		  dot_counter++;
 
 		  update7SEG();
 

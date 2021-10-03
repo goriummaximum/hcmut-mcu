@@ -96,7 +96,6 @@ int main(void)
   int dot_counter = 0;
 
   setTimer0(250);
-  setInitialDot(GPIO_PIN_SET);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -105,19 +104,19 @@ int main(void)
   {
     /* USER CODE END WHILE */
 	  if (get_timer0_flag_value() == 1) {
-		  //4 times of software timer interrupt cycle
+		  clock_counter++;
+		  //4 times of software interrupt cycle
 		  if (clock_counter == CLOCK_MAX_COUNTER_MULTIPLIER) {
 			  updateClock();
 			  clock_counter = 0;
 		  }
-		  clock_counter++;
 
-		  //2 times of software timer interrupt cycle
+		  dot_counter++;
+		  //2 times of software interrupt cycle
 		  if (dot_counter == DOT_MAX_COUNTER_MULTIPLIER) {
 			  updateDot();
 			  dot_counter = 0;
 		  }
-		  dot_counter++;
 
 		  update7SEG();
 
