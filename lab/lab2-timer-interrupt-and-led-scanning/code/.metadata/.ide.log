@@ -1049,3 +1049,7 @@
 2021-10-02 00:48:12,418 [INFO] DbMcusDocs:143 - JSON generation date=Mon Jun 07 15:53:21 ICT 2021 (1623056001)
 2021-10-02 00:48:12,662 [INFO] DbMcusDocs:79 - Found 669 MCUs documents
 2021-10-02 00:48:14,379 [INFO] NvicIntPanel:96 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,450x190,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2021-10-03 17:46:04,660 [INFO] Activator:177 - 
+
+
+2021-10-03 17:46:04,660 [INFO] Activator:178 - !SESSION log4j initialized

@@ -62,12 +62,12 @@ static int ledNum[NUMBER_OF_LEDS_7SEG] = {1, 2, 3, 0};
 //ex3
 static const int MAX_LED = 4;
 static int index_led = 0;
-static int led_buffer[NUMBER_OF_LEDS_7SEG] = {1, 2, 3, 4};
+static int led_buffer[NUMBER_OF_LEDS_7SEG] = {1, 2, 3, 0};
 
 //clock var
 static int second = 0;
-static int minute = 34;
-static int hour = 12;
+static int minute = 0;
+static int hour = 0;
 
 uint8_t led7SegBuffer_Write(uint8_t ledPos, uint8_t value) {
 	if (ledPos >= NUMBER_OF_LEDS_7SEG) {
