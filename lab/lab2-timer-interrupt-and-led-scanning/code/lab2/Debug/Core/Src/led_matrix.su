@@ -7,3 +7,7 @@ led_matrix.c:114:9:setNumberOnClock	24	static
 led_matrix.c:129:9:clearNumberOnClock	24	static
 led_matrix.c:144:6:runClock	16	static
 led_matrix.c:183:6:updateLEDMatrix	8	static
+led_matrix.c:197:9:ledMatrixBuffer_cyclicShiftLeft	24	static
+led_matrix.c:209:9:ledMatrixBuffer_cyclicShiftRight	24	static
+led_matrix.c:221:9:ledMatrixBuffer_cyclicShiftUp	32	static
+led_matrix.c:239:9:ledMatrixBuffer_cyclicShiftDown	32	static

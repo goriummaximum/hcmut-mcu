@@ -192,3 +192,68 @@ void updateLEDMatrix(void) {
 		ledMatrixIdx = 0;
 	}
 }
+
+
+uint8_t ledMatrixBuffer_cyclicShiftLeft(uint8_t n) {
+	if (n <= 0 || n > NUMBER_OF_COLS) {
+		return 0;
+	}
+
+	for (uint8_t row = 0; row < NUMBER_OF_ROWS; row++) {
+		ledMatrixBuffer[row] = (ledMatrixBuffer[row] >> n) | (ledMatrixBuffer[row] << (NUMBER_OF_COLS - n));
+	}
+
+	return 1;
+}
+
+uint8_t ledMatrixBuffer_cyclicShiftRight(uint8_t n) {
+	if (n <= 0 || n > NUMBER_OF_COLS) {
+		return 0;
+	}
+
+	for (uint8_t row = 0; row < NUMBER_OF_ROWS; row++) {
+		ledMatrixBuffer[row] = (ledMatrixBuffer[row] << n) | (ledMatrixBuffer[row] >> (NUMBER_OF_COLS - n));
+	}
+
+	return 1;
+}
+
+uint8_t ledMatrixBuffer_cyclicShiftUp(uint8_t n) {
+	if (n <= 0 || n > NUMBER_OF_ROWS) {
+		return 0;
+	}
+
+	uint8_t bufferTemp[NUMBER_OF_ROWS];
+
+	for (uint8_t row = 0; row < NUMBER_OF_ROWS; row++) {
+		bufferTemp[row] = ledMatrixBuffer[row];
+	}
+
+	for (uint8_t row = 0; row < NUMBER_OF_ROWS; row++) {
+		ledMatrixBuffer[row] = bufferTemp[(row + n) % NUMBER_OF_ROWS];
+	}
+
+	return 1;
+}
+
+uint8_t ledMatrixBuffer_cyclicShiftDown(uint8_t n) {
+	if (n <= 0 || n > NUMBER_OF_ROWS) {
+		return 0;
+	}
+
+	uint8_t bufferTemp[NUMBER_OF_ROWS];
+
+	for (uint8_t row = 0; row < NUMBER_OF_ROWS; row++) {
+		bufferTemp[row] = ledMatrixBuffer[row];
+	}
+
+	for (uint8_t row = NUMBER_OF_ROWS - 1; row >= n; row--) {
+		ledMatrixBuffer[row] = bufferTemp[(row - n) % NUMBER_OF_ROWS];
+	}
+
+	for (uint8_t row = n - 1; row >= 0; row--) {
+		ledMatrixBuffer[row] = bufferTemp[NUMBER_OF_ROWS - n];
+	}
+
+	return 1;
+}
