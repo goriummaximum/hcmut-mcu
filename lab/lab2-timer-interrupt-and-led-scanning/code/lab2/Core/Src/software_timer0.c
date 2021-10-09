@@ -24,6 +24,10 @@ int get_timer0_flag_value(void) {
 }
 
 void setTimer0(int duration) {
+	if (duration < 0) {
+		return;
+	}
+
 	timer0_counter = duration / TIMER0_CYCLE;
 	timer0_flag = 0;
 }
