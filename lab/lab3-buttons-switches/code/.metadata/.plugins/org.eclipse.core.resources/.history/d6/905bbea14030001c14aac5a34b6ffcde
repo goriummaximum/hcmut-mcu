@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file           : input_reading.h
-  * @brief          : This file contain the declaration of reading buttons and
+  * @brief          : This file contain the implementation of reading buttons and
   * 				deboucing machanism.
   *
   *
@@ -15,12 +15,8 @@
 #ifndef INC_INPUT_READING_H_
 #define INC_INPUT_READING_H_
 
-#define BUTTON_0_GPIO_Port		GPIOB
-#define BUTTON_1_GPIO_Port		GPIOB
-#define BUTTON_2_GPIO_Port		GPIOB
-#define BUTTON_0_Pin			GPIO_PIN_0
-#define BUTTON_1_Pin			GPIO_PIN_1
-#define BUTTON_2_Pin			GPIO_PIN_2
+#define BUTTON_1_GPIO_Port		GPIOA
+#define BUTTON_1_Pin			GPIO_PIN_0
 
 void button_reading(void);
 unsigned char is_button_pressed(unsigned char index);

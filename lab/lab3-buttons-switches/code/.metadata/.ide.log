@@ -735,3 +735,72 @@
 2021-10-19 00:02:09,762 [INFO] ProjectBuilder:3789 - Time for Generating toolchain IDE Files: 2062mS.
 2021-10-19 00:02:09,763 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
 2021-10-19 00:02:09,766 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2021-10-19 01:24:42,084 [INFO] NvicIntPanel:96 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,461x198,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2021-10-19 01:25:13,634 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 518542256 Bytes (1073741824)
+2021-10-19 01:25:14,339 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 541088688 Bytes (1073741824)
+2021-10-19 01:25:15,557 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 631266224 Bytes (1073741824)
+2021-10-19 01:25:15,841 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2021-10-19 01:25:15,841 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2021-10-19 01:25:15,841 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2021-10-19 01:25:15,841 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2021-10-19 01:25:15,841 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8F1
+2021-10-19 01:25:15,842 [INFO] CodeGenerator:663 - code generatio: config db path: C:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\
+2021-10-19 01:25:16,106 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\MXTmpFiles\license.tmp_save
+2021-10-19 01:25:16,168 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\MXTmpFiles\license.tmp
+2021-10-19 01:25:16,203 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\MXTmpFiles\gpio.tmp_save
+2021-10-19 01:25:16,278 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\MXTmpFiles\gpio.tmp
+2021-10-19 01:25:16,409 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Src\stm32f1xx_it.c_save
+2021-10-19 01:25:16,504 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Src\stm32f1xx_it.c
+2021-10-19 01:25:16,514 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Inc\stm32f1xx_it.h_save
+2021-10-19 01:25:16,589 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Inc\stm32f1xx_it.h
+2021-10-19 01:25:16,604 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Src\stm32f1xx_hal_msp.c_save
+2021-10-19 01:25:16,722 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Src\stm32f1xx_hal_msp.c
+2021-10-19 01:25:16,727 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\MXTmpFiles\system.tmp_save
+2021-10-19 01:25:16,786 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\MXTmpFiles\system.tmp
+2021-10-19 01:25:16,803 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Inc\stm32f1xx_hal_conf.h_save
+2021-10-19 01:25:16,903 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Inc\stm32f1xx_hal_conf.h
+2021-10-19 01:25:16,928 [WARN] IPConfigManager:3148 - IP not found : TIM
+2021-10-19 01:25:16,929 [WARN] CodeGenerator:3268 - IP not found : null
+2021-10-19 01:25:16,941 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Inc\main.h_save
+2021-10-19 01:25:17,026 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Inc\main.h
+2021-10-19 01:25:17,035 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Src\main.c_save
+2021-10-19 01:25:17,143 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Src\main.c
+2021-10-19 01:25:18,067 [INFO] ProjectBuilder:2578 - Time for Copy HAL[1] : 163mS.
+2021-10-19 01:25:18,073 [INFO] ProjectBuilder:3622 - Project Generator version: 3.14.1
+2021-10-19 01:25:18,402 [INFO] ConfigFileManager:1271 - The Die is : DIE412
+2021-10-19 01:25:20,108 [INFO] ProjectBuilder:3789 - Time for Generating toolchain IDE Files: 2035mS.
+2021-10-19 01:25:20,108 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2021-10-19 01:25:20,111 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
+2021-10-19 01:57:12,332 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 562982320 Bytes (1073741824)
+2021-10-19 01:57:12,608 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: NVIC
+2021-10-19 01:57:12,609 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: SYS
+2021-10-19 01:57:12,609 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: GPIO
+2021-10-19 01:57:12,609 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: RCC
+2021-10-19 01:57:12,609 [INFO] BlockDiagram:2740 - set Specific Code input for plugin: TIM1_8F1
+2021-10-19 01:57:12,610 [INFO] CodeGenerator:663 - code generatio: config db path: C:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.3.0.202107141111\\db\
+2021-10-19 01:57:12,875 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\MXTmpFiles\license.tmp_save
+2021-10-19 01:57:12,922 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\MXTmpFiles\license.tmp
+2021-10-19 01:57:12,954 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\MXTmpFiles\gpio.tmp_save
+2021-10-19 01:57:13,012 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\MXTmpFiles\gpio.tmp
+2021-10-19 01:57:13,138 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Src\stm32f1xx_it.c_save
+2021-10-19 01:57:13,212 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Src\stm32f1xx_it.c
+2021-10-19 01:57:13,217 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Inc\stm32f1xx_it.h_save
+2021-10-19 01:57:13,275 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Inc\stm32f1xx_it.h
+2021-10-19 01:57:13,290 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Src\stm32f1xx_hal_msp.c_save
+2021-10-19 01:57:13,387 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Src\stm32f1xx_hal_msp.c
+2021-10-19 01:57:13,391 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\MXTmpFiles\system.tmp_save
+2021-10-19 01:57:13,448 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\MXTmpFiles\system.tmp
+2021-10-19 01:57:13,464 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Inc\stm32f1xx_hal_conf.h_save
+2021-10-19 01:57:13,575 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Inc\stm32f1xx_hal_conf.h
+2021-10-19 01:57:13,602 [WARN] IPConfigManager:3148 - IP not found : TIM
+2021-10-19 01:57:13,603 [WARN] CodeGenerator:3268 - IP not found : null
+2021-10-19 01:57:13,617 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Inc\main.h_save
+2021-10-19 01:57:13,689 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Inc\main.h
+2021-10-19 01:57:13,698 [INFO] CodeEngine:239 - oldGeneratedFile, C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Src\main.c_save
+2021-10-19 01:57:13,791 [INFO] CodeEngine:257 - Generated code: C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\Core\Src\main.c
+2021-10-19 01:57:14,701 [INFO] ProjectBuilder:2578 - Time for Copy HAL[1] : 127mS.
+2021-10-19 01:57:14,704 [INFO] ProjectBuilder:3622 - Project Generator version: 3.14.1
+2021-10-19 01:57:15,050 [INFO] ConfigFileManager:1271 - The Die is : DIE412
+2021-10-19 01:57:16,821 [INFO] ProjectBuilder:3789 - Time for Generating toolchain IDE Files: 2117mS.
+2021-10-19 01:57:16,822 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 1mS.
+2021-10-19 01:57:16,826 [INFO] ProjectBuilder:2457 - Time for Copy CMSIS : 0mS.
