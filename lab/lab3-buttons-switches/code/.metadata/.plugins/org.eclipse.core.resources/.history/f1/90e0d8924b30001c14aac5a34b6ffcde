@@ -24,7 +24,6 @@
 #include "input_reading.h"
 #include "input_processing.h"
 #include "timer.h"
-#include "software_timer.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */

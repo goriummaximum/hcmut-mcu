@@ -52,7 +52,7 @@ void led7fsm(void);
 //update 7led
 void update7SEG(void);
 
-//update leds buffer
-uint8_t updateLedBuffer(int hour, int min);
+//update clock buffer
+uint8_t updateClockBuffer(int hour, int min);
 
 #endif /* __LED_7SEG_H */

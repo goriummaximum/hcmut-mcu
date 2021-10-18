@@ -173,7 +173,7 @@ void update7SEG(void) {
 	}
 }
 
-uint8_t updateLedBuffer(int hour, int min) {
+uint8_t updateClockBuffer(int hour, int min) {
 	if (hour > 23 || hour < 0 || min > 59 || min < 0) {
 		return 0;
 	}
