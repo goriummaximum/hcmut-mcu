@@ -23,7 +23,6 @@
 #include "led_7seg.h"
 #include "input_reading.h"
 #include "input_processing.h"
-#include "timer.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
