@@ -1,0 +1,20 @@
+/**
+  ******************************************************************************
+  * @file           : input_output_processing.h
+  * @brief          : This file contain the declaration of buttons processing FSM.
+  *
+  *
+  *                   Created on:	Oct 19th, 2021
+  *                   Author:		Thien Long
+  ******************************************************************************
+  * @attention
+  *
+  ******************************************************************************
+  */
+
+#ifndef INC_INPUT_OUTPUT_PROCESSING_H_
+#define INC_INPUT_OUTPUT_PROCESSING_H_
+
+void input_output_processing_fsm(void);
+
+#endif /* INC_INPUT_OUTPUT_PROCESSING_H_ */

@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file           : input_reading.c
   * @brief          : This file contain the implementation of reading buttons and
-  * 				deboucing machanism.
+  * 				deboucing mechanism.
   *
   *                   Created on:	Oct 19th, 2021
   *                   Author:		Thien Long
@@ -66,7 +66,6 @@ void button_reading(void) {
 				//the flag is turned on when 1 second has passed
 				//since the button is pressed.
 				flagForButtonPress1s[i] = 1;
-				//todo
 			}
 		}
 

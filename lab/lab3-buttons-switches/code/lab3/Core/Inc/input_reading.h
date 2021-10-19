@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file           : input_reading.h
   * @brief          : This file contain the declaration of reading buttons and
-  * 				deboucing machanism.
+  * 				deboucing mechanism.
   *
   *
   *                   Created on:	Oct 19th, 2021

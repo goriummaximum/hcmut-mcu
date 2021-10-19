@@ -1,0 +1,23 @@
+/**
+  ******************************************************************************
+  * @file           : input_output_processing.c
+  * @brief          : This file contain the implementation of input and output FSM.
+  *
+  *
+  *                   Created on:	Oct 29th, 2021
+  *                   Author:		Thien Long
+  ******************************************************************************
+  * @attention
+  *
+  ******************************************************************************
+  */
+
+#include "main.h"
+#include "input_output_processing.h"
+
+enum Mode {
+	BUTTON_RELEASED,
+	BUTTON_PRESSED,
+	BUTTON_PRESSED_MORE_THAN_1_SECOND
+};
+

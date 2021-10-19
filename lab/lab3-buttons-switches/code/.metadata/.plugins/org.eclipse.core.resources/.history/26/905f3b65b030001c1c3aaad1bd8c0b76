@@ -1,0 +1,23 @@
+/**
+  ******************************************************************************
+  * @file           : traffic_light_processing.c
+  * @brief          : This file contain the implementation of traffic light FSM.
+  *
+  *
+  *                   Created on:	Oct 29th, 2021
+  *                   Author:		Thien Long
+  ******************************************************************************
+  * @attention
+  *
+  ******************************************************************************
+  */
+
+#include "traffic_light_processing.h"
+#include "main.h"
+
+enum ButtonModeState {
+	BUTTON_RELEASED,
+	BUTTON_PRESSED,
+	BUTTON_PRESSED_MORE_THAN_1_SECOND
+};
+

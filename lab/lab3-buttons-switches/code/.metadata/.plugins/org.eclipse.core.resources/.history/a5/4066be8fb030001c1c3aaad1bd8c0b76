@@ -1,0 +1,28 @@
+/**
+  ******************************************************************************
+  * @file           : traffic_light_processing.c
+  * @brief          : This file contain the implementation of traffic light FSM.
+  *
+  *
+  *                   Created on:	Oct 29th, 2021
+  *                   Author:		Thien Long
+  ******************************************************************************
+  * @attention
+  *
+  ******************************************************************************
+  */
+
+#include "traffic_light_processing.h"
+#include "main.h"
+
+enum ButtonModeState {
+	NORMAL_MODE,
+	RED_LED_DURATION_MODIFICATION,
+	RED_LED_INCREASE_DURATION,
+	AMBER_LED_DURATION_MODIFICATION,
+	AMBER_LED_INCREASE_DURATION,
+	GREEN_LED_DURATION_MODIFICATION,
+	GREEN_LED_INCREASE_DURATION
+};
+
+enum ButtonModeState buttonModeState = NORMAL_MODE;
