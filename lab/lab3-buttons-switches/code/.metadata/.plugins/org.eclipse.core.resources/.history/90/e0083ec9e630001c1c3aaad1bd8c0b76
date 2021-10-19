@@ -52,7 +52,6 @@ void displayLedArray(uint8_t value) {
 	ledArrayDriver_Drive();
 }
 
-void toggleLedArray(uint8_t idx) {
-	if (idx >= NUMBER_OF_LEDS) return;
+void toggleLedArray(unit8_t idx, unsigned int value) {
 	HAL_GPIO_TogglePin(GPIO_PORT, ledArrayPins[idx]);
 }

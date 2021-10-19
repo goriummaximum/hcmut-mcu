@@ -36,6 +36,6 @@ void ledArrayDriver_Drive(void);
 void displayLedArray(uint8_t value);
 
 //toggle led at idx
-void toggleLedArray(uint8_t idx);
+void toggleLedArray(uint8_t idx, unsigned int value);
 
 #endif /* __1DARRAY_LED_H */

@@ -156,6 +156,7 @@ void traffic_light_processing_fsm(void) {
 
 	case RED_LED_DURATION_MODIFICATION:
 		//actions
+		displayLedArray(lightSelector[0]); //select RED led
 		if (get_timer_flag_value(3)) {
 			toggleLedArray(0);
 			setTimer(3, blinkDuration);
@@ -172,6 +173,10 @@ void traffic_light_processing_fsm(void) {
 
 		else if (is_button_pressed(2)) {
 			modeState = NORMAL_MODE;
+		}
+
+		else {
+			modeState = RED_LED_DURATION_MODIFICATION;
 		}
 		break;
 
@@ -197,6 +202,10 @@ void traffic_light_processing_fsm(void) {
 		else if (is_button_pressed(2)) {
 			modeState = NORMAL_MODE;
 		}
+
+		else {
+			modeState = AMBER_LED_DURATION_MODIFICATION;
+		}
 		break;
 
 	case AMBER_LED_INCREASE_DURATION:
@@ -220,6 +229,10 @@ void traffic_light_processing_fsm(void) {
 
 		else if (is_button_pressed(2)) {
 			modeState = NORMAL_MODE;
+		}
+
+		else {
+			modeState = GREEN_LED_DURATION_MODIFICATION;
 		}
 		break;
 

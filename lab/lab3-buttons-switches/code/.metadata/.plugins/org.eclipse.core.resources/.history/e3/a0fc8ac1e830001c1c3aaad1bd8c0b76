@@ -49,7 +49,7 @@ static uint8_t lightSelector[NUMBER_OF_LEDS] = {
 static unsigned int countDownDuration = 1000;
 static unsigned int downCounter = 0;
 
-static unsigned int blinkDuration = 250;
+static unsigned int blinkDuration = 500;
 
 static enum ModeState modeState = NORMAL_MODE;
 
@@ -156,6 +156,7 @@ void traffic_light_processing_fsm(void) {
 
 	case RED_LED_DURATION_MODIFICATION:
 		//actions
+		displayLedArray(lightSelector[0]); //select RED led
 		if (get_timer_flag_value(3)) {
 			toggleLedArray(0);
 			setTimer(3, blinkDuration);

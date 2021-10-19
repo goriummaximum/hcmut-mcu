@@ -103,7 +103,6 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  //run FSM inside timer for synchronization
 	  if (get_timer_flag_value(0)) {
 		  traffic_light_processing_fsm();
 		  setTimer(0, 10);
