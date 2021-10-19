@@ -16,24 +16,24 @@
 #include "software_timer.h"
 #include "main.h"
 
-static int timer_counter = 0;
-static int timer_flag = 0;
+static int timer_counter[NO_OF_TIMERS] = {0, 0};
+static int timer_flag[NO_OF_TIMERS] = {0, 0};
 
-int get_timer_flag_value(void) {
-	return timer_flag;
+int get_timer_flag_value(int idx) {
+	return timer_flag[idx];
 }
 
-void setTimer(int duration) {
-	timer_counter = duration / TIMER_CYCLE;
-	timer_flag = 0;
+void setTimer(int idx, int duration) {
+	timer_counter[idx] = duration / TIMER_CYCLE;
+	timer_flag[idx] = 0;
 }
 
-void timer_run(void) {
-	if (timer_counter > 0) {
-		timer_counter--;
+void timer_run(int idx) {
+	if (timer_counter[idx] > 0) {
+		timer_counter[idx]--;
 
-		if (timer_counter == 0) {
-			timer_flag = 1;
+		if (timer_counter[idx] == 0) {
+			timer_flag[idx] = 1;
 		}
 	}
 }

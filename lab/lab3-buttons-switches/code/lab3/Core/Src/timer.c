@@ -17,7 +17,8 @@
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	if(htim->Instance == TIM2) {
-		timer_run();
+		timer_run(0);
+		timer_run(1);
 		button_reading();
 	}
 }

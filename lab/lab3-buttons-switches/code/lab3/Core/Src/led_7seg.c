@@ -173,15 +173,15 @@ void update7SEG(void) {
 	}
 }
 
-uint8_t updateLedBuffer(int hour, int min) {
-	if (hour > 23 || hour < 0 || min > 59 || min < 0) {
+uint8_t updateLedBuffer(int mode, int count) {
+	if (mode > 99 || mode < 0 || count > 99 || count < 0) {
 		return 0;
 	}
 
-	led_buffer[0] = hour / 10;
-	led_buffer[1] = hour % 10;
-	led_buffer[2] = min / 10;
-	led_buffer[3] = min % 10;
+	led_buffer[0] = mode / 10;
+	led_buffer[1] = mode % 10;
+	led_buffer[2] = count / 10;
+	led_buffer[3] = count % 10;
 
 	return 1;
 }

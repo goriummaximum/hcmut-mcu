@@ -19,7 +19,7 @@
 #define NO_OF_BUTTONS					3
 //timer interrupt duration is 10ms, so to pass 1 second ,
 //we need to jump to the interrupt service routine 100 time
-#define DURATION_FOR_AUTO_INCREASING	20
+#define DURATION_FOR_AUTO_INCREASING	100
 
 #define BUTTON_IS_PRESSED 				GPIO_PIN_RESET
 #define BUTTON_IS_RELEASED 				GPIO_PIN_SET
@@ -39,6 +39,7 @@ static uint16_t buttonPin[NO_OF_BUTTONS] = {
 //the buffer that the final result is stored after
 // debouncing
 static GPIO_PinState buttonBuffer[NO_OF_BUTTONS];
+static GPIO_PinState buttonBufferPrev[NO_OF_BUTTONS];
 //we define two buffers for debouncing
 static GPIO_PinState debounceButtonBuffer1[NO_OF_BUTTONS];
 static GPIO_PinState debounceButtonBuffer2[NO_OF_BUTTONS];
@@ -51,6 +52,7 @@ static uint16_t counterForButtonPress1s[NO_OF_BUTTONS];
 void button_init(void) {
 	for (char i = 0; i < NO_OF_BUTTONS; i++) {
 		buttonBuffer[i] = BUTTON_IS_RELEASED;
+		buttonBufferPrev[i] = BUTTON_IS_RELEASED;
 		debounceButtonBuffer1[i] = BUTTON_IS_RELEASED;
 		debounceButtonBuffer2[i] = BUTTON_IS_RELEASED;
 		counterForButtonPress1s[i] = 0;
@@ -64,6 +66,8 @@ void button_reading(void) {
 		debounceButtonBuffer1[i] = HAL_GPIO_ReadPin(buttonPort[i], buttonPin[i]);
 
 		if (debounceButtonBuffer1[i] == debounceButtonBuffer2[i]) {
+			//valid input, can read now
+			buttonBufferPrev[i] = buttonBuffer[i];
 			buttonBuffer[i] = debounceButtonBuffer1[i];
 			if (buttonBuffer[i] == BUTTON_IS_PRESSED) {
 				//toggle pin to validate
@@ -91,7 +95,8 @@ void button_reading(void) {
 //checking a button is pressed or not
 unsigned char is_button_pressed(uint8_t index) {
 	if (index >= NO_OF_BUTTONS) return 0;
-	return (buttonBuffer[index] == BUTTON_IS_PRESSED);
+	return (buttonBuffer[index] == BUTTON_IS_RELEASED)
+			&& (buttonBufferPrev[index] == BUTTON_IS_PRESSED);
 }
 
 //Checking a button is pressed more than a second or not

@@ -15,15 +15,17 @@
 #ifndef __SOFTWARE_TIMER_H
 #define __SOFTWARE_TIMER_H
 
-#define TIMER_CYCLE		50 //ms
+#define NO_OF_TIMERS	2
+
+#define TIMER_CYCLE		10 //ms
 
 //get timer_flag value
-int get_timer_flag_value(void);
+int get_timer_flag_value(int idx);
 
 //set the timer_counter respects to the duration and TIMER_CYCLE
-void setTimer(int duration);
+void setTimer(int idx, int duration);
 
 //count down timer_counter to 0 and raise the timer_flag
-void timer_run(void);
+void timer_run(int idx);
 
 #endif

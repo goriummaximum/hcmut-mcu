@@ -18,7 +18,7 @@
 #define NUMBER_OF_LEDS_7SEG			4
 #define NUMBER_OF_VALUES_7SEG		16
 #define NUMBER_OF_SEGS				7
-#define GPIO_PORT_7SEG 				GPIOB
+#define GPIO_PORT_7SEG 				GPIOA
 
 #define EN_PORT		GPIOA
 #define EN0_PIN		GPIO_PIN_4
@@ -53,6 +53,6 @@ void led7fsm(void);
 void update7SEG(void);
 
 //update leds buffer
-uint8_t updateLedBuffer(int hour, int min);
+uint8_t updateLedBuffer(int mode, int count);
 
 #endif /* __LED_7SEG_H */

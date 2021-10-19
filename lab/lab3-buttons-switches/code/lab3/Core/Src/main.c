@@ -90,6 +90,8 @@ int main(void)
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2);
+
+  setTimer(1, 10);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -97,7 +99,10 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  traffic_light_processing_fsm();
+	  if (get_timer_flag_value(1)) {
+		  traffic_light_processing_fsm();
+		  setTimer(1, 10);
+	  }
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -158,7 +163,7 @@ static void MX_TIM2_Init(void)
   htim2.Instance = TIM2;
   htim2.Init.Prescaler = 8000 - 1;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 50 - 1;
+  htim2.Init.Period = 10 - 1;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
