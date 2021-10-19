@@ -19,8 +19,6 @@
 
 #define TIMER_CYCLE		10 //ms
 
-void software_timer_init(void);
-
 //get timer_flag value
 int get_timer_flag_value(int idx);
 

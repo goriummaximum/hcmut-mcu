@@ -19,13 +19,6 @@
 static int timer_counter[NO_OF_TIMERS] = {0, 0};
 static int timer_flag[NO_OF_TIMERS] = {0, 0};
 
-void software_timer_init(void) {
-	for (char i = 0; i < NO_OF_TIMERS; i++) {
-		timer_counter[i] = 0;
-		timer_flag[i] = 0;
-	}
-}
-
 int get_timer_flag_value(int idx) {
 	return timer_flag[idx];
 }

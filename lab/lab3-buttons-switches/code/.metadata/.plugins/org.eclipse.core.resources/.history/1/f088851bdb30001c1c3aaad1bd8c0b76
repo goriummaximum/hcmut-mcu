@@ -91,7 +91,6 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2);
 
-  software_timer_init();
   setTimer(1, 10);
   /* USER CODE END 2 */
 
