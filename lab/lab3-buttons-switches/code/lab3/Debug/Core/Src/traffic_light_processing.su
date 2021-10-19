@@ -1,0 +1,2 @@
+traffic_light_processing.c:51:6:traffic_light_init	8	static
+traffic_light_processing.c:58:6:traffic_light_processing_fsm	8	static

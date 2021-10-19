@@ -24,6 +24,8 @@
 #define LA_PIN				GPIO_PIN_2
 #define LG_PIN				GPIO_PIN_3
 
+void ledArray_init(void);
+
 //buffer extract each bit of value corresponding to each position of buffer
 uint8_t ledArrayBuffer_Write(uint8_t value);
 

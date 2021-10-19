@@ -27,7 +27,7 @@ void fsm_for_input_processing(void) {
 	switch(buttonState) {
 	case BUTTON_RELEASED:
 		if (is_button_pressed(0)) {
-			buttonState = BUTOTN_PRESSED;
+			buttonState = BUTTON_PRESSED;
 			// INCREASE VALUE OF PORT A BY ONE UNIT
 		}
 		break;

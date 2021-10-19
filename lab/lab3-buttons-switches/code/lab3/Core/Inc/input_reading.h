@@ -22,6 +22,10 @@
 #define BUTTON_1_Pin			GPIO_PIN_1
 #define BUTTON_2_Pin			GPIO_PIN_2
 
+#define BRESP_GPIO_Port			GPIOA
+#define BRESP_Pin				GPIO_PIN_15
+
+void button_init(void);
 void button_reading(void);
 unsigned char is_button_pressed(unsigned char index);
 unsigned char is_button_pressed_1s(unsigned char index);

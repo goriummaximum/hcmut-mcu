@@ -19,6 +19,13 @@ static uint8_t ledArrayBuffer[NUMBER_OF_LEDS];
 static uint8_t ledArrayPins[NUMBER_OF_LEDS] = {LR_PIN, LA_PIN, LG_PIN};
 static uint8_t ledArrayEncoder[NUMBER_OF_VALUES] = {GPIO_PIN_SET, GPIO_PIN_RESET}; //idx 0 - SET, idx 1 - RESET
 
+void ledArray_init(void) {
+	for (uint8_t i = 0; i < NUMBER_OF_LEDS; i++) {
+		ledArrayBuffer[i] = 0x00;
+		HAL_GPIO_WritePin(GPIO_PORT, ledArrayPins[i], ledArrayEncoder[0]);
+	}
+}
+
 uint8_t ledArrayBuffer_Write(uint8_t value) {
 	if (value >= NUMBER_OF_LEDS*2) {
 		return 0;

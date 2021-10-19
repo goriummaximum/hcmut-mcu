@@ -16,7 +16,7 @@
 #include "software_timer.h"
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-	if(htim ->Instance == TIM2){
+	if(htim->Instance == TIM2) {
 		timer_run();
 		button_reading();
 	}

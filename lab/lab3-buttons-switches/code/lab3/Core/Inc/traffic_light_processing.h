@@ -15,6 +15,7 @@
 #ifndef INC_TRAFFIC_LIGHT_PROCESSING_H_
 #define INC_TRAFFIC_LIGHT_PROCESSING_H_
 
+void traffic_light_init(void);
 void traffic_light_processing_fsm(void);
 
 #endif /* INC_TRAFFIC_LIGHT_PROCESSING_H_ */

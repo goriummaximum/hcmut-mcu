@@ -24,7 +24,7 @@ int get_timer_flag_value(void) {
 }
 
 void setTimer(int duration) {
-	timer_counter = duration / TIMER0_CYCLE;
+	timer_counter = duration / TIMER_CYCLE;
 	timer_flag = 0;
 }
 

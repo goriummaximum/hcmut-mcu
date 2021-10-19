@@ -15,7 +15,7 @@
 #ifndef __SOFTWARE_TIMER_H
 #define __SOFTWARE_TIMER_H
 
-#define TIMER_CYCLE		10 //ms
+#define TIMER_CYCLE		50 //ms
 
 //get timer_flag value
 int get_timer_flag_value(void);
