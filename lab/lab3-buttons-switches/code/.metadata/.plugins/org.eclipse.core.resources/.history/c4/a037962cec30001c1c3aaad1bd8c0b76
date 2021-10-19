@@ -261,13 +261,8 @@ void traffic_light_processing_fsm(void) {
 		break;
 
 	case GREEN_LED_INCREASE_DURATION:
-		//actions
-		lightDuration[2] += 1000;
-		if (lightDuration[2] == 100 * 1000) {
-			lightDuration[2] = 0;
-		}
+		//todo
 
-		//transitions
 		modeState = GREEN_LED_DURATION_MODIFICATION;
 		break;
 	}

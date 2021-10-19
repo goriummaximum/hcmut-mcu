@@ -1,6 +1,14 @@
-21:30:53 **** Incremental Build of configuration Debug for project lab3 ****
+21:52:35 **** Incremental Build of configuration Debug for project lab3 ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/1darray_led.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/1darray_led.d" -MT"Core/Src/1darray_led.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/1darray_led.o"
+arm-none-eabi-gcc "../Core/Src/traffic_light_processing.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/traffic_light_processing.d" -MT"Core/Src/traffic_light_processing.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/traffic_light_processing.o"
+../Core/Src/traffic_light_processing.c: In function 'traffic_light_init':
+../Core/Src/traffic_light_processing.c:60:2: warning: implicit declaration of function 'setTimer' [-Wimplicit-function-declaration]
+   60 |  setTimer(1, lightDuration[0]);
+      |  ^~~~~~~~
+../Core/Src/traffic_light_processing.c: In function 'traffic_light_processing_fsm':
+../Core/Src/traffic_light_processing.c:89:7: warning: implicit declaration of function 'get_timer_flag_value' [-Wimplicit-function-declaration]
+   89 |   if (get_timer_flag_value(2)) {
+      |       ^~~~~~~~~~~~~~~~~~~~
 arm-none-eabi-gcc -o "lab3.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab3-buttons-switches\code\lab3\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab3.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: lab3.elf
  
@@ -9,7 +17,7 @@ arm-none-eabi-objdump -h -S  lab3.elf  > "lab3.list"
 arm-none-eabi-objcopy  -O ihex  lab3.elf  "lab3.hex"
 arm-none-eabi-objcopy  -O binary  lab3.elf  "lab3.bin"
    text	   data	    bss	    dec	    hex	filename
-   9616	    112	   1736	  11464	   2cc8	lab3.elf
+   9884	    112	   1736	  11732	   2dd4	lab3.elf
 Finished building: default.size.stdout
  
 Finished building: lab3.hex
