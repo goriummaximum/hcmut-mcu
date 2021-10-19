@@ -92,7 +92,10 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim2);
 
   software_timer_init();
-  setTimer(1, 10);
+  button_init();
+  ledArray_init();
+
+  setTimer(0, 10);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -100,9 +103,9 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  if (get_timer_flag_value(1)) {
+	  if (get_timer_flag_value(0)) {
 		  traffic_light_processing_fsm();
-		  setTimer(1, 10);
+		  setTimer(0, 10);
 	  }
     /* USER CODE BEGIN 3 */
   }

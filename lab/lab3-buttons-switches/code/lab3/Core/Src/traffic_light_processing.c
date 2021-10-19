@@ -35,9 +35,9 @@ enum ModeState {
 
 //light duration in ms
 static unsigned int lightDuration[NUMBER_OF_LEDS] = {
-		500, //RED
-		200, //AMBER
-		100 //GREEN
+		4000, //RED
+		3000, //AMBER
+		2000 //GREEN
 };
 
 static uint8_t lightSelector[NUMBER_OF_LEDS] = {
@@ -46,13 +46,17 @@ static uint8_t lightSelector[NUMBER_OF_LEDS] = {
 		0x4 //GREEN
 };
 
+static unsigned int countDownDuration = 1000;
+static unsigned int downCounter = 0;
+
 static enum ModeState modeState = NORMAL_MODE;
 
 void traffic_light_init(void) {
 	button_init();
 	ledArray_init();
 	displayLedArray(lightSelector[0]); //display red
-	setTimer(0, lightDuration[0]);
+	setTimer(1, lightDuration[0]);
+	setTimer(2, countDownDuration);
 }
 
 void traffic_light_processing_fsm(void) {
@@ -60,9 +64,10 @@ void traffic_light_processing_fsm(void) {
 	case NORMAL_MODE:
 		//actions
 		traffic_light_init();
+		downCounter = lightDuration[0] / 1000;
 
 		//transition
-		if (is_button_pressed(0)) {
+		if (is_button_pressed(1)) {
 			modeState = RED_LED_DURATION_MODIFICATION;
 		}
 
@@ -74,7 +79,12 @@ void traffic_light_processing_fsm(void) {
 	case RED_LED_RUN:
 		//actions
 		displayLedArray(lightSelector[0]); //select RED led
-		updateLedBuffer(0, lightDuration[0] / 1000);
+		//display 7seg leds
+		updateLedBuffer(0, downCounter);
+		if (get_timer_flag_value(2)) {
+			updateLedBuffer(0, --downCounter);
+			setTimer(2, countDownDuration);
+		}
 		update7SEG();
 
 		//transitions
@@ -83,8 +93,9 @@ void traffic_light_processing_fsm(void) {
 		}
 
 		else {
-			if (get_timer_flag_value(0) == 1) {
-				setTimer(0, lightDuration[1]);
+			if (get_timer_flag_value(1) == 1) {
+				downCounter = lightDuration[1] / 1000;
+				setTimer(1, lightDuration[1]);
 				modeState = AMBER_LED_RUN;
 			}
 		}
@@ -93,7 +104,12 @@ void traffic_light_processing_fsm(void) {
 	case AMBER_LED_RUN:
 		//actions
 		displayLedArray(lightSelector[1]); //select AMBER led
-		updateLedBuffer(0, lightDuration[0] / 1000);
+		//display 7seg leds
+		updateLedBuffer(0, downCounter);
+		if (get_timer_flag_value(2)) {
+			updateLedBuffer(0, --downCounter);
+			setTimer(2, countDownDuration);
+		}
 		update7SEG();
 
 		//transitions
@@ -102,8 +118,9 @@ void traffic_light_processing_fsm(void) {
 		}
 
 		else {
-			if (get_timer_flag_value(0) == 1) {
-				setTimer(0, lightDuration[2]);
+			if (get_timer_flag_value(1) == 1) {
+				downCounter = lightDuration[2] / 1000;
+				setTimer(1, lightDuration[2]);
 				modeState = GREEN_LED_RUN;
 			}
 		}
@@ -112,7 +129,12 @@ void traffic_light_processing_fsm(void) {
 	case GREEN_LED_RUN:
 		//actions
 		displayLedArray(lightSelector[2]); //select GREEN led
-		updateLedBuffer(0, lightDuration[0] / 1000);
+		//display 7seg leds
+		updateLedBuffer(0, downCounter);
+		if (get_timer_flag_value(2)) {
+			updateLedBuffer(0, --downCounter);
+			setTimer(2, countDownDuration);
+		}
 		update7SEG();
 
 		//transitions
@@ -121,8 +143,9 @@ void traffic_light_processing_fsm(void) {
 		}
 
 		else {
-			if (get_timer_flag_value(0) == 1) {
-				setTimer(0, lightDuration[0]);
+			if (get_timer_flag_value(1) == 1) {
+				downCounter = lightDuration[0] / 1000;
+				setTimer(1, lightDuration[0]);
 				modeState = RED_LED_RUN;
 			}
 		}

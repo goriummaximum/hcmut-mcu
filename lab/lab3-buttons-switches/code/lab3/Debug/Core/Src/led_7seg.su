@@ -1,7 +1,7 @@
-led_7seg.c:67:9:led7SegBuffer_Write	16	static
-led_7seg.c:81:6:led7SegDriver_Drive	24	static
-led_7seg.c:94:6:display7SEG	16	static
-led_7seg.c:102:6:selectEn	16	static
-led_7seg.c:109:6:led7fsm	8	static
-led_7seg.c:141:6:update7SEG	8	static
-led_7seg.c:176:9:updateLedBuffer	16	static
+led_7seg.c:66:9:led7SegBuffer_Write	16	static
+led_7seg.c:80:6:led7SegDriver_Drive	24	static
+led_7seg.c:93:6:display7SEG	16	static
+led_7seg.c:101:6:selectEn	16	static
+led_7seg.c:108:6:led7fsm	8	static
+led_7seg.c:140:6:update7SEG	8	static
+led_7seg.c:175:9:updateLedBuffer	16	static

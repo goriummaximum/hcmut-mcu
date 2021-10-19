@@ -16,8 +16,8 @@
 #include "software_timer.h"
 #include "main.h"
 
-static int timer_counter[NO_OF_TIMERS] = {0, 0};
-static int timer_flag[NO_OF_TIMERS] = {0, 0};
+static int timer_counter[NO_OF_TIMERS];
+static int timer_flag[NO_OF_TIMERS];
 
 void software_timer_init(void) {
 	for (char i = 0; i < NO_OF_TIMERS; i++) {
@@ -27,15 +27,27 @@ void software_timer_init(void) {
 }
 
 int get_timer_flag_value(int idx) {
+	if (idx < 0 || idx > NO_OF_TIMERS) {
+		return -1;
+	}
+
 	return timer_flag[idx];
 }
 
 void setTimer(int idx, int duration) {
+	if (idx < 0 || idx > NO_OF_TIMERS || duration < 0) {
+		return;
+	}
+
 	timer_counter[idx] = duration / TIMER_CYCLE;
 	timer_flag[idx] = 0;
 }
 
 void timer_run(int idx) {
+	if (idx < 0 || idx > NO_OF_TIMERS) {
+		return;
+	}
+
 	if (timer_counter[idx] > 0) {
 		timer_counter[idx]--;
 

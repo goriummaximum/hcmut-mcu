@@ -15,7 +15,7 @@
 #ifndef __SOFTWARE_TIMER_H
 #define __SOFTWARE_TIMER_H
 
-#define NO_OF_TIMERS	2
+#define NO_OF_TIMERS	4
 
 #define TIMER_CYCLE		10 //ms
 
