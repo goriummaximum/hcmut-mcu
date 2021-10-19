@@ -94,7 +94,6 @@ int main(void)
   software_timer_init();
   button_init();
   ledArray_init();
-  traffic_light_init();
 
   setTimer(0, 10);
   /* USER CODE END 2 */
