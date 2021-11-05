@@ -1,0 +1,29 @@
+/**
+  ******************************************************************************
+  * @file           : tasks.c
+  * @brief          : Tasks implementation
+  ******************************************************************************
+  *                   Created on:	Nov 5th, 2021
+  *                   Author:		Thien Long
+  ******************************************************************************
+  */
+
+void task0(void) {
+	HAL_GPIO_TogglePin(GIOA, GPIO_Pin_0);
+}
+
+void task1(void) {
+	HAL_GPIO_TogglePin(GIOA, GPIO_Pin_1);
+}
+
+void task2(void) {
+	HAL_GPIO_TogglePin(GIOA, GPIO_Pin_2);
+}
+
+void task3(void) {
+	HAL_GPIO_TogglePin(GIOA, GPIO_Pin_3);
+}
+
+void task4(void) {
+	HAL_GPIO_TogglePin(GIOA, GPIO_Pin_4);
+}

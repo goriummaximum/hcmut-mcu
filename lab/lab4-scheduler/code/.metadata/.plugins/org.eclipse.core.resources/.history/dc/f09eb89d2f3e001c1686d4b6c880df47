@@ -1,0 +1,19 @@
+/**
+  ******************************************************************************
+  * @file           : tasks.c
+  * @brief          : Tasks declaration
+  ******************************************************************************
+  *                   Created on:	Nov 5th, 2021
+  *                   Author:		Thien Long
+  ******************************************************************************
+  */
+#ifndef INC_TASKS_H_
+#define INC_TASKS_H_
+
+#include "stdio.h"
+
+void task1(void) {
+	HAL_GPIO_TogglePin(GIOA, GPIO_Pin_0);
+}
+
+#endif
