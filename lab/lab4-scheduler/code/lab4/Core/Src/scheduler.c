@@ -14,6 +14,8 @@
 sTask SCH_tasks_G[SCH_MAX_TASKS];
 
 int Error_code_G = 0;
+static uint32_t min_delay = 0;
+static unsigned char min_taskID = 0;
 
 void SCH_Init(void) {
 	unsigned char i;
@@ -28,6 +30,7 @@ void SCH_Init(void) {
 	//Watchdog_init() ;
 }
 
+/*
 void SCH_Update(void) {
 	unsigned char Index ;
 	// NOTE: calculations are in *TICKS*
@@ -46,6 +49,44 @@ void SCH_Update(void) {
 				// Not yet ready to run : just decrement the delay
 				SCH_tasks_G[Index].Delay -= 1;
 			}
+		}
+	}
+}
+*/
+
+void SCH_Update(void) {
+	if (SCH_tasks_G[min_taskID].pTask) {
+		if (SCH_tasks_G[min_taskID].Delay == 0) {
+			//task ready to be dispatched
+			SCH_tasks_G[min_taskID].RunMe += 1;
+			if (SCH_tasks_G[min_taskID].Period) {
+				// Schedule periodic tasks to run again
+				SCH_tasks_G[min_taskID].Delay = SCH_tasks_G[min_taskID].Period;
+			}
+
+			//update other tasks
+			unsigned char Index;
+			for (Index = 0; Index < SCH_MAX_TASKS; Index++) {
+				if (SCH_tasks_G[Index].pTask) {
+					if (SCH_tasks_G[Index].TaskID != (uint32_t)min_taskID) {
+						SCH_tasks_G[Index].Delay -= min_delay;
+					}
+				}
+			}
+
+			//find_task_with_min_delay();
+			for (Index = 0; Index < SCH_MAX_TASKS; Index++) {
+				if (SCH_tasks_G[Index].pTask) {
+					if (SCH_tasks_G[Index].Delay <= min_delay && SCH_tasks_G[Index].TaskID != min_taskID) {
+						min_delay = SCH_tasks_G[Index].Delay;
+						min_taskID = SCH_tasks_G[Index].TaskID;
+					}
+				}
+			}
+		}
+
+		else {
+			SCH_tasks_G[min_taskID].Delay -= 1;
 		}
 	}
 }
@@ -78,7 +119,7 @@ unsigned char SCH_Add_Task(void (*pFunction)(), unsigned int DELAY, unsigned int
 	SCH_tasks_G[Index].RunMe = 0;
 	SCH_tasks_G[Index].TaskID = (uint32_t)Index;
 	// return position of task(to allow later deletion)
-	return SCH_tasks_G[Index].TaskID;
+	return Index;
 }
 
 void SCH_Dispatch_Tasks(void) {
@@ -143,6 +184,18 @@ void SCH_Report_Status(void) {
 		}
 	}
 #endif
+}
+
+void find_task_with_min_delay(void) {
+	unsigned char Index;
+	for (Index = 0; Index < SCH_MAX_TASKS; Index++) {
+		if (SCH_tasks_G[Index].pTask) {
+			if (SCH_tasks_G[Index].Delay <= min_delay) {
+				min_delay = SCH_tasks_G[Index].Delay;
+				min_taskID = SCH_tasks_G[Index].TaskID;
+			}
+		}
+	}
 }
 
 

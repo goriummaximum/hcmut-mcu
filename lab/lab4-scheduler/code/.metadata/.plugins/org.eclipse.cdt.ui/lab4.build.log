@@ -1,10 +1,23 @@
-19:13:43 **** Incremental Build of configuration Debug for project lab4 ****
+20:17:41 **** Incremental Build of configuration Debug for project lab4 ****
 make -j8 all 
+arm-none-eabi-gcc "../Core/Src/scheduler.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/scheduler.d" -MT"Core/Src/scheduler.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/scheduler.o"
+arm-none-eabi-gcc -o "lab4.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab4-scheduler\code\lab4\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab4.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab4.elf
+ 
 arm-none-eabi-size   lab4.elf 
+arm-none-eabi-objdump -h -S  lab4.elf  > "lab4.list"
+arm-none-eabi-objcopy  -O ihex  lab4.elf  "lab4.hex"
+arm-none-eabi-objcopy  -O binary  lab4.elf  "lab4.bin"
    text	   data	    bss	    dec	    hex	filename
-   8904	     20	   2588	  11512	   2cf8	lab4.elf
+   9296	     20	   2596	  11912	   2e88	lab4.elf
 Finished building: default.size.stdout
  
+Finished building: lab4.hex
+Finished building: lab4.bin
+ 
+ 
+Finished building: lab4.list
+ 
 
-19:13:44 Build Finished. 0 errors, 0 warnings. (took 315ms)
+20:17:42 Build Finished. 0 errors, 0 warnings. (took 961ms)
 
