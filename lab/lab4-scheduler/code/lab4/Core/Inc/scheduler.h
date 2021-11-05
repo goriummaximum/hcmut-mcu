@@ -40,6 +40,5 @@ unsigned char SCH_Add_Task(void (*pFunction)(), unsigned int DELAY, unsigned int
 void SCH_Dispatch_Tasks(void);
 unsigned char SCH_Delete_Task(const unsigned char TASK_INDEX);
 void SCH_Report_Status(void);
-void find_task_with_min_delay(void);
 
 #endif

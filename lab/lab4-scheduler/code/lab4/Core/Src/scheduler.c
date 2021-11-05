@@ -74,12 +74,19 @@ void SCH_Update(void) {
 				}
 			}
 
-			//find_task_with_min_delay();
+			//find first existed task in task array
+			Index = 0;
+			while (!SCH_tasks_G[Index].pTask) {
+				Index++;
+			}
+			min_delay = SCH_tasks_G[Index].Delay;
+			min_taskID = SCH_tasks_G[Index].TaskID;
+			//find min delay
 			for (Index = 0; Index < SCH_MAX_TASKS; Index++) {
 				if (SCH_tasks_G[Index].pTask) {
 					if (SCH_tasks_G[Index].Delay <= min_delay && SCH_tasks_G[Index].TaskID != min_taskID) {
 						min_delay = SCH_tasks_G[Index].Delay;
-						min_taskID = SCH_tasks_G[Index].TaskID;
+						min_taskID = Index;
 					}
 				}
 			}
@@ -184,18 +191,6 @@ void SCH_Report_Status(void) {
 		}
 	}
 #endif
-}
-
-void find_task_with_min_delay(void) {
-	unsigned char Index;
-	for (Index = 0; Index < SCH_MAX_TASKS; Index++) {
-		if (SCH_tasks_G[Index].pTask) {
-			if (SCH_tasks_G[Index].Delay <= min_delay) {
-				min_delay = SCH_tasks_G[Index].Delay;
-				min_taskID = SCH_tasks_G[Index].TaskID;
-			}
-		}
-	}
 }
 
 

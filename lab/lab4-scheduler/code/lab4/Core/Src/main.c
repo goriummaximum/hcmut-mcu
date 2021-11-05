@@ -44,7 +44,7 @@
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
 
-UART_HandleTypeDef huart1;
+//UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
 
@@ -102,12 +102,11 @@ int main(void)
 
   SCH_Init();
   //1 tick = 10ms
-  SCH_Add_Task(&task0, 0, 50);
-  SCH_Add_Task(&task1, 1, 100);
-  SCH_Add_Task(&task2, 2, 150);
-  SCH_Add_Task(&task3, 3, 200);
-  SCH_Add_Task(&task4, 4, 250);
-  find_task_with_min_delay();
+  SCH_Add_Task(&task0, 10, 50);
+  SCH_Add_Task(&task1, 11, 100);
+  SCH_Add_Task(&task2, 12, 150);
+  SCH_Add_Task(&task3, 13, 200);
+  SCH_Add_Task(&task4, 14, 250);
   /* USER CODE END 2 */
 
   /* Infinite loop */
