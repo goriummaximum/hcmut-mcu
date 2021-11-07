@@ -15,12 +15,12 @@ sTask SCH_tasks_G[SCH_MAX_TASKS];
 
 int Error_code_G = 0;
 static uint32_t min_delay = 0;
-static unsigned char min_taskID = 0;
+static unsigned char min_index = 0;
 
 void SCH_Init(void) {
 	unsigned char i;
 	for (i = 0; i < SCH_MAX_TASKS; i++) {
-		SCH_Delete_Task (i);
+		SCH_Delete_Task(i);
 	}
 	// Reset the global error variable
 	// − SCH_Delete_Task() will generate an error code,
@@ -55,45 +55,20 @@ void SCH_Update(void) {
 */
 
 void SCH_Update(void) {
-	if (SCH_tasks_G[min_taskID].pTask) {
-		if (SCH_tasks_G[min_taskID].Delay == 0) {
+	if (SCH_tasks_G[min_index].pTask) {
+		//jump to here whenever a task is done
+		if (SCH_tasks_G[min_index].Delay == 0) {
 			//task ready to be dispatched
-			SCH_tasks_G[min_taskID].RunMe += 1;
-			if (SCH_tasks_G[min_taskID].Period) {
+			SCH_tasks_G[min_index].RunMe += 1;
+			if (SCH_tasks_G[min_index].Period) {
 				// Schedule periodic tasks to run again
-				SCH_tasks_G[min_taskID].Delay = SCH_tasks_G[min_taskID].Period;
-			}
-
-			//update other tasks
-			unsigned char Index;
-			for (Index = 0; Index < SCH_MAX_TASKS; Index++) {
-				if (SCH_tasks_G[Index].pTask) {
-					if (SCH_tasks_G[Index].TaskID != (uint32_t)min_taskID) {
-						SCH_tasks_G[Index].Delay -= min_delay;
-					}
-				}
-			}
-
-			//find first existed task in task array
-			Index = 0;
-			while (!SCH_tasks_G[Index].pTask) {
-				Index++;
-			}
-			min_delay = SCH_tasks_G[Index].Delay;
-			min_taskID = SCH_tasks_G[Index].TaskID;
-			//find min delay
-			for (Index = 0; Index < SCH_MAX_TASKS; Index++) {
-				if (SCH_tasks_G[Index].pTask) {
-					if (SCH_tasks_G[Index].Delay <= min_delay && SCH_tasks_G[Index].TaskID != min_taskID) {
-						min_delay = SCH_tasks_G[Index].Delay;
-						min_taskID = Index;
-					}
-				}
+				SCH_tasks_G[min_index].Delay = SCH_tasks_G[min_index].Period;
 			}
 		}
 
 		else {
-			SCH_tasks_G[min_taskID].Delay -= 1;
+			//jump here every time
+			SCH_tasks_G[min_index].Delay -= 1;
 		}
 	}
 }
@@ -112,10 +87,8 @@ unsigned char SCH_Add_Task(void (*pFunction)(), unsigned int DELAY, unsigned int
 
 	// Have we reached the end of the list?
 	if (Index == SCH_MAX_TASKS) {
-		//task list is full
-		//set the global error variable
 		Error_code_G = ERROR_SCH_TOO_MANY_TASKS;
-		//Also return an error code
+
 		return SCH_MAX_TASKS;
 	}
 
@@ -130,16 +103,15 @@ unsigned char SCH_Add_Task(void (*pFunction)(), unsigned int DELAY, unsigned int
 }
 
 void SCH_Dispatch_Tasks(void) {
-	unsigned char Index;
-	// Dispatches (runs) the next task (if one is ready)
-	for (Index = 0; Index < SCH_MAX_TASKS; Index++) {
-		if (SCH_tasks_G[Index].RunMe > 0) {
-			(*SCH_tasks_G[Index].pTask)(); // Run the task
-			SCH_tasks_G[Index].RunMe -= 1; // Reset / reduce RunMe flag
-			// Periodic tasks will automatically run again
+	unsigned int curr_index = min_index;
+	if (SCH_tasks_G[curr_index].pTask) {
+		if (SCH_tasks_G[curr_index].RunMe > 0) {
+			update_min_task();
+			(*SCH_tasks_G[curr_index].pTask)(); // Run the task
+			SCH_tasks_G[curr_index].RunMe -= 1; // Reset / reduce RunMe flag
 			// − if this is a ’one shot ’ task , remove it from the array
-			if (SCH_tasks_G[Index].Period == 0) {
-				SCH_Delete_Task(Index);
+			if (SCH_tasks_G[curr_index].Period == 0) {
+				SCH_Delete_Task(curr_index);
 			}
 		}
 	}
@@ -191,6 +163,40 @@ void SCH_Report_Status(void) {
 		}
 	}
 #endif
+}
+
+void update_min_task(void) {
+	//update other tasks
+	unsigned char Index;
+	for (Index = 0; Index < SCH_MAX_TASKS; Index++) {
+		if (SCH_tasks_G[Index].pTask) {
+			if (Index != min_index) {
+				SCH_tasks_G[Index].Delay -= min_delay;
+			}
+		}
+	}
+
+	//find min task
+	find_min_task();
+}
+
+void find_min_task(void) {
+	//find first existed task in task array
+	unsigned char Index = 0;
+	while (!SCH_tasks_G[Index].pTask) {
+		Index++;
+	}
+	min_delay = SCH_tasks_G[Index].Delay;
+	min_index = Index;
+	//find min delay
+	for (Index = min_index + 1; Index < SCH_MAX_TASKS; Index++) {
+		if (SCH_tasks_G[Index].pTask) {
+			if (SCH_tasks_G[Index].Delay <= min_delay) {
+				min_delay = SCH_tasks_G[Index].Delay;
+				min_index = Index;
+			}
+		}
+	}
 }
 
 
