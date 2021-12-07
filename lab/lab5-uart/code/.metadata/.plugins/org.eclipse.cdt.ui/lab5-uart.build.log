@@ -1,0 +1,22 @@
+19:05:05 **** Incremental Build of configuration Debug for project lab5-uart ****
+make -j8 all 
+arm-none-eabi-gcc -o "lab5-uart.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab5-uart\code\lab5-uart\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab5-uart.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: lab5-uart.elf
+ 
+arm-none-eabi-size   lab5-uart.elf 
+arm-none-eabi-objdump -h -S  lab5-uart.elf  > "lab5-uart.list"
+arm-none-eabi-objcopy  -O ihex  lab5-uart.elf  "lab5-uart.hex"
+arm-none-eabi-objcopy  -O binary  lab5-uart.elf  "lab5-uart.bin"
+   text	   data	    bss	    dec	    hex	filename
+   9020	     20	   1684	  10724	   29e4	lab5-uart.elf
+Finished building: default.size.stdout
+ 
+Finished building: lab5-uart.bin
+Finished building: lab5-uart.hex
+ 
+ 
+Finished building: lab5-uart.list
+ 
+
+19:05:06 Build Finished. 0 errors, 0 warnings. (took 676ms)
+
