@@ -1,0 +1,18 @@
+/**
+  ******************************************************************************
+  * @file           : uart_communication_fsm.c
+  * @brief          : This file contain the implementation of uart communication fsm.
+  *
+  *
+  *                   Created on:	Dec 8th, 2021
+  *                   Author:		Thien Long
+  ******************************************************************************
+  * @attention
+  *
+  ******************************************************************************
+  */
+
+#include "main.h"
+
+uint8_t commandFlag = 0;
+char *commandData = NULL;

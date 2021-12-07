@@ -1,0 +1,28 @@
+/**
+  ******************************************************************************
+  * @file           : command_parser_fsm.c
+  * @brief          : This file contain the implementation of command parser FSM.
+  *
+  *
+  *                   Created on:	Dec 8th, 2021
+  *                   Author:		Thien Long
+  ******************************************************************************
+  * @attention
+  *
+  ******************************************************************************
+  */
+
+#include "command_parser_fsm.h"
+#include "main.h"
+
+enum CharState {
+	BEGIN,
+	BODY,
+	END
+};
+
+static enum CharState cState = NORMAL_MODE;
+
+void command_parser_fsm(void) {
+	switch
+}
