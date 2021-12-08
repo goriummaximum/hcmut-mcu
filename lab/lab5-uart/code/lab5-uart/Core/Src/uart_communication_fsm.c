@@ -18,33 +18,40 @@
 enum CommandState {
 	BEGIN,
 	OK,
+	WAIT_OK,
 	RST,
 	RETRANSMIT
 };
 
 static enum CommandState commandState = BEGIN;
-static char *str;
+static char str[10];
 static int len = 0;
 
 void uart_communication_fsm(void) {
 	switch(commandState) {
 	case BEGIN:
-		if (command_data == "OK") {
+		if (strcmp(&command_data, "RST") == 0 && command_flag == 1) {
+			commandState = RST;
+		}
+		break;
+
+	case WAIT_OK:
+		if (is_timeout == 1) {
+			commandState = RETRANSMIT;
+		}
+
+		else if (strcmp(&command_data, "OK") == 0 && command_flag == 1) {
 			commandState = OK;
 		}
 
-		else if (command_data == "RST") {
-			commandState = RST;
-		}
-
-		else if (is_timeout == 1) {
-			commandState = RETRANSMIT;
+		else {
+			command_flag = 0;
 		}
 		break;
 
 	case OK:
 		//action
-
+		command_flag = 0;
 		//transition
 		commandState = BEGIN;
 		break;
@@ -52,17 +59,17 @@ void uart_communication_fsm(void) {
 	case RST:
 		ADC_value = HAL_ADC_GetValue(&hadc1);
 		len = sprintf(str, "!%hu#\r\n", ADC_value);
-		HAL_UART_Transmit(&huart2, (void *)str, len, 1000);
-
-		commandState = BEGIN;
+		HAL_UART_Transmit(&huart2, &str, len, 1000);
+		command_flag = 0;
+		commandState = WAIT_OK;
 		break;
 
 	case RETRANSMIT:
 		is_timeout = 0;
 		len = sprintf(str, "!%hu#\r\n", ADC_value);
-		HAL_UART_Transmit(&huart2, (void *)str, len, 1000);
+		HAL_UART_Transmit(&huart2, &str, len, 1000);
 
-		commandState = BEGIN;
+		commandState = WAIT_OK;
 		break;
 	}
 }

@@ -19,38 +19,44 @@
 
 enum CharState {
 	BEGIN,
-	BODY,
-	END
+	BODY
 };
 
 static enum CharState cState = BEGIN;
-static char *commandStr = NULL;
+static char commandStr[COMMAND_BUFFER];
+static int str_index = 0;
 
 void command_parser_fsm(char inputChar) {
 	switch (cState) {
 	case BEGIN:
-		commandStr = NULL;
-		HAL_UART_Transmit(&huart2, &inputChar, 1, 50);
+		commandStr[0] = '\0';
+		HAL_UART_Transmit(&huart2, "!", 1, 50);
 		if (inputChar == '!') {
 			cState = BODY;
 		}
 		break;
 
 	case BODY:
-		strcat(commandStr, &inputChar);
-		HAL_UART_Transmit(&huart2, &inputChar, 1, 50);
 		if (inputChar == '#') {
-			cState = END;
+			commandStr[str_index] = '\0';
+			str_index = 0;
+			strcpy(command_data, commandStr);
+			command_flag = 1;
+			HAL_UART_Transmit(&huart2, "#\r\n", 3, 50);
+
+			cState = BEGIN;
 		}
-		break;
 
-	case END:
-		strcpy(command_data, commandStr);
-		HAL_UART_Transmit(&huart2, &inputChar, 1, 50);
-		command_flag = 1;
-		HAL_UART_Transmit(&huart2, &command_flag, 1, 50);
+		else {
+			commandStr[str_index++] = inputChar;
 
-		cState = BEGIN;
+			if (str_index == COMMAND_BUFFER) {
+				str_index = 0;
+			}
+
+			HAL_UART_Transmit(&huart2, &inputChar, 1, 50);
+		}
+
 		break;
 	}
 }

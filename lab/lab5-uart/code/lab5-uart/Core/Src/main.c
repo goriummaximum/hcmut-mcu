@@ -70,7 +70,7 @@ uint8_t curr_index_buffer = 0;
 uint8_t buffer_flag = 0;
 
 uint8_t command_flag = 0;
-char *command_data = NULL;
+char command_data[COMMAND_BUFFER];
 
 uint8_t is_timeout = 0;
 
@@ -78,18 +78,10 @@ uint32_t ADC_value = 0;
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	if (huart->Instance == USART2) {
-		HAL_UART_Transmit(&huart2, &temp, 1, 50);
 		buffer[index_buffer++] = temp;
 		if(index_buffer == 30) index_buffer = 0;
 		buffer_flag = 1;
 		HAL_UART_Receive_IT(&huart2 , &temp , 1);
-	}
-}
-
-
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-	if(htim->Instance == TIM2) {
-		is_timeout = 1;
 	}
 }
 /* USER CODE END 0 */
@@ -129,23 +121,21 @@ int main(void)
 
   HAL_ADC_Start(&hadc1);
   HAL_UART_Receive_IT(&huart2, &temp, 1);
+  HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    /* USER CODE END WHILE */
 	  if (buffer_flag == 1) {
-		  command_parser_fsm((char)buffer[curr_index_buffer++]);
-		  if (curr_index_buffer == 30) curr_index_buffer = 0;
-		  buffer_flag = 0;
-	  }
+			  command_parser_fsm((char)buffer[curr_index_buffer++]);
+			  if (curr_index_buffer == 30) curr_index_buffer = 0;
+			  buffer_flag = 0;
+		  }
 
-	  if (command_flag == 1) {
-		  uart_communication_fsm();
-		  command_flag = 0;
-	  }
-	  HAL_Delay(500);
+	  uart_communication_fsm();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -164,9 +154,8 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
@@ -176,7 +165,7 @@ void SystemClock_Config(void)
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSE;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
@@ -259,7 +248,7 @@ static void MX_TIM2_Init(void)
   htim2.Instance = TIM2;
   htim2.Init.Prescaler = 8000 - 1;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 3000 - 1;
+  htim2.Init.Period = 1000 - 1;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
@@ -326,6 +315,7 @@ static void MX_GPIO_Init(void)
   GPIO_InitTypeDef GPIO_InitStruct = {0};
 
   /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
@@ -341,7 +331,13 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+	if (htim->Instance == TIM2) {
+		is_timeout = 1;
+		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+		//HAL_UART_Transmit(&huart2, "!", 1, 50);
+	}
+}
 /* USER CODE END 4 */
 
 /**
