@@ -24,6 +24,7 @@
 /* USER CODE BEGIN Includes */
 #include "command_parser_fsm.h"
 #include "uart_communication_fsm.h"
+#include "software_timer.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -118,7 +119,7 @@ int main(void)
   MX_USART2_UART_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-
+  software_timer_init();
   HAL_ADC_Start(&hadc1);
   HAL_UART_Receive_IT(&huart2, &temp, 1);
   HAL_TIM_Base_Start_IT(&htim2);
@@ -248,7 +249,7 @@ static void MX_TIM2_Init(void)
   htim2.Instance = TIM2;
   htim2.Init.Prescaler = 8000 - 1;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 1000 - 1;
+  htim2.Init.Period = 100 - 1;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
@@ -333,9 +334,7 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	if (htim->Instance == TIM2) {
-		is_timeout = 1;
-		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
-		//HAL_UART_Transmit(&huart2, "!", 1, 50);
+		timer_run(0);
 	}
 }
 /* USER CODE END 4 */

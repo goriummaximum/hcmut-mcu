@@ -14,6 +14,7 @@
 
 #include "main.h"
 #include "uart_communication_fsm.h"
+#include "software_timer.h"
 
 enum CommandState {
 	BEGIN,
@@ -36,7 +37,7 @@ void uart_communication_fsm(void) {
 		break;
 
 	case WAIT_OK:
-		if (is_timeout == 1) {
+		if (get_timer_flag_value(0)) {
 			commandState = RETRANSMIT;
 		}
 
@@ -61,13 +62,14 @@ void uart_communication_fsm(void) {
 		len = sprintf(str, "!%hu#\r\n", ADC_value);
 		HAL_UART_Transmit(&huart2, &str, len, 1000);
 		command_flag = 0;
+		setTimer(0, 1000);
 		commandState = WAIT_OK;
 		break;
 
 	case RETRANSMIT:
-		is_timeout = 0;
 		len = sprintf(str, "!%hu#\r\n", ADC_value);
 		HAL_UART_Transmit(&huart2, &str, len, 1000);
+		setTimer(0, 1000);
 
 		commandState = WAIT_OK;
 		break;
