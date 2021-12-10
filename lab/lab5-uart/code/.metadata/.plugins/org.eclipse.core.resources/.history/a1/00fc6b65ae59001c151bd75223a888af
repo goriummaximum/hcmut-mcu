@@ -18,7 +18,10 @@
 
 enum CommandState {
 	BEGIN,
-	WAIT_OK
+	OK,
+	WAIT_OK,
+	RST,
+	RETRANSMIT
 };
 
 static enum CommandState commandState = BEGIN;

@@ -1,6 +1,70 @@
-17:44:12 **** Incremental Build of configuration Debug for project lab5-uart ****
+18:43:30 **** Incremental Build of configuration Debug for project lab5-uart ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/uart_communication_fsm.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103x6 -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/uart_communication_fsm.d" -MT"Core/Src/uart_communication_fsm.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/uart_communication_fsm.o"
+../Core/Src/uart_communication_fsm.c: In function 'uart_communication_fsm':
+../Core/Src/uart_communication_fsm.c:31:7: warning: implicit declaration of function 'strcmp' [-Wimplicit-function-declaration]
+   31 |   if (strcmp(&command_data, "RST") == 0 && command_flag == 1) {
+      |       ^~~~~~
+../Core/Src/uart_communication_fsm.c:31:14: warning: passing argument 1 of 'strcmp' from incompatible pointer type [-Wincompatible-pointer-types]
+   31 |   if (strcmp(&command_data, "RST") == 0 && command_flag == 1) {
+      |              ^~~~~~~~~~~~~
+      |              |
+      |              char (*)[10]
+../Core/Src/uart_communication_fsm.c:31:14: note: expected 'const char *' but argument is of type 'char (*)[10]'
+../Core/Src/uart_communication_fsm.c:33:10: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
+   33 |    len = sprintf(str, "!%hu#\r\n", ADC_value);
+      |          ^~~~~~~
+../Core/Src/uart_communication_fsm.c:33:10: warning: incompatible implicit declaration of built-in function 'sprintf'
+../Core/Src/uart_communication_fsm.c:18:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+   17 | #include "software_timer.h"
+  +++ |+#include <stdio.h>
+   18 | 
+../Core/Src/uart_communication_fsm.c:33:27: warning: format '%hu' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   33 |    len = sprintf(str, "!%hu#\r\n", ADC_value);
+      |                         ~~^        ~~~~~~~~~
+      |                           |        |
+      |                           int      uint32_t {aka long unsigned int}
+      |                         %lu
+../Core/Src/uart_communication_fsm.c:34:31: warning: passing argument 2 of 'HAL_UART_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+   34 |    HAL_UART_Transmit(&huart2, &str, len, 1000);
+      |                               ^~~~
+      |                               |
+      |                               char (*)[10]
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:337,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/uart_communication_fsm.c:15:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:725:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char (*)[10]'
+  725 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/uart_communication_fsm.c:44:10: warning: incompatible implicit declaration of built-in function 'sprintf'
+   44 |    len = sprintf(str, "!%hu#\r\n", ADC_value);
+      |          ^~~~~~~
+../Core/Src/uart_communication_fsm.c:44:10: note: include '<stdio.h>' or provide a declaration of 'sprintf'
+../Core/Src/uart_communication_fsm.c:44:27: warning: format '%hu' expects argument of type 'int', but argument 3 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+   44 |    len = sprintf(str, "!%hu#\r\n", ADC_value);
+      |                         ~~^        ~~~~~~~~~
+      |                           |        |
+      |                           int      uint32_t {aka long unsigned int}
+      |                         %lu
+../Core/Src/uart_communication_fsm.c:45:31: warning: passing argument 2 of 'HAL_UART_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+   45 |    HAL_UART_Transmit(&huart2, &str, len, 1000);
+      |                               ^~~~
+      |                               |
+      |                               char (*)[10]
+In file included from ../Core/Inc/stm32f1xx_hal_conf.h:337,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/uart_communication_fsm.c:15:
+../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:725:73: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char (*)[10]'
+  725 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~^~~~~
+../Core/Src/uart_communication_fsm.c:49:19: warning: passing argument 1 of 'strcmp' from incompatible pointer type [-Wincompatible-pointer-types]
+   49 |   else if (strcmp(&command_data, "OK") == 0 && command_flag == 1) {
+      |                   ^~~~~~~~~~~~~
+      |                   |
+      |                   char (*)[10]
+../Core/Src/uart_communication_fsm.c:49:19: note: expected 'const char *' but argument is of type 'char (*)[10]'
 arm-none-eabi-gcc -o "lab5-uart.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\THIENGO_WIN\Desktop\mcu\hcmut-mcu\lab\lab5-uart\code\lab5-uart\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="lab5-uart.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: lab5-uart.elf
  
@@ -9,7 +73,7 @@ arm-none-eabi-objdump -h -S  lab5-uart.elf  > "lab5-uart.list"
 arm-none-eabi-objcopy  -O ihex  lab5-uart.elf  "lab5-uart.hex"
 arm-none-eabi-objcopy  -O binary  lab5-uart.elf  "lab5-uart.bin"
    text	   data	    bss	    dec	    hex	filename
-  15920	    120	   1888	  17928	   4608	lab5-uart.elf
+  15868	    120	   1888	  17876	   45d4	lab5-uart.elf
 Finished building: default.size.stdout
  
 Finished building: lab5-uart.hex
